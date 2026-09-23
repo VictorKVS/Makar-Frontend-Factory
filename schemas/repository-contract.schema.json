@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://father.local/schemas/repository-contract.schema.json",
+  "title": "FATHER Repository Contract",
+  "type": "object",
+  "required": [
+    "repository_id",
+    "package_manager",
+    "runtime",
+    "workspace",
+    "commands",
+    "lockfile",
+    "ci",
+    "test_ownership"
+  ],
+  "properties": {
+    "repository_id": {
+      "type": "string"
+    },
+    "package_manager": {
+      "type": "object",
+      "required": [
+        "name",
+        "version",
+        "version_source"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "version_source": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "runtime": {
+      "type": "object",
+      "required": [
+        "node"
+      ],
+      "properties": {
+        "node": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "workspace": {
+      "type": "object",
+      "required": [
+        "type",
+        "packages"
+      ],
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "packages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "commands": {
+      "type": "object",
+      "required": [
+        "install",
+        "typecheck",
+        "test",
+        "build",
+        "dev"
+      ],
+      "properties": {
+        "install": {
+          "type": "string"
+        },
+        "typecheck": {
+          "type": "string"
+        },
+        "test": {
+          "type": "string"
+        },
+        "build": {
+          "type": "string"
+        },
+        "dev": {
+          "type": "string"
+        },
+        "visual_qa": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "lockfile": {
+      "type": "object",
+      "required": [
+        "path",
+        "present",
+        "policy"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "present": {
+          "type": "boolean"
+        },
+        "policy": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ci": {
+      "type": "object",
+      "required": [
+        "workflow",
+        "required_steps"
+      ],
+      "properties": {
+        "workflow": {
+          "type": "string"
+        },
+        "required_steps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "test_ownership": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "scope",
+          "types"
+        ],
+        "properties": {
+          "scope": {
+            "type": "string"
+          },
+          "types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

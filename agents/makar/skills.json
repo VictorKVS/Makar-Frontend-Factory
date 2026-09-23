@@ -19,8 +19,12 @@
     },
     {
       "id": "ui.primitives",
-      "level": "K2",
-      "evidence": [],
+      "level": "K3",
+      "evidence": [
+        "PR #8",
+        "CI run 35921402235",
+        "Playwright artifact 10777077746"
+      ],
       "next_target": "K4"
     },
     {
@@ -52,7 +56,11 @@
     {
       "id": "visual.qa",
       "level": "K3",
-      "evidence": [],
+      "evidence": [
+        "CI run 35921402235",
+        "Playwright responsive/focus/reduced-motion suite",
+        "Artifact 10777077746"
+      ],
       "next_target": "K4"
     },
     {

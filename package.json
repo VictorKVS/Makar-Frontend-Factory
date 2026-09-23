@@ -2,6 +2,7 @@
   "name": "makar-frontend-factory",
   "private": true,
   "version": "0.0.0",
+  "packageManager": "pnpm@10.34.5",
   "description": "FATHER frontend, interactive and game interface factory. First product: ALINA Control Center.",
   "scripts": {
     "dev": "turbo dev",
