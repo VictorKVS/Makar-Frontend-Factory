@@ -470,5 +470,35 @@
       "alina-control-center"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.types.fixture_required_fields",
+    "title": "Typed fixtures separate required identity fields from optional overrides",
+    "domain": "quality",
+    "type": "lesson",
+    "level": "L11",
+    "status": "active",
+    "importance": 0.7,
+    "confidence": 1,
+    "source_type": "experiment_result",
+    "sources": [
+      "experiments/M0.4/RESULT.md",
+      "CI run 35923306454"
+    ],
+    "prerequisites": [],
+    "related": [],
+    "examples": [
+      "destructure id/class/title, then spread only the remaining override fields"
+    ],
+    "anti_patterns": [
+      "explicitly assign required properties and then spread an object that may contain them again"
+    ],
+    "tests": [
+      "TypeScript typecheck reports no TS2783 duplicate-property diagnostics"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
   }
 ]
