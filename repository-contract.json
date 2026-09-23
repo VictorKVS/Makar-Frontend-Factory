@@ -1,0 +1,72 @@
+{
+  "repository": {
+    "name": "VictorKVS/Makar-Frontend-Factory",
+    "default_branch": "main",
+    "working_branch": null,
+    "monorepo": true
+  },
+  "package_manager": {
+    "name": "pnpm",
+    "version_source": "packageManager field / Corepack when present; otherwise repository bootstrap policy",
+    "lockfile": "pnpm-lock.yaml",
+    "install_command": "pnpm install --frozen-lockfile"
+  },
+  "workspace": {
+    "root": ".",
+    "packages": [
+      "apps/*",
+      "packages/*"
+    ]
+  },
+  "commands": {
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "typecheck": "pnpm typecheck",
+    "test": "pnpm test",
+    "lint": "pnpm lint"
+  },
+  "ci": {
+    "provider": "GitHub Actions",
+    "workflow_files": [
+      ".github/workflows/ci.yml"
+    ],
+    "required_checks": [
+      "typecheck",
+      "test",
+      "build",
+      "visual-qa when UI changes"
+    ],
+    "artifact_policy": "Visual UI work should publish screenshots or equivalent evidence as CI artifacts."
+  },
+  "testing": {
+    "ownership": "Each package exposing a test script owns meaningful tests or explicitly documents a no-test policy.",
+    "frameworks": [
+      "Vitest",
+      "Playwright"
+    ],
+    "no_test_policy": "Do not let workspace-wide test commands fail merely because a package has no tests; make ownership explicit."
+  },
+  "visual_evidence": {
+    "required": true,
+    "viewports": [
+      {
+        "name": "laptop",
+        "width": 1366,
+        "height": 768
+      },
+      {
+        "name": "desktop",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "name": "ultrawide",
+        "width": 2560,
+        "height": 1080
+      }
+    ],
+    "reduced_motion": true,
+    "keyboard_focus": true,
+    "artifact_name": "alina-visual-evidence"
+  }
+}
