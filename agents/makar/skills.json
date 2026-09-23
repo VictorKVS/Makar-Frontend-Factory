@@ -40,11 +40,14 @@
     },
     {
       "id": "information.streams",
-      "level": "K2",
+      "level": "K3",
       "evidence": [
-        "docs/knowledge/KB_1_MAKAR_PROFESSIONAL.md"
+        "PR #12",
+        "CI run 35923382043",
+        "Stream Engine unit tests",
+        "Playwright artifact 10777927934"
       ],
-      "next_target": "K3"
+      "next_target": "K4"
     },
     {
       "id": "avatar.integration",

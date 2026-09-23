@@ -27,4 +27,15 @@ describe("ALINA Visual Token Lab", () => {
     expect(html).toContain("Project Context");
     expect(html).toContain("Agent Activity");
   });
+
+  it("renders all five M0.4 semantic information stream classes", () => {
+    const html = renderToStaticMarkup(<App />);
+
+    expect(html).toContain("Information Stream Engine");
+    expect(html).toContain("PRIMARY");
+    expect(html).toContain("SECONDARY");
+    expect(html).toContain("BACKGROUND");
+    expect(html).toContain("ALERT");
+    expect(html).toContain("AGENT");
+  });
 });

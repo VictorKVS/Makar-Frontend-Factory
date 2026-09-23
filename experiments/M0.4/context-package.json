@@ -1,0 +1,82 @@
+{
+  "task_id": "M0.4",
+  "agent_id": "makar",
+  "goal": "Build a reusable Information Stream Engine and integrate a five-class attention demo into ALINA Control Center.",
+  "why": "Separate information semantics from rendering so ALINA can manage simultaneous work without visual noise.",
+  "priority": "high",
+  "status": "ready",
+  "constraints": [
+    "Semantic priority must not be derived from arrival order alone",
+    "Shared core must not import React, Workspace Engine or ALINA application code",
+    "Background items never interrupt",
+    "Acknowledged alerts do not re-interrupt unless state changes",
+    "Agent activity remains distinct from the user primary stream",
+    "State must remain JSON-serializable"
+  ],
+  "inputs": [
+    "Issue #11",
+    "experiments/M0.3/RESULT.md",
+    "projects/alina/repository-contract.json",
+    "docs/FRONTEND_PRINCIPLES.md",
+    "packages/workspace-engine"
+  ],
+  "knowledge_refs": [
+    "makar.stream.semantic_priority",
+    "makar.stream.priority.primary",
+    "makar.stream.attention_budget",
+    "makar.stream.interruption_policy",
+    "makar.stream.cost_of_missing",
+    "makar.stream.agent_distinction"
+  ],
+  "project_decisions": [
+    "Visual prominence follows semantic priority and cost-of-missing",
+    "Workspace and Stream engines remain independent shared layers"
+  ],
+  "data_contracts": [
+    "schemas/repository-contract.schema.json"
+  ],
+  "visual_refs": [
+    "Current ALINA Control Center foundation",
+    "M0.3 Workspace Engine artifact"
+  ],
+  "acceptance_criteria": [
+    "Typed stream contracts exist",
+    "Deterministic ranking and attention selection exist",
+    "Acknowledgement/interruption behavior is tested",
+    "Five semantic stream classes render in ALINA",
+    "Background cannot visually displace primary",
+    "Responsive visual QA passes"
+  ],
+  "test_contract": [
+    "Use Repository Contract commands",
+    "Unit tests cover ranking, acknowledgement and interruption",
+    "App render test verifies five stream classes",
+    "Playwright verifies primary prominence and alert acknowledgement"
+  ],
+  "deliverables": [
+    "packages/stream-engine",
+    "ALINA stream demo",
+    "tests",
+    "visual artifact",
+    "experiments/M0.4/RESULT.md"
+  ],
+  "dependencies": [
+    "M0.3 Workspace Engine merged"
+  ],
+  "open_questions": [
+    "Should stream deduplication become executable in M0.4 or remain a hook for M0.4.1?"
+  ],
+  "output_format": {
+    "code": "TypeScript/React",
+    "docs": "Markdown",
+    "evidence": [
+      "tests",
+      "CI",
+      "screenshots",
+      "PR"
+    ]
+  },
+  "context_version": "1.0.0",
+  "generated_at": null,
+  "expires_at": null
+}
