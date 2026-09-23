@@ -1,0 +1,84 @@
+{
+  "repository_id": "VictorKVS/Makar-Frontend-Factory",
+  "package_manager": {
+    "name": "pnpm",
+    "version": "10.34.5",
+    "version_source": "root package.json#packageManager"
+  },
+  "runtime": {
+    "node": "22"
+  },
+  "workspace": {
+    "type": "pnpm-workspace + Turborepo",
+    "packages": [
+      "apps/*",
+      "packages/*"
+    ]
+  },
+  "commands": {
+    "install": "pnpm install --no-frozen-lockfile",
+    "typecheck": "pnpm typecheck",
+    "test": "pnpm test",
+    "build": "pnpm build",
+    "dev": "pnpm dev",
+    "visual_qa": "pnpm --filter @father/alina-control-center test:visual"
+  },
+  "lockfile": {
+    "path": "pnpm-lock.yaml",
+    "present": false,
+    "policy": "Do not enable pnpm dependency cache until a lockfile is generated and committed."
+  },
+  "ci": {
+    "workflow": ".github/workflows/ci.yml",
+    "required_steps": [
+      "Install",
+      "Typecheck",
+      "Test",
+      "Build",
+      "Install Chromium",
+      "Visual QA",
+      "Upload visual evidence"
+    ],
+    "artifacts": [
+      "alina-visual-token-lab"
+    ]
+  },
+  "test_ownership": [
+    {
+      "scope": "packages/design-tokens",
+      "types": [
+        "unit"
+      ]
+    },
+    {
+      "scope": "packages/agent-context-core",
+      "types": [
+        "unit"
+      ]
+    },
+    {
+      "scope": "packages/ui",
+      "types": [
+        "render/unit"
+      ]
+    },
+    {
+      "scope": "apps/alina-control-center/src",
+      "types": [
+        "app render/unit"
+      ]
+    },
+    {
+      "scope": "apps/alina-control-center/visual-tests",
+      "types": [
+        "responsive visual",
+        "keyboard focus",
+        "reduced motion"
+      ]
+    }
+  ],
+  "notes": [
+    "This contract was added after Experiment 001 exposed missing operational context in ALINA KB-2.",
+    "ALINA should attach the relevant repository contract to future implementation context packages."
+  ]
+}
