@@ -305,5 +305,170 @@
       "alina-control-center"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.stream.semantic_priority",
+    "title": "Stream semantic class is independent from arrival order",
+    "domain": "information-streams",
+    "type": "principle",
+    "level": "L5",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/FRONTEND_PRINCIPLES.md",
+      "issues/11"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.stream.priority.primary",
+      "makar.stream.attention_budget"
+    ],
+    "examples": [
+      "an older primary task remains above a newer background indexing event"
+    ],
+    "anti_patterns": [
+      "render newest event as most important by default"
+    ],
+    "tests": [
+      "background event cannot outrank primary solely by timestamp"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.stream.attention_budget",
+    "title": "Attention budget caps simultaneous high-prominence information",
+    "domain": "information-streams",
+    "type": "pattern",
+    "level": "L5",
+    "status": "active",
+    "importance": 0.96,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_2_ALINA_AGENT_DELIVERY.md",
+      "issues/11"
+    ],
+    "prerequisites": [
+      "makar.stream.semantic_priority"
+    ],
+    "related": [
+      "makar.stream.interruption_policy"
+    ],
+    "examples": [
+      "one primary plus bounded alerts while background work stays collapsed"
+    ],
+    "anti_patterns": [
+      "all streams request full visual attention"
+    ],
+    "tests": [
+      "selection honors configured maximums per semantic class"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.stream.interruption_policy",
+    "title": "Only qualifying alerts may interrupt the current primary task",
+    "domain": "information-streams",
+    "type": "constraint",
+    "level": "L5",
+    "status": "active",
+    "importance": 0.98,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "issues/11"
+    ],
+    "prerequisites": [
+      "makar.stream.semantic_priority"
+    ],
+    "related": [
+      "makar.stream.cost_of_missing"
+    ],
+    "examples": [
+      "critical security alert may interrupt; background sync may not"
+    ],
+    "anti_patterns": [
+      "agent completion toast steals focus from active user task"
+    ],
+    "tests": [
+      "interrupt decision is deterministic from class, urgency and acknowledgement state"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.stream.cost_of_missing",
+    "title": "Cost of missing influences attention inside a semantic class",
+    "domain": "information-streams",
+    "type": "pattern",
+    "level": "L5",
+    "status": "active",
+    "importance": 0.9,
+    "confidence": 0.95,
+    "source_type": "project_architecture",
+    "sources": [
+      "issues/11"
+    ],
+    "prerequisites": [
+      "makar.stream.semantic_priority"
+    ],
+    "related": [
+      "makar.stream.interruption_policy"
+    ],
+    "examples": [
+      "two alerts with equal urgency are ordered by cost-of-missing"
+    ],
+    "anti_patterns": [
+      "confidence or recency alone decides interruption"
+    ],
+    "tests": [
+      "higher cost-of-missing wins when class/urgency are equal"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.stream.agent_distinction",
+    "title": "Agent activity is a distinct information stream, not the user task",
+    "domain": "information-streams",
+    "type": "principle",
+    "level": "L5",
+    "status": "active",
+    "importance": 0.92,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/FRONTEND_PRINCIPLES.md",
+      "issues/11"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.stream.priority.primary"
+    ],
+    "examples": [
+      "Makar build completion appears as agent activity unless promoted by an explicit alert"
+    ],
+    "anti_patterns": [
+      "agent logs replace the user's active task surface"
+    ],
+    "tests": [
+      "agent stream does not outrank primary without explicit promotion"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
   }
 ]
