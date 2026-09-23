@@ -11,10 +11,12 @@ import {
 const baseTime = "2026-09-24T00:00:00.000Z";
 
 function item(overrides: Partial<StreamItem> & Pick<StreamItem, "id" | "class" | "title">): StreamItem {
+  const { id, class: streamClass, title, ...rest } = overrides;
+
   return {
-    id: overrides.id,
-    class: overrides.class,
-    title: overrides.title,
+    id,
+    class: streamClass,
+    title,
     source: "test",
     createdAt: baseTime,
     urgency: "normal",
@@ -22,7 +24,7 @@ function item(overrides: Partial<StreamItem> & Pick<StreamItem, "id" | "class" |
     costOfMissing: 0.5,
     lifecycle: "active",
     acknowledged: false,
-    ...overrides,
+    ...rest,
   };
 }
 
