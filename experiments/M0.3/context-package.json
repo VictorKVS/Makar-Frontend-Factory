@@ -1,0 +1,82 @@
+{
+  "task_id": "M0.3",
+  "agent_id": "makar",
+  "goal": "Build a reusable serializable Workspace Engine and integrate a three-module demo into ALINA Control Center.",
+  "why": "Move FATHER from fixed pages toward task-oriented compositions while testing improved ALINA context delivery after Experiment 001.",
+  "priority": "high",
+  "status": "ready",
+  "constraints": [
+    "Workspace state must not contain domain payloads",
+    "Persist stable panel/content IDs, not React nodes or functions",
+    "Shared engine must not import ALINA application code",
+    "State transitions must be deterministic and unit-tested",
+    "Responsive transforms must preserve panel identity",
+    "Keyboard focus and reduced-motion requirements remain active"
+  ],
+  "inputs": [
+    "Issue #9",
+    "experiments/M0.2/RESULT.md",
+    "experiments/M0.2/ITERATION_LOG.md",
+    "projects/alina/repository-contract.json",
+    "docs/ARCHITECTURE.md",
+    "packages/workspace-engine/README.md"
+  ],
+  "knowledge_refs": [
+    "makar.workspace.state.presentation_separation",
+    "makar.workspace.layout.serializable",
+    "makar.workspace.panel.stable_ids",
+    "makar.qa.visible_focus"
+  ],
+  "project_decisions": [
+    "Screen is a composition of modules, not a monolithic page",
+    "Workspace state is presentation state",
+    "Shared engines remain reusable beyond ALINA"
+  ],
+  "data_contracts": [
+    "schemas/repository-contract.schema.json"
+  ],
+  "visual_refs": [
+    "ALINA Target V1",
+    "M0.2 Visual Token Lab artifact"
+  ],
+  "acceptance_criteria": [
+    "Typed serializable workspace contracts exist",
+    "dock/float/collapse/focus/restore/responsive transitions are implemented",
+    "serialize/deserialize round-trip is tested",
+    "ALINA demo renders at least three workspace modules from state",
+    "keyboard focus remains visible",
+    "responsive visual QA passes"
+  ],
+  "test_contract": [
+    "Use commands from projects/alina/repository-contract.json",
+    "Workspace engine unit tests cover core transitions",
+    "App tests verify three module identities",
+    "Playwright checks responsive visual state"
+  ],
+  "deliverables": [
+    "packages/workspace-engine implementation",
+    "ALINA workspace demo integration",
+    "tests",
+    "visual artifact",
+    "experiments/M0.3/RESULT.md"
+  ],
+  "dependencies": [
+    "M0.2 branch/PR #8 provides UI primitives"
+  ],
+  "open_questions": [
+    "Should persisted layout storage use localStorage first or remain pure core until M0.3 acceptance?"
+  ],
+  "output_format": {
+    "code": "TypeScript/React",
+    "docs": "Markdown",
+    "evidence": [
+      "tests",
+      "CI",
+      "screenshots",
+      "PR"
+    ]
+  },
+  "context_version": "1.0.0",
+  "generated_at": null,
+  "expires_at": null
+}
