@@ -8,6 +8,7 @@ on:
   pull_request:
     branches:
       - main
+      - "feat/**"
 
 jobs:
   quality:
@@ -28,7 +29,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: pnpm
 
       - name: Install
         run: pnpm install --no-frozen-lockfile
