@@ -29,9 +29,14 @@
     },
     {
       "id": "workspace.docking",
-      "level": "K2",
-      "evidence": [],
-      "next_target": "K3"
+      "level": "K3",
+      "evidence": [
+        "PR #10",
+        "CI run 35922581751",
+        "Workspace Engine unit tests",
+        "Playwright artifact 10777069699"
+      ],
+      "next_target": "K4"
     },
     {
       "id": "information.streams",
