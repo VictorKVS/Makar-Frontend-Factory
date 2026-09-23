@@ -11,6 +11,7 @@ import {
 } from "@father/ui";
 import { WorkspaceDemo } from "./WorkspaceDemo";
 import { StreamDemo } from "./StreamDemo";
+import { VisualizationDemo } from "./VisualizationDemo";
 
 const metrics = [
   { label: "ДАННЫЕ", value: "12.4K", delta: "+12%", deltaTone: "success" as const },
@@ -36,12 +37,12 @@ export function App() {
     <main className="lab-shell">
       <header className="lab-topbar">
         <div>
-          <span className="eyebrow">MAKAR · EXPERIMENT 001</span>
-          <h1>ALINA Visual Token Lab</h1>
+          <span className="eyebrow">MAKAR · FRONTEND FACTORY</span>
+          <h1>ALINA Engineering Lab</h1>
         </div>
         <div className="topbar-status">
           <Badge tone="warning">DEMO / MOCK</Badge>
-          <StatusIndicator tone="success" label="UI foundation online" />
+          <StatusIndicator tone="success" label="M0.5 in progress" />
         </div>
       </header>
 
@@ -79,8 +80,8 @@ export function App() {
               <span className="eyebrow">ALINA · CINEMATIC THEME</span>
               <h2>Интерфейс должен управлять вниманием, а не создавать шум.</h2>
               <p>
-                Первый живой слой FATHER: semantic tokens, glass surfaces,
-                status hierarchy, focus states и reduced-motion fallback.
+                Живой полигон FATHER: UI foundation, Workspace Engine,
+                Information Stream Engine и теперь Visualization Engine.
               </p>
               <div className="hero-actions">
                 <Button variant="primary" onClick={() => setLastCommand("Запущен визуальный тест")}>
@@ -157,12 +158,12 @@ export function App() {
                 <span className="eyebrow">CONTEXT FEEDBACK</span>
                 <h3>Последнее действие</h3>
               </div>
-              <Badge tone="warning">EXPERIMENT 001</Badge>
+              <Badge tone="warning">EXPERIMENT 004</Badge>
             </div>
             <p className="last-command">{lastCommand}</p>
             <p className="muted">
-              Здесь позже ALINA будет фиксировать, какой контекст Макар использовал,
-              что оказалось лишним и чего не хватило.
+              ALINA фиксирует, какой контекст Макар использовал, что оказалось
+              лишним и чего не хватило.
             </p>
           </GlassPanel>
         </div>
@@ -170,6 +171,8 @@ export function App() {
         <WorkspaceDemo />
 
         <StreamDemo />
+
+        <VisualizationDemo />
 
         <CommandBar
           value={command}
