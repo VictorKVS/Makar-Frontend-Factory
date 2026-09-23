@@ -18,4 +18,13 @@ describe("ALINA Visual Token Lab", () => {
     expect(html).toContain("Stream states");
     expect(html).toContain("Avatar Engine slot");
   });
+
+  it("renders the M0.3 workspace modules from serializable state", () => {
+    const html = renderToStaticMarkup(<App />);
+
+    expect(html).toContain("Workspace Engine");
+    expect(html).toContain("Knowledge Graph");
+    expect(html).toContain("Project Context");
+    expect(html).toContain("Agent Activity");
+  });
 });
