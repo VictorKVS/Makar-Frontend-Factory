@@ -1,0 +1,28 @@
+{
+  "project_id": "alina-control-center",
+  "title": "ALINA Control Center",
+  "status": "foundation",
+  "goal": "Build an adaptive cinematic command center from reusable FATHER frontend engines.",
+  "current_phase": "M0",
+  "active_decisions": [
+    "Screen is a composition of modules, not a monolithic page",
+    "Information streams are semantically prioritized",
+    "Avatar is independent from workspace layout",
+    "ALINA-specific branding stays in the application layer",
+    "Shared engines remain reusable for future games"
+  ],
+  "quality_gates": [
+    "responsive",
+    "keyboard-accessible",
+    "reduced-motion",
+    "clearly-marked-mock-data",
+    "performance-tiered"
+  ],
+  "current_dependencies": [
+    "PR #2 — Design Tokens foundation"
+  ],
+  "active_work": [
+    "Issue #3 — UI Primitives + Visual Token Lab"
+  ],
+  "visual_target": "docs/ALINA_TARGET_V1.md"
+}

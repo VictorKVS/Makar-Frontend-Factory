@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://father.local/schemas/knowledge-item.schema.json",
+  "title": "FATHER Knowledge Item",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "domain",
+    "type",
+    "level",
+    "status",
+    "importance",
+    "confidence",
+    "sources",
+    "prerequisites",
+    "related",
+    "tests",
+    "projects_used_in"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "title": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "fact",
+        "principle",
+        "pattern",
+        "anti-pattern",
+        "decision",
+        "constraint",
+        "recipe",
+        "example",
+        "test",
+        "lesson",
+        "open-question",
+        "skill",
+        "tool"
+      ]
+    },
+    "level": {
+      "type": "string",
+      "pattern": "^L([0-9]|1[0-2])$"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "deprecated",
+        "superseded"
+      ]
+    },
+    "importance": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "source_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "anti_patterns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "projects_used_in": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "last_verified_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}

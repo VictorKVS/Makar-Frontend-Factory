@@ -1,0 +1,77 @@
+{
+  "task_id": "M0.2",
+  "agent_id": "makar",
+  "goal": "Create reusable UI primitives and the first Visual Token Lab for ALINA/FATHER.",
+  "why": "Validate that ALINA can provide a compact, sufficient engineering context while Makar turns design tokens into visible production-grade UI.",
+  "priority": "high",
+  "status": "ready",
+  "constraints": [
+    "Do not hard-code raw theme colors inside shared primitives",
+    "Generic UI must not import ALINA-specific business logic",
+    "Keyboard focus states are mandatory",
+    "Reduced-motion behavior is mandatory",
+    "Mock data must be visibly marked",
+    "3D is out of scope for this task"
+  ],
+  "inputs": [
+    "Issue #3",
+    "Merged PR #2",
+    "docs/FRONTEND_PRINCIPLES.md",
+    "docs/ALINA_TARGET_V1.md",
+    "packages/design-tokens"
+  ],
+  "knowledge_refs": [
+    "makar.design.tokens.semantic_roles",
+    "makar.ui.primitives.no_raw_theme_values",
+    "makar.motion.reduced_motion",
+    "makar.qa.visible_focus"
+  ],
+  "project_decisions": [
+    "ALINA gets a theme, not a fork of the shared token model",
+    "Visual effects communicate state/hierarchy, not decoration only"
+  ],
+  "data_contracts": [],
+  "visual_refs": [
+    "ALINA Target V1 cinematic concept"
+  ],
+  "acceptance_criteria": [
+    "GlassPanel, Button, IconButton, Badge, StatusIndicator, MetricCard, NavigationItem and CommandBar exist as reusable components",
+    "A visual lab demonstrates typography, glass, glow, depth, status and motion states",
+    "No raw ALINA theme colors are embedded in shared components",
+    "Keyboard focus is visible",
+    "Reduced-motion mode works",
+    "Laptop, desktop and ultrawide layouts remain usable"
+  ],
+  "test_contract": [
+    "TypeScript typecheck passes",
+    "Unit/component tests cover key variants",
+    "Keyboard focus can be verified",
+    "Reduced-motion mode can be verified",
+    "Visual screenshots are produced at representative widths"
+  ],
+  "deliverables": [
+    "packages/ui primitives",
+    "Visual Token Lab",
+    "tests",
+    "screenshots",
+    "RESULT.md"
+  ],
+  "dependencies": [
+    "M0.1 Design Tokens merged in PR #2"
+  ],
+  "open_questions": [
+    "Should the first lab live inside ALINA or a dedicated lab app after the initial proof?"
+  ],
+  "output_format": {
+    "code": "TypeScript/React",
+    "docs": "Markdown",
+    "evidence": [
+      "tests",
+      "screenshots",
+      "PR"
+    ]
+  },
+  "context_version": "1.1.0",
+  "generated_at": null,
+  "expires_at": null
+}

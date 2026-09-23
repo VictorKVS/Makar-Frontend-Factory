@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://father.local/schemas/agent-passport.schema.json",
+  "title": "FATHER Agent Passport",
+  "type": "object",
+  "required": [
+    "agent_id",
+    "name",
+    "role",
+    "mission",
+    "competence_domains",
+    "skill_state",
+    "tools",
+    "permissions",
+    "preferred_context_format",
+    "current_projects"
+  ],
+  "properties": {
+    "agent_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "role": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mission": {
+      "type": "string",
+      "minLength": 1
+    },
+    "competence_domains": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "skill_state": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "enum": [
+          "K0",
+          "K1",
+          "K2",
+          "K3",
+          "K4",
+          "K5",
+          "K6"
+        ]
+      }
+    },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "preferred_context_format": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "attention_budget": {
+      "type": "object",
+      "properties": {
+        "max_primary_items": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_secondary_items": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_alerts": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "current_projects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "active_task": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "known_constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recent_lessons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "handoff_contracts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

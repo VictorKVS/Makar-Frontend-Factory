@@ -1,0 +1,181 @@
+[
+  {
+    "id": "makar.design.tokens.semantic_roles",
+    "title": "Use semantic design-token roles",
+    "domain": "design-systems",
+    "type": "principle",
+    "level": "L3",
+    "status": "active",
+    "importance": 0.98,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "packages/design-tokens",
+      "docs/FRONTEND_PRINCIPLES.md"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.ui.primitives.no_raw_theme_values"
+    ],
+    "examples": [
+      "accent, surface, textPrimary instead of component-local color literals"
+    ],
+    "anti_patterns": [
+      "hard-coded ALINA palette inside shared UI components"
+    ],
+    "tests": [
+      "shared primitive contains no theme-specific raw color"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.ui.primitives.no_raw_theme_values",
+    "title": "Shared UI primitives remain theme-agnostic",
+    "domain": "ui",
+    "type": "constraint",
+    "level": "L3",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/ARCHITECTURE.md"
+    ],
+    "prerequisites": [
+      "makar.design.tokens.semantic_roles"
+    ],
+    "related": [],
+    "examples": [
+      "GlassPanel consumes surface/border/glow tokens"
+    ],
+    "anti_patterns": [
+      "importing ALINA app theme constants into packages/ui"
+    ],
+    "tests": [
+      "packages/ui does not depend on apps/alina-control-center"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.motion.reduced_motion",
+    "title": "Motion requires reduced-motion fallback",
+    "domain": "motion",
+    "type": "principle",
+    "level": "L7",
+    "status": "active",
+    "importance": 0.95,
+    "confidence": 1,
+    "source_type": "quality_rule",
+    "sources": [
+      "docs/FRONTEND_PRINCIPLES.md"
+    ],
+    "prerequisites": [],
+    "related": [],
+    "examples": [
+      "disable decorative parallax when prefers-reduced-motion is active"
+    ],
+    "anti_patterns": [
+      "cinematic motion with no non-animated path"
+    ],
+    "tests": [
+      "reduced-motion mode remains fully usable"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.qa.visible_focus",
+    "title": "Interactive controls expose visible keyboard focus",
+    "domain": "quality",
+    "type": "test",
+    "level": "L11",
+    "status": "active",
+    "importance": 0.96,
+    "confidence": 1,
+    "source_type": "quality_rule",
+    "sources": [
+      "experiments/M0.2/ACCEPTANCE.md"
+    ],
+    "prerequisites": [],
+    "related": [],
+    "examples": [
+      "focus-visible ring uses semantic focus token"
+    ],
+    "anti_patterns": [
+      "mouse-only affordance"
+    ],
+    "tests": [
+      "tab navigation shows visible focus for every interactive primitive"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.stream.priority.primary",
+    "title": "Primary stream owns visual attention",
+    "domain": "information-streams",
+    "type": "pattern",
+    "level": "L5",
+    "status": "active",
+    "importance": 0.9,
+    "confidence": 0.95,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/FRONTEND_PRINCIPLES.md"
+    ],
+    "prerequisites": [],
+    "related": [],
+    "examples": [
+      "active task is primary; background indexing is visually suppressed"
+    ],
+    "anti_patterns": [
+      "all events rendered with equal urgency"
+    ],
+    "tests": [
+      "background activity cannot visually overpower primary task"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.avatar.presentation_independence",
+    "title": "Avatar identity is independent from presentation mode",
+    "domain": "avatar-ui",
+    "type": "principle",
+    "level": "L8",
+    "status": "active",
+    "importance": 0.88,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/FRONTEND_PRINCIPLES.md"
+    ],
+    "prerequisites": [],
+    "related": [],
+    "examples": [
+      "ALINA can switch from full-body hologram to compact assistant without losing state"
+    ],
+    "anti_patterns": [
+      "avatar business state embedded inside one 3D scene"
+    ],
+    "tests": [
+      "avatar state survives presentation-mode switch"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  }
+]
