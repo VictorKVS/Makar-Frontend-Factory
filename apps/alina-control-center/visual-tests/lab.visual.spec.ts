@@ -15,6 +15,7 @@ for (const viewport of viewports) {
     await expect(page.getByText("DEMO / MOCK", { exact: true }).first()).toBeVisible();
     await expect(page.getByText("Glass / Glow / Depth")).toBeVisible();
     await expect(page.getByRole("heading", { name: "Workspace Engine" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Information Stream Engine" })).toBeVisible();
 
     await page.screenshot({
       path: testInfo.outputPath(`alina-${viewport.name}.png`),
@@ -87,4 +88,34 @@ test("workspace mode changes are explicit and serializable", async ({ page }) =>
   const state = workspace.locator(".workspace-state-preview");
   await state.getByText("Serializable workspace state").click();
   await expect(state.locator("pre")).toContainText('"breakpointMode": "mobile"');
+});
+
+test("stream engine keeps primary attention separate from background noise", async ({ page }) => {
+  await page.goto("/");
+
+  const stream = page.locator(".stream-demo");
+  const primaryZone = stream.locator(".stream-primary-zone");
+
+  await expect(primaryZone.locator('[data-stream-id="primary-analysis"]')).toBeVisible();
+  await expect(primaryZone.locator('[data-stream-id="background-index"]')).toHaveCount(0);
+
+  const rankedFeed = stream.locator(".stream-feed");
+  await expect(rankedFeed.locator('[data-stream-id="background-index"]')).toBeVisible();
+  await expect(rankedFeed.locator('[data-stream-id="agent-makar"]')).toBeVisible();
+});
+
+test("acknowledging an alert stops its interruption state", async ({ page }) => {
+  await page.goto("/");
+
+  const stream = page.locator(".stream-demo");
+  const alert = stream.locator('.stream-feed [data-stream-id="alert-security"]');
+
+  await expect(stream.getByText("alert may interrupt", { exact: true })).toBeVisible();
+  await expect(alert).toHaveAttribute("data-acknowledged", "false");
+
+  await alert.getByRole("button", { name: "Acknowledge alert" }).click();
+
+  await expect(alert).toHaveAttribute("data-acknowledged", "true");
+  await expect(alert.getByText("ACKNOWLEDGED", { exact: true })).toBeVisible();
+  await expect(stream.getByText("attention stable", { exact: true })).toBeVisible();
 });
