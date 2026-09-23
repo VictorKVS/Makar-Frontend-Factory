@@ -10,6 +10,7 @@ import {
   StatusIndicator,
 } from "@father/ui";
 import { WorkspaceDemo } from "./WorkspaceDemo";
+import { StreamDemo } from "./StreamDemo";
 
 const metrics = [
   { label: "ДАННЫЕ", value: "12.4K", delta: "+12%", deltaTone: "success" as const },
@@ -167,6 +168,8 @@ export function App() {
         </div>
 
         <WorkspaceDemo />
+
+        <StreamDemo />
 
         <CommandBar
           value={command}
