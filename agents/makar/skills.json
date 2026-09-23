@@ -1,0 +1,65 @@
+{
+  "scale": {
+    "K0": "unknown",
+    "K1": "recognized",
+    "K2": "explained",
+    "K3": "applied_with_guidance",
+    "K4": "applied_independently",
+    "K5": "reusable_pattern_created",
+    "K6": "can_evaluate_and_improve_others"
+  },
+  "skills": [
+    {
+      "id": "design.tokens",
+      "level": "K3",
+      "evidence": [
+        "PR #2"
+      ],
+      "next_target": "K4"
+    },
+    {
+      "id": "ui.primitives",
+      "level": "K2",
+      "evidence": [],
+      "next_target": "K4"
+    },
+    {
+      "id": "workspace.docking",
+      "level": "K2",
+      "evidence": [],
+      "next_target": "K3"
+    },
+    {
+      "id": "information.streams",
+      "level": "K2",
+      "evidence": [
+        "docs/knowledge/KB_1_MAKAR_PROFESSIONAL.md"
+      ],
+      "next_target": "K3"
+    },
+    {
+      "id": "avatar.integration",
+      "level": "K1",
+      "evidence": [],
+      "next_target": "K2"
+    },
+    {
+      "id": "threejs.scene",
+      "level": "K2",
+      "evidence": [],
+      "next_target": "K3"
+    },
+    {
+      "id": "visual.qa",
+      "level": "K3",
+      "evidence": [],
+      "next_target": "K4"
+    },
+    {
+      "id": "game.input",
+      "level": "K1",
+      "evidence": [],
+      "next_target": "K2"
+    }
+  ]
+}

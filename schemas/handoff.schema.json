@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://father.local/schemas/handoff.schema.json",
+  "title": "FATHER Agent Handoff",
+  "type": "object",
+  "required": [
+    "from",
+    "to",
+    "artifact",
+    "contract",
+    "ui_expectation",
+    "status"
+  ],
+  "properties": {
+    "from": {
+      "type": "string"
+    },
+    "to": {
+      "type": "string"
+    },
+    "artifact": {
+      "type": "string"
+    },
+    "contract": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "ui_expectation": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "ready",
+        "accepted",
+        "rejected",
+        "superseded"
+      ]
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
