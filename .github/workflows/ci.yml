@@ -13,7 +13,7 @@ on:
 jobs:
   quality:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: Checkout
@@ -40,3 +40,17 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      - name: Install Chromium
+        run: pnpm --filter @father/alina-control-center exec playwright install --with-deps chromium
+
+      - name: Visual QA
+        run: pnpm --filter @father/alina-control-center test:visual
+
+      - name: Upload visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: alina-visual-token-lab
+          path: apps/alina-control-center/test-results
+          if-no-files-found: warn
