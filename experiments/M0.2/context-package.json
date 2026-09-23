@@ -4,7 +4,7 @@
   "goal": "Create reusable UI primitives and the first Visual Token Lab for ALINA/FATHER.",
   "why": "Validate that ALINA can provide a compact, sufficient engineering context while Makar turns design tokens into visible production-grade UI.",
   "priority": "high",
-  "status": "blocked",
+  "status": "ready",
   "constraints": [
     "Do not hard-code raw theme colors inside shared primitives",
     "Generic UI must not import ALINA-specific business logic",
@@ -15,16 +15,16 @@
   ],
   "inputs": [
     "Issue #3",
-    "PR #2",
+    "Merged PR #2",
     "docs/FRONTEND_PRINCIPLES.md",
     "docs/ALINA_TARGET_V1.md",
     "packages/design-tokens"
   ],
   "knowledge_refs": [
-    "makar.frontend.design_system.semantic_tokens",
-    "makar.frontend.ui.primitives",
-    "makar.frontend.motion.reduced_motion",
-    "makar.frontend.qa.visual_regression"
+    "makar.design.tokens.semantic_roles",
+    "makar.ui.primitives.no_raw_theme_values",
+    "makar.motion.reduced_motion",
+    "makar.qa.visible_focus"
   ],
   "project_decisions": [
     "ALINA gets a theme, not a fork of the shared token model",
@@ -57,7 +57,7 @@
     "RESULT.md"
   ],
   "dependencies": [
-    "PR #2 must be merged or its token branch must be explicitly consumed"
+    "M0.1 Design Tokens merged in PR #2"
   ],
   "open_questions": [
     "Should the first lab live inside ALINA or a dedicated lab app after the initial proof?"
@@ -71,7 +71,7 @@
       "PR"
     ]
   },
-  "context_version": "1.0.0",
+  "context_version": "1.1.0",
   "generated_at": null,
   "expires_at": null
 }
