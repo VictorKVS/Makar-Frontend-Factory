@@ -177,5 +177,101 @@
       "alina-control-center"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.workspace.state.presentation_separation",
+    "title": "Workspace presentation state is separate from domain data",
+    "domain": "workspace",
+    "type": "principle",
+    "level": "L4",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/ARCHITECTURE.md",
+      "docs/FRONTEND_PRINCIPLES.md"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.workspace.layout.serializable"
+    ],
+    "examples": [
+      "panel focus/collapse/dock state can change without mutating document/task data"
+    ],
+    "anti_patterns": [
+      "storing domain payload inside layout nodes"
+    ],
+    "tests": [
+      "workspace transitions do not modify panel domain payload references"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.workspace.layout.serializable",
+    "title": "Workspace layout state must be serializable",
+    "domain": "workspace",
+    "type": "constraint",
+    "level": "L4",
+    "status": "active",
+    "importance": 0.98,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "packages/workspace-engine/README.md"
+    ],
+    "prerequisites": [
+      "makar.workspace.state.presentation_separation"
+    ],
+    "related": [
+      "makar.workspace.panel.stable_ids"
+    ],
+    "examples": [
+      "JSON-safe layout with panel IDs, regions, order, focus and collapsed state"
+    ],
+    "anti_patterns": [
+      "React elements/functions stored directly in persisted workspace state"
+    ],
+    "tests": [
+      "JSON.stringify/parse preserves equivalent workspace state"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.workspace.panel.stable_ids",
+    "title": "Workspace panels reference content through stable IDs",
+    "domain": "workspace",
+    "type": "pattern",
+    "level": "L4",
+    "status": "active",
+    "importance": 0.94,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "issues/9"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.workspace.layout.serializable"
+    ],
+    "examples": [
+      "panel id 'knowledge-graph' + contentType 'knowledge-graph' instead of embedding component instance"
+    ],
+    "anti_patterns": [
+      "persisting component closures inside workspace model"
+    ],
+    "tests": [
+      "registered panel IDs remain deterministic across save/restore"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
   }
 ]
