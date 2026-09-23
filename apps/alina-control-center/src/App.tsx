@@ -9,6 +9,7 @@ import {
   NavigationItem,
   StatusIndicator,
 } from "@father/ui";
+import { WorkspaceDemo } from "./WorkspaceDemo";
 
 const metrics = [
   { label: "ДАННЫЕ", value: "12.4K", delta: "+12%", deltaTone: "success" as const },
@@ -164,6 +165,8 @@ export function App() {
             </p>
           </GlassPanel>
         </div>
+
+        <WorkspaceDemo />
 
         <CommandBar
           value={command}
