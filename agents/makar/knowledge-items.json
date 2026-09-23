@@ -273,5 +273,37 @@
       "alina-control-center"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.qa.scoped_semantic_selectors",
+    "title": "Visual tests scope semantic selectors when repeated labels are valid",
+    "domain": "quality",
+    "type": "lesson",
+    "level": "L11",
+    "status": "active",
+    "importance": 0.82,
+    "confidence": 1,
+    "source_type": "experiment_result",
+    "sources": [
+      "experiments/M0.3/RESULT.md",
+      "CI run 35922359241"
+    ],
+    "prerequisites": [
+      "makar.qa.visible_focus"
+    ],
+    "related": [],
+    "examples": [
+      "scope DEMO / MOCK assertion to the intended header or use an explicit first/region locator"
+    ],
+    "anti_patterns": [
+      "global strict text locator when the UI intentionally repeats the same status label"
+    ],
+    "tests": [
+      "Playwright selectors remain unambiguous after adding another legitimate status badge"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
   }
 ]
