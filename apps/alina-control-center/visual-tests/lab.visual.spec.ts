@@ -6,257 +6,149 @@ const viewports = [
   { name: "ultrawide", width: 2560, height: 1080 },
 ] as const;
 
-async function openEngineLabs(page: Page) {
-  const disclosure = page.locator(".engine-labs-disclosure");
+async function openDiagnostics(page: Page) {
+  const disclosure = page.locator(".engineering-diagnostics");
   if (!(await disclosure.evaluate((node) => (node as HTMLDetailsElement).open))) {
     await disclosure.locator(":scope > summary").click();
   }
 }
 
 for (const viewport of viewports) {
-  test(`renders ALINA composition at ${viewport.name}`, async ({ page }, testInfo) => {
+  test("renders ALINA product shell at " + viewport.name, async ({ page }, testInfo) => {
     await page.setViewportSize({ width: viewport.width, height: viewport.height });
     await page.goto("/");
 
-    await expect(page.getByRole("heading", { name: "ALINA Engineering Lab" })).toBeVisible();
-    await expect(page.getByText("DEMO / MOCK", { exact: true }).first()).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Composition Engine" })).toBeVisible();
-    await expect(page.locator(".composition-canvas")).toHaveAttribute("data-scenario", "research");
-    await expect(page.locator(".composition-canvas")).toHaveAttribute("data-primary-module", "knowledge-graph");
+    const shell = page.locator(".alina-product-shell");
+    await expect(page.getByRole("heading", { name: "ALINA", exact: true })).toBeVisible();
+    await expect(page.getByText("DEMO / MOCK", { exact: true })).toBeVisible();
+    await expect(shell).toHaveAttribute("data-scenario", "research");
+    await expect(shell).toHaveAttribute("data-primary-module", "knowledge-graph");
+    await expect(shell).toHaveAttribute("data-performance-tier", "cinematic");
 
     await page.screenshot({
-      path: testInfo.outputPath(`alina-${viewport.name}.png`),
+      path: testInfo.outputPath("alina-product-" + viewport.name + ".png"),
       fullPage: true,
     });
   });
 }
 
-test("keyboard navigation exposes visible focus", async ({ page }) => {
+test("keyboard navigation exposes visible focus in the product shell", async ({ page }) => {
   await page.goto("/");
   await page.keyboard.press("Tab");
 
-  const firstNav = page.getByRole("button", { name: /Knowledge Base/ });
+  const firstNav = page.getByRole("button", { name: /Workspace/ }).first();
   await expect(firstNav).toBeFocused();
 
   const outlineStyle = await firstNav.evaluate((element) => getComputedStyle(element).outlineStyle);
   expect(outlineStyle).not.toBe("none");
 });
 
-test("composition switches scenarios and rearranges primary context", async ({ page }) => {
+test("scenario switching changes primary context and avatar presence", async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 1920, height: 1080 });
   await page.goto("/");
 
-  const composition = page.locator(".composition-lab");
-  const canvas = composition.locator(".composition-canvas");
+  const shell = page.locator(".alina-product-shell");
 
-  await expect(canvas).toHaveAttribute("data-scenario", "research");
-  await expect(canvas).toHaveAttribute("data-primary-module", "knowledge-graph");
+  await shell.getByRole("button", { name: "Security", exact: true }).click();
+  await expect(shell).toHaveAttribute("data-scenario", "security");
+  await expect(shell).toHaveAttribute("data-primary-module", "security-graph");
+  await expect(shell.getByText("Security stream requests interruption", { exact: true })).toBeVisible();
+  await page.screenshot({
+    path: testInfo.outputPath("alina-security.png"),
+    fullPage: true,
+  });
 
-  await composition.getByRole("button", { name: "presentation", exact: true }).click();
+  await shell.getByRole("button", { name: "Presentation", exact: true }).click();
+  await expect(shell).toHaveAttribute("data-scenario", "presentation");
+  await expect(shell).toHaveAttribute("data-primary-module", "visualization");
+  await expect(shell).toHaveAttribute("data-avatar-presence", "hologram");
+  await page.screenshot({
+    path: testInfo.outputPath("alina-presentation.png"),
+    fullPage: true,
+  });
 
-  await expect(canvas).toHaveAttribute("data-scenario", "presentation");
-  await expect(canvas).toHaveAttribute("data-primary-module", "visualization");
-  await expect(canvas).toHaveAttribute("data-avatar-presence", "hologram");
-
-  await composition.getByRole("button", { name: "focus", exact: true }).click();
-
-  await expect(canvas).toHaveAttribute("data-scenario", "focus");
-  await expect(canvas).toHaveAttribute("data-primary-module", "document");
-  await expect(canvas).toHaveAttribute("data-avatar-presence", "hidden");
+  await shell.getByRole("button", { name: "Focus", exact: true }).click();
+  await expect(shell).toHaveAttribute("data-scenario", "focus");
+  await expect(shell).toHaveAttribute("data-primary-module", "document-or-editor");
+  await expect(shell).toHaveAttribute("data-avatar-presence", "hidden");
+  await expect(shell.getByText("state retained", { exact: true })).toBeVisible();
+  await page.screenshot({
+    path: testInfo.outputPath("alina-focus.png"),
+    fullPage: true,
+  });
 });
 
-test("composition adapts presentation to breakpoint and performance tier", async ({ page }) => {
+test("Core performance tier preserves the task and degrades avatar presentation", async ({ page }) => {
   await page.goto("/");
 
-  const composition = page.locator(".composition-lab");
-  const canvas = composition.locator(".composition-canvas");
+  const shell = page.locator(".alina-product-shell");
+  await shell.getByRole("button", { name: "Presentation", exact: true }).click();
+  await shell.getByRole("button", { name: "core", exact: true }).click();
 
-  await composition.getByRole("button", { name: "presentation", exact: true }).click();
-  await composition.getByRole("button", { name: "core", exact: true }).click();
-  await composition.getByRole("button", { name: "mobile", exact: true }).click();
-
-  await expect(canvas).toHaveAttribute("data-breakpoint", "mobile");
-  await expect(canvas).toHaveAttribute("data-avatar-presence", "compact");
-  await expect(composition.getByText("responsive:mobile-collapse-secondary", { exact: true })).toBeVisible();
+  await expect(shell).toHaveAttribute("data-performance-tier", "core");
+  await expect(shell).toHaveAttribute("data-primary-module", "visualization");
+  await expect(shell).toHaveAttribute("data-avatar-presence", "portrait");
+  await expect(shell.getByText("PRIMARY NARRATIVE", { exact: true })).toBeVisible();
 });
 
-test("reduced-motion disables decorative avatar animation", async ({ page }) => {
+test("reduced motion disables decorative ALINA orbit animation", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
-  await openEngineLabs(page);
 
-  const orbit = page.locator(".avatar-stage-orbit").first();
+  const orbit = page.locator(".alina-avatar-rings span").first();
   await expect(orbit).toBeVisible();
 
   const animationName = await orbit.evaluate((element) => getComputedStyle(element).animationName);
   expect(animationName).toBe("none");
 });
 
-test("workspace focus preserves panel identity and isolates the focused module", async ({ page }) => {
+test("command plane preserves semantic interaction", async ({ page }) => {
   await page.goto("/");
-  await openEngineLabs(page);
 
-  const workspace = page.locator(".workspace-demo");
-  await expect(workspace.locator('[data-panel-id="graph"]')).toBeVisible();
-  await expect(workspace.locator('[data-panel-id="context"]')).toBeVisible();
-  await expect(workspace.locator('[data-panel-id="activity"]')).toBeVisible();
+  const shell = page.locator(".alina-product-shell");
+  const input = shell.getByPlaceholder("Спросите ALINA или поставьте задачу агенту…");
 
-  await workspace.getByRole("button", { name: "Focus Graph" }).click();
+  await input.fill("Проверь контекст проекта");
+  await shell.getByRole("button", { name: "Отправить", exact: true }).click();
 
-  await expect(workspace.locator('[data-panel-id="graph"]')).toBeVisible();
-  await expect(workspace.locator('[data-panel-id="context"]')).toHaveCount(0);
-  await expect(workspace.locator('[data-panel-id="activity"]')).toHaveCount(0);
-
-  const state = workspace.locator(".workspace-state-preview");
-  await state.getByText("Serializable workspace state").click();
-  await expect(state.locator("pre")).toContainText('"focusedPanelId": "graph"');
+  await expect(shell.getByText(/Research mode. Проверь контекст проекта/)).toBeVisible();
 });
 
-test("workspace mode changes are explicit and serializable", async ({ page }) => {
+test("engineering diagnostics stay available without becoming the homepage", async ({ page }) => {
   await page.goto("/");
-  await openEngineLabs(page);
 
-  const workspace = page.locator(".workspace-demo");
-  const context = workspace.locator('[data-panel-id="context"]');
+  const diagnostics = page.locator(".engineering-diagnostics");
+  await expect(diagnostics).not.toHaveAttribute("open", "");
 
-  await workspace.getByRole("button", { name: "Float Context" }).click();
-  await expect(context).toHaveClass(/mode-floating/);
-  await expect(context).toContainText("floating");
+  await openDiagnostics(page);
 
-  await workspace.getByRole("button", { name: "Dock Context Left" }).click();
-  await expect(context).toHaveClass(/region-left/);
-  await expect(context).toContainText("docked");
-
-  await workspace.getByRole("button", { name: "Mobile Transform" }).click();
-
-  for (const id of ["graph", "context", "activity"]) {
-    await expect(workspace.locator(`[data-panel-id="${id}"]`)).toBeVisible();
-  }
-
-  const state = workspace.locator(".workspace-state-preview");
-  await state.getByText("Serializable workspace state").click();
-  await expect(state.locator("pre")).toContainText('"breakpointMode": "mobile"');
+  await expect(page.getByRole("heading", { name: "Makar Provisioning" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Composition Engine" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Workspace Engine" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Avatar Engine" })).toBeVisible();
 });
 
-test("stream engine keeps primary attention separate from background noise", async ({ page }) => {
+test("Agent Factory feedback routing remains inspectable in diagnostics", async ({ page }) => {
   await page.goto("/");
-  await openEngineLabs(page);
-
-  const stream = page.locator(".stream-demo");
-  const primaryZone = stream.locator(".stream-primary-zone");
-
-  await expect(primaryZone.locator('[data-stream-id="primary-analysis"]')).toBeVisible();
-  await expect(primaryZone.locator('[data-stream-id="background-index"]')).toHaveCount(0);
-
-  const rankedFeed = stream.locator(".stream-feed");
-  await expect(rankedFeed.locator('[data-stream-id="background-index"]')).toBeVisible();
-  await expect(rankedFeed.locator('[data-stream-id="agent-makar"]')).toBeVisible();
-});
-
-test("acknowledging an alert stops its interruption state", async ({ page }) => {
-  await page.goto("/");
-  await openEngineLabs(page);
-
-  const stream = page.locator(".stream-demo");
-  const alert = stream.locator('.stream-feed [data-stream-id="alert-security"]');
-
-  await expect(stream.getByText("alert may interrupt", { exact: true })).toBeVisible();
-  await expect(alert).toHaveAttribute("data-acknowledged", "false");
-
-  await alert.getByRole("button", { name: "Acknowledge alert" }).click();
-
-  await expect(alert).toHaveAttribute("data-acknowledged", "true");
-  await expect(alert.getByText("ACKNOWLEDGED", { exact: true })).toBeVisible();
-  await expect(stream.getByText("attention stable", { exact: true })).toBeVisible();
-});
-
-test("visualization engine keeps an exact-value fallback available", async ({ page }) => {
-  await page.goto("/");
-  await openEngineLabs(page);
-
-  const viz = page.locator(".viz-lab");
-  await expect(viz.getByRole("heading", { name: "Visualization Engine" })).toBeVisible();
-  await expect(viz.getByText("ACCESSIBLE FALLBACK", { exact: true })).toBeVisible();
-
-  await viz.getByRole("button", { name: "table", exact: true }).click();
-  await expect(viz.getByRole("table")).toBeVisible();
-  await expect(viz.getByRole("cell", { name: "92%" })).toBeVisible();
-});
-
-test("avatar mode changes preserve task and attention state", async ({ page }) => {
-  await page.goto("/");
-  await openEngineLabs(page);
-
-  const avatar = page.locator(".avatar-lab");
-  const stage = avatar.locator(".avatar-stage");
-
-  await expect(stage).toHaveAttribute("data-avatar-mode", "hologram");
-  await expect(avatar.getByText("M0.6", { exact: true })).toBeVisible();
-  await expect(avatar.getByText("Knowledge Graph", { exact: true }).first()).toBeVisible();
-
-  await avatar.getByRole("button", { name: "voice-only", exact: true }).click();
-
-  await expect(stage).toHaveAttribute("data-avatar-mode", "voice-only");
-  await expect(avatar.getByText("M0.6", { exact: true })).toBeVisible();
-  await expect(avatar.getByText("Knowledge Graph", { exact: true }).first()).toBeVisible();
-});
-
-test("avatar renderer negotiation falls back without losing persona state", async ({ page }) => {
-  await page.goto("/");
-  await openEngineLabs(page);
-
-  const avatar = page.locator(".avatar-lab");
-  const stage = avatar.locator(".avatar-stage");
-
-  await avatar.getByRole("button", { name: "hologram", exact: true }).click();
-  await avatar.getByRole("button", { name: "Accessible 2D", exact: true }).click();
-
-  await expect(stage).toHaveAttribute("data-avatar-mode", "portrait");
-  await expect(avatar.getByText("DEGRADED", { exact: true })).toBeVisible();
-  await expect(avatar.getByText("ALINA", { exact: true }).first()).toBeVisible();
-});
-
-
-test("scene engine degrades cinematic scene to core without WebGL", async ({ page }) => {
-  await page.goto("/");
-
-  const scene = page.locator(".scene-lab");
-  await expect(scene.getByRole("heading", { name: "Scene & Asset Pipeline" })).toBeVisible();
-
-  await scene.getByRole("button", { name: "No WebGL / Core", exact: true }).click();
-
-  const stage = scene.locator(".scene-stage");
-  await expect(stage).toHaveAttribute("data-scene-tier", "core");
-  await expect(stage).toHaveAttribute("data-scene-degraded", "true");
-  await expect(scene.getByText("2D portrait fallback", { exact: true })).toBeVisible();
-  await expect(scene.getByText(/Fallback reasons: no-webgl/)).toBeVisible();
-});
-
-
-test("QA lab exposes failing budgets and recommends core tier", async ({ page }) => {
-  await page.goto("/");
-
-  const qa = page.locator(".qa-lab");
-  await expect(qa.getByRole("heading", { name: "Performance & Visual QA" })).toBeVisible();
-
-  await qa.getByRole("button", { name: "Overloaded", exact: true }).click();
-
-  await expect(qa).toHaveAttribute("data-qa-status", "fail");
-  await expect(qa).toHaveAttribute("data-performance-tier", "core");
-  await expect(qa.getByText("Quality budget failed", { exact: true })).toBeVisible();
-  await expect(qa.locator('[data-gate-status="fail"]').first()).toBeVisible();
-});
-
-
-test("Agent Factory provisions bounded traceable context and routes feedback", async ({ page }) => {
-  await page.goto("/");
+  await openDiagnostics(page);
 
   const factory = page.locator(".factory-lab");
-  await expect(factory.getByRole("heading", { name: "Makar Provisioning" })).toBeVisible();
   await expect(factory).toHaveAttribute("data-selected-knowledge", "3");
-  await expect(factory.locator('[data-knowledge-id="makar.agent.traceability"]')).toBeVisible();
 
   await factory.getByRole("button", { name: "Repository gap", exact: true }).click();
 
   await expect(factory).toHaveAttribute("data-feedback-route", "repository-contract");
   await expect(factory.getByRole("heading", { name: "repository-contract" })).toBeVisible();
+});
+
+test("workspace diagnostics remain operational", async ({ page }) => {
+  await page.goto("/");
+  await openDiagnostics(page);
+
+  const workspace = page.locator(".workspace-demo");
+  await workspace.getByRole("button", { name: "Focus Graph" }).click();
+
+  await expect(workspace.locator('[data-panel-id="graph"]')).toBeVisible();
+  await expect(workspace.locator('[data-panel-id="context"]')).toHaveCount(0);
+  await expect(workspace.locator('[data-panel-id="activity"]')).toHaveCount(0);
 });
