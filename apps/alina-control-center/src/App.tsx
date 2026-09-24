@@ -13,6 +13,7 @@ import { WorkspaceDemo } from "./WorkspaceDemo";
 import { StreamDemo } from "./StreamDemo";
 import { VisualizationDemo } from "./VisualizationDemo";
 import { AvatarDemo } from "./AvatarDemo";
+import { CompositionDemo } from "./CompositionDemo";
 
 const metrics = [
   { label: "ДАННЫЕ", value: "12.4K", delta: "+12%", deltaTone: "success" as const },
@@ -43,7 +44,7 @@ export function App() {
         </div>
         <div className="topbar-status">
           <Badge tone="warning">DEMO / MOCK</Badge>
-          <StatusIndicator tone="success" label="M0.6 in progress" />
+          <StatusIndicator tone="success" label="M0.7 in progress" />
         </div>
       </header>
 
@@ -78,17 +79,17 @@ export function App() {
         <div className="stage-grid">
           <GlassPanel className="hero-panel" tone="elevated" glow="strong">
             <div className="hero-copy">
-              <span className="eyebrow">ALINA · CINEMATIC THEME</span>
-              <h2>Интерфейс должен управлять вниманием, а не создавать шум.</h2>
+              <span className="eyebrow">ALINA · ADAPTIVE COMPOSITION</span>
+              <h2>Интерфейс перестраивается под задачу, а не заставляет задачу жить в одном дашборде.</h2>
               <p>
-                Живой полигон FATHER: UI foundation, Workspace Engine,
-                Information Stream Engine, Visualization Engine и Avatar Engine.
+                Composition Engine связывает Workspace, Streams, Visualization
+                и Avatar в один объяснимый план интерфейса.
               </p>
               <div className="hero-actions">
-                <Button variant="primary" onClick={() => setLastCommand("Запущен визуальный тест")}>
+                <Button variant="primary" onClick={() => setLastCommand("Запущен композиционный тест")}>
                   Запустить тест
                 </Button>
-                <Button variant="ghost" onClick={() => setLastCommand("Открыта архитектура")}>
+                <Button variant="ghost" onClick={() => setLastCommand("Открыта архитектура композиции")}>
                   Архитектура
                 </Button>
                 <IconButton aria-label="More actions" title="More actions">•••</IconButton>
@@ -100,7 +101,7 @@ export function App() {
               <div className="avatar-orbit orbit-two" />
               <div className="avatar-core">
                 <span>ALINA</span>
-                <small>Identity state linked</small>
+                <small>Composition-aware persona</small>
               </div>
             </div>
           </GlassPanel>
@@ -114,24 +115,24 @@ export function App() {
           <GlassPanel className="materials-panel" tone="base" glow="medium">
             <div className="panel-heading">
               <div>
-                <span className="eyebrow">MATERIAL SYSTEM</span>
-                <h3>Glass / Glow / Depth</h3>
+                <span className="eyebrow">ENGINE STACK</span>
+                <h3>Independent systems → one composition</h3>
               </div>
-              <StatusIndicator tone="info" label="Token driven" />
+              <StatusIndicator tone="info" label="Explainable plan" />
             </div>
 
             <div className="material-grid">
               <GlassPanel tone="base" glow="none" className="material-swatch">
-                <strong>BASE</strong>
-                <span>quiet support</span>
+                <strong>WORKSPACE</strong>
+                <span>where modules live</span>
               </GlassPanel>
               <GlassPanel tone="elevated" glow="soft" className="material-swatch">
-                <strong>ELEVATED</strong>
-                <span>working surface</span>
+                <strong>STREAMS + VIZ</strong>
+                <span>what matters · how shown</span>
               </GlassPanel>
               <GlassPanel tone="interactive" glow="medium" className="material-swatch">
-                <strong>INTERACTIVE</strong>
-                <span>attention layer</span>
+                <strong>AVATAR</strong>
+                <span>persona presence</span>
               </GlassPanel>
             </div>
           </GlassPanel>
@@ -139,17 +140,17 @@ export function App() {
           <GlassPanel className="status-panel" tone="base" glow="soft">
             <div className="panel-heading">
               <div>
-                <span className="eyebrow">INFORMATION PRIORITY</span>
-                <h3>Stream states</h3>
+                <span className="eyebrow">SCENARIO SYSTEM</span>
+                <h3>Research / Coding / Security / Presentation / Focus</h3>
               </div>
             </div>
 
             <div className="status-list">
-              <div><Badge tone="info">PRIMARY</Badge><span>Текущая задача пользователя</span></div>
-              <div><Badge tone="neutral">SECONDARY</Badge><span>Поддерживающий контекст</span></div>
-              <div><Badge tone="success">AGENT</Badge><span>Работа специалиста завершена</span></div>
-              <div><Badge tone="warning">BACKGROUND</Badge><span>Индексация · DEMO</span></div>
-              <div><Badge tone="danger">ALERT</Badge><span>Требует внимания</span></div>
+              <div><Badge tone="info">PRIMARY</Badge><span>Один главный рабочий контекст</span></div>
+              <div><Badge tone="neutral">MODULES</Badge><span>Перестраиваются по задаче</span></div>
+              <div><Badge tone="success">AVATAR</Badge><span>Не привязан к одному месту</span></div>
+              <div><Badge tone="warning">FALLBACK</Badge><span>Учитывает экран и ресурсы</span></div>
+              <div><Badge tone="danger">ALERT</Badge><span>Следует interruption policy</span></div>
             </div>
           </GlassPanel>
 
@@ -159,23 +160,26 @@ export function App() {
                 <span className="eyebrow">CONTEXT FEEDBACK</span>
                 <h3>Последнее действие</h3>
               </div>
-              <Badge tone="warning">EXPERIMENT 005</Badge>
+              <Badge tone="warning">EXPERIMENT 006</Badge>
             </div>
             <p className="last-command">{lastCommand}</p>
             <p className="muted">
-              ALINA фиксирует, какой контекст Макар использовал, что оказалось
-              лишним и чего не хватило.
+              ALINA фиксирует причины композиции и то, какой контекст понадобился Макару.
             </p>
           </GlassPanel>
         </div>
 
-        <WorkspaceDemo />
+        <CompositionDemo />
 
-        <StreamDemo />
-
-        <VisualizationDemo />
-
-        <AvatarDemo />
+        <details className="engine-labs-disclosure">
+          <summary>Открыть инженерные лаборатории M0.3–M0.6</summary>
+          <div className="engine-labs-stack">
+            <WorkspaceDemo />
+            <StreamDemo />
+            <VisualizationDemo />
+            <AvatarDemo />
+          </div>
+        </details>
 
         <CommandBar
           value={command}
