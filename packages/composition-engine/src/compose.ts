@@ -26,21 +26,31 @@ function responsiveTransform(
 ): CompositionModulePlan[] {
   if (breakpoint === "mobile") {
     reasons.push("responsive:mobile-collapse-secondary");
-    return modules.map((module) => ({
-      ...module,
-      region: module.id === primaryModuleId ? "center" : "bottom",
-      collapsed: module.id !== primaryModuleId,
-      visible: module.visible && (module.id === primaryModuleId || module.role !== "background")
-    }));
+    return modules.map((module) => {
+      if (module.locked || module.region === "overlay") return module;
+
+      return {
+        ...module,
+        region: module.id === primaryModuleId ? "center" : "bottom",
+        collapsed: module.id !== primaryModuleId,
+        visible:
+          module.visible &&
+          (module.id === primaryModuleId || module.role !== "background")
+      };
+    });
   }
 
   if (breakpoint === "tablet") {
     reasons.push("responsive:tablet-reduce-side-regions");
-    return modules.map((module) => ({
-      ...module,
-      region: module.region === "right" ? "bottom" : module.region,
-      collapsed: module.role === "background" ? true : module.collapsed
-    }));
+    return modules.map((module) => {
+      if (module.locked || module.region === "overlay") return module;
+
+      return {
+        ...module,
+        region: module.region === "right" ? "bottom" : module.region,
+        collapsed: module.role === "background" ? true : module.collapsed
+      };
+    });
   }
 
   return modules;
@@ -159,14 +169,19 @@ export function composeInterface(input: CompositionInput): CompositionPlan {
     input.overrides?.avatarPresence ?? preset.avatar.presence;
   const avatarLocked = input.overrides?.avatarPresence !== undefined;
 
-  avatarPresence = performanceAvatar(
-    avatarPresence,
-    input.performanceTier,
-    input.reducedMotion,
-    reasons
-  );
+  if (!avatarLocked) {
+    avatarPresence = performanceAvatar(
+      avatarPresence,
+      input.performanceTier,
+      input.reducedMotion,
+      reasons
+    );
+  } else {
+    reasons.push(`override:avatar:${avatarPresence}`);
+  }
 
-  const avatarVisible = avatarPresence !== "hidden" && preset.avatar.visible;
+  const avatarVisible =
+    avatarPresence !== "hidden" && (avatarLocked ? true : preset.avatar.visible);
 
   if (input.primaryStreamClass === "background") {
     reasons.push("attention:background-does-not-promote-layout");
