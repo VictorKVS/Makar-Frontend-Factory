@@ -1,0 +1,58 @@
+{
+  "deliveryId": "delivery:makar:M1.5:v1",
+  "agentId": "makar",
+  "taskId": "M1.5",
+  "projectId": "alina-control-center",
+  "repository": "VictorKVS/Makar-Frontend-Factory",
+  "attentionBudget": 6,
+  "knowledge": [
+    {
+      "id": "makar.avatar.state.renderer_independence",
+      "reason": [
+        "explicit-ref",
+        "domain-match",
+        "project-match"
+      ]
+    },
+    {
+      "id": "makar.avatar.capability_negotiation",
+      "reason": [
+        "explicit-ref",
+        "domain-match",
+        "project-match"
+      ]
+    },
+    {
+      "id": "makar.scene.asset.stable_ids",
+      "reason": [
+        "domain-match",
+        "project-match",
+        "recent-lesson"
+      ]
+    },
+    {
+      "id": "makar.scene.core_fallback",
+      "reason": [
+        "domain-match",
+        "project-match",
+        "cost-of-missing"
+      ]
+    },
+    {
+      "id": "makar.composition.reason_trace",
+      "reason": [
+        "domain-match",
+        "project-match"
+      ]
+    },
+    {
+      "id": "makar.qa.cinematic_evidence",
+      "reason": [
+        "domain-match",
+        "project-match",
+        "acceptance-gate"
+      ]
+    }
+  ],
+  "omissionPolicy": "Motion and other relevant catalog items remain linked but are omitted from the six-item primary attention budget unless needed during execution."
+}
