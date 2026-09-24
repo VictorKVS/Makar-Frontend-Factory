@@ -230,3 +230,18 @@ test("scene engine degrades cinematic scene to core without WebGL", async ({ pag
   await expect(scene.getByText("2D portrait fallback", { exact: true })).toBeVisible();
   await expect(scene.getByText(/Fallback reasons: no-webgl/)).toBeVisible();
 });
+
+
+test("QA lab exposes failing budgets and recommends core tier", async ({ page }) => {
+  await page.goto("/");
+
+  const qa = page.locator(".qa-lab");
+  await expect(qa.getByRole("heading", { name: "Performance & Visual QA" })).toBeVisible();
+
+  await qa.getByRole("button", { name: "Overloaded", exact: true }).click();
+
+  await expect(qa).toHaveAttribute("data-qa-status", "fail");
+  await expect(qa).toHaveAttribute("data-performance-tier", "core");
+  await expect(qa.getByText("Quality budget failed", { exact: true })).toBeVisible();
+  await expect(qa.locator('[data-gate-status="fail"]').first()).toBeVisible();
+});
