@@ -52,7 +52,11 @@ export function setPresenceMode(
   presence: AvatarPresenceMode
 ): AvatarState {
   const requestedCapabilities: RendererCapability[] =
-    presence === "hologram" || presence === "full" ? ["motion"] : [];
+    presence === "hologram"
+      ? ["3d", "motion"]
+      : presence === "full"
+        ? ["motion"]
+        : [];
 
   return next(state, { presence, requestedCapabilities });
 }
@@ -122,7 +126,11 @@ export function negotiateAvatarPresentation(
     reasons.push(`missing-capabilities:${missingCapabilities.join(",")}`);
   }
 
-  if (renderer.reducedMotion && renderer.capabilities.includes("motion")) {
+  if (
+    renderer.reducedMotion &&
+    state.requestedCapabilities.includes("motion") &&
+    renderer.capabilities.includes("motion")
+  ) {
     reasons.push("reduced-motion");
   }
 
