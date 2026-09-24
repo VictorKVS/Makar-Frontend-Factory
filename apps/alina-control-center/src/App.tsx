@@ -14,6 +14,7 @@ import { StreamDemo } from "./StreamDemo";
 import { VisualizationDemo } from "./VisualizationDemo";
 import { AvatarDemo } from "./AvatarDemo";
 import { CompositionDemo } from "./CompositionDemo";
+import { InputDemo } from "./InputDemo";
 
 const metrics = [
   { label: "ДАННЫЕ", value: "12.4K", delta: "+12%", deltaTone: "success" as const },
@@ -44,7 +45,7 @@ export function App() {
         </div>
         <div className="topbar-status">
           <Badge tone="warning">DEMO / MOCK</Badge>
-          <StatusIndicator tone="success" label="M0.7 in progress" />
+          <StatusIndicator tone="success" label="M0.8 in progress" />
         </div>
       </header>
 
@@ -160,7 +161,7 @@ export function App() {
                 <span className="eyebrow">CONTEXT FEEDBACK</span>
                 <h3>Последнее действие</h3>
               </div>
-              <Badge tone="warning">EXPERIMENT 006</Badge>
+              <Badge tone="warning">EXPERIMENT 007</Badge>
             </div>
             <p className="last-command">{lastCommand}</p>
             <p className="muted">
@@ -170,6 +171,8 @@ export function App() {
         </div>
 
         <CompositionDemo />
+
+        <InputDemo />
 
         <details className="engine-labs-disclosure">
           <summary>Открыть инженерные лаборатории M0.3–M0.6</summary>

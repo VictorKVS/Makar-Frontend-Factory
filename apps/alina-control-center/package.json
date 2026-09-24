@@ -19,7 +19,8 @@
     "@father/avatar-engine": "workspace:*",
     "@father/composition-engine": "workspace:*",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "@father/input-engine": "workspace:*"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
