@@ -41,6 +41,9 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Quality budget
+        run: pnpm quality:budget
+
       - name: Install Chromium
         run: pnpm --filter @father/alina-control-center exec playwright install --with-deps chromium
 
@@ -51,6 +54,8 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: alina-visual-token-lab
-          path: apps/alina-control-center/test-results
+          name: alina-visual-evidence
+          path: |
+            apps/alina-control-center/test-results
+            reports/quality-budget-report.json
           if-no-files-found: warn

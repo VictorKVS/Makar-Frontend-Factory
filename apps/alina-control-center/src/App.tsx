@@ -16,6 +16,7 @@ import { AvatarDemo } from "./AvatarDemo";
 import { CompositionDemo } from "./CompositionDemo";
 import { InputDemo } from "./InputDemo";
 import { SceneDemo } from "./SceneDemo";
+import { QADemo } from "./QADemo";
 
 const metrics = [
   { label: "ДАННЫЕ", value: "12.4K", delta: "+12%", deltaTone: "success" as const },
@@ -46,7 +47,7 @@ export function App() {
         </div>
         <div className="topbar-status">
           <Badge tone="warning">DEMO / MOCK</Badge>
-          <StatusIndicator tone="success" label="M0.9 in progress" />
+          <StatusIndicator tone="success" label="M0.10 in progress" />
         </div>
       </header>
 
@@ -162,7 +163,7 @@ export function App() {
                 <span className="eyebrow">CONTEXT FEEDBACK</span>
                 <h3>Последнее действие</h3>
               </div>
-              <Badge tone="warning">EXPERIMENT 008</Badge>
+              <Badge tone="warning">EXPERIMENT 009</Badge>
             </div>
             <p className="last-command">{lastCommand}</p>
             <p className="muted">
@@ -176,6 +177,8 @@ export function App() {
         <InputDemo />
 
         <SceneDemo />
+
+        <QADemo />
 
         <details className="engine-labs-disclosure">
           <summary>Открыть инженерные лаборатории M0.3–M0.6</summary>

@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "budgets": {
+    "jsBytes": 700000,
+    "cssBytes": 180000,
+    "imageBytes": 2500000,
+    "modelBytes": 15000000,
+    "audioBytes": 8000000,
+    "lcpMs": 2500,
+    "cls": 0.1,
+    "inpMs": 200,
+    "maxLongTaskMs": 120,
+    "targetFrameTimeMs": 16.7,
+    "viewports": [
+      {
+        "name": "laptop",
+        "width": 1366,
+        "height": 768
+      },
+      {
+        "name": "desktop",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "name": "ultrawide",
+        "width": 2560,
+        "height": 1080
+      }
+    ],
+    "reducedMotionRequired": true,
+    "keyboardFocusRequired": true
+  },
+  "policy": {
+    "unknownMeasurements": "report-but-do-not-fail-v0",
+    "failedMeasurements": "fail-feature-acceptance",
+    "cinematicRequiresEvidence": true,
+    "coreTierMustRemainUsable": true
+  }
+}
