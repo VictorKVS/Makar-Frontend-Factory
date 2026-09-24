@@ -410,3 +410,39 @@ input {
     animation: none;
   }
 }
+
+
+.alina-fatal-boundary {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  gap: var(--father-foundation-spacing-3);
+  padding: var(--father-foundation-spacing-6);
+  background: var(--father-theme-colors-canvas);
+  color: var(--father-theme-colors-text-primary);
+}
+
+.alina-fatal-boundary h1,
+.alina-fatal-boundary p {
+  margin: 0;
+}
+
+.alina-fatal-boundary p {
+  max-width: 60ch;
+  color: var(--father-theme-colors-text-secondary);
+}
+
+.alina-fatal-boundary code {
+  max-width: 70ch;
+  overflow-wrap: anywhere;
+  color: var(--father-theme-colors-danger);
+}
+
+.alina-fatal-boundary button {
+  justify-self: start;
+  padding: 10px 16px;
+  border: 1px solid var(--father-theme-colors-border-strong);
+  border-radius: var(--father-foundation-radius-sm);
+  background: var(--father-theme-colors-surface-interactive);
+  color: var(--father-theme-colors-text-primary);
+}
