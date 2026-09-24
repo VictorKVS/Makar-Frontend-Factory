@@ -1,0 +1,31 @@
+{
+  "task_id": "M1.3",
+  "agent_id": "makar",
+  "project_id": "alina-control-center",
+  "delivery_id": "delivery:makar:M1.3:v1",
+  "goal": "Introduce a provenance-aware frontend data gateway for ALINA ProductShell.",
+  "priority": "high",
+  "status": "in_progress",
+  "knowledge_refs": [
+    "makar.stream.semantic_priority",
+    "makar.stream.agent_distinction",
+    "makar.composition.engines_remain_independent",
+    "makar.stream.attention_budget",
+    "makar.stream.interruption_policy",
+    "makar.types.fixture_required_fields"
+  ],
+  "inputs": [
+    "experiments/M1.2/RESULT.md",
+    "configs/alina-v1/product-shell.contract.json",
+    "packages/stream-engine",
+    "repository quality/CI contract"
+  ],
+  "handoff_ref": "contracts/backend/alina-data-gateway.handoff.json",
+  "constraints": [
+    "Frontend and backend responsibilities remain separate",
+    "Every payload has provenance",
+    "Synthetic/demo content is visibly labeled",
+    "Transport does not own semantic attention priority"
+  ],
+  "context_version": "1.0.0"
+}
