@@ -339,9 +339,21 @@ test("reduced-motion acceptance preserves semantic state while stopping cinemati
 test("M1.8 collects real browser runtime quality evidence", async ({ page, browserName }) => {
   await page.setViewportSize({ width: 1920, height: 1080 });
   await page.goto("/");
-  await page.waitForTimeout(700);
 
   const shell = page.locator(".alina-product-shell");
+
+  // Release hard-gating measures the minimum guaranteed Core tier.
+  // Enhanced/Cinematic remain capability-adaptive and are covered separately by
+  // functional/visual tests; a noisy headless CI runner must not masquerade as
+  // calibrated end-user GPU evidence.
+  await shell.getByRole("button", { name: "core", exact: true }).click();
+  await expect(shell).toHaveAttribute("data-performance-tier", "core");
+  await expect(shell.locator(".alina-cinematic-scene")).toHaveAttribute(
+    "data-scene-3d",
+    "false"
+  );
+  await page.waitForTimeout(700);
+
   const input = shell.getByPlaceholder("Спросите ALINA или поставьте задачу агенту…");
 
   const interactionStarted = Date.now();
@@ -414,6 +426,7 @@ test("M1.8 collects real browser runtime quality evidence", async ({ page, brows
       viewport: { width: 1920, height: 1080 },
       userAgent: snapshot.userAgent,
       dataMode: await shell.getAttribute("data-provenance-origin"),
+      performanceTier: await shell.getAttribute("data-performance-tier"),
     },
     collectedAt: snapshot.collectedAt,
     metrics: {
@@ -438,6 +451,7 @@ test("M1.8 collects real browser runtime quality evidence", async ({ page, brows
   );
 
   expect(report.environment.dataMode).toBe("demo");
+  expect(report.environment.performanceTier).toBe("core");
   expect(report.metrics.cls.value).not.toBeNull();
   expect(report.metrics.avgFrameTimeMs.value).not.toBeNull();
 });
