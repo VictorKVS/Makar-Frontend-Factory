@@ -2,31 +2,34 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { App } from "./App";
 
-describe("ALINA Engineering Lab", () => {
-  it("renders the current lab identity and explicit mock-data label", () => {
+describe("ALINA Control Center v1 shell", () => {
+  it("renders the product shell as the default experience", () => {
     const html = renderToStaticMarkup(<App />);
 
-    expect(html).toContain("ALINA Engineering Lab");
+    expect(html).toContain("FATHER · CONTROL CENTER");
+    expect(html).toContain(">ALINA<");
     expect(html).toContain("DEMO / MOCK");
-    expect(html).toContain("EXPERIMENT 006");
+    expect(html).toContain('data-scenario="research"');
+    expect(html).toContain('data-primary-module="knowledge-graph"');
   });
 
-  it("renders the adaptive composition as the primary engineering surface", () => {
+  it("renders semantic product planes and the command surface", () => {
     const html = renderToStaticMarkup(<App />);
 
+    expect(html).toContain("PRIMARY WORK PLANE");
+    expect(html).toContain("SECONDARY CONTEXT");
+    expect(html).toContain("INFORMATION STREAMS");
+    expect(html).toContain("COMPOSITION TRACE");
+    expect(html).toContain("Спросите ALINA или поставьте задачу агенту");
+  });
+
+  it("keeps engineering labs behind diagnostics", () => {
+    const html = renderToStaticMarkup(<App />);
+
+    expect(html).toContain("Engineering diagnostics · M0/M1 labs");
+    expect(html).toContain("Makar Provisioning");
     expect(html).toContain("Composition Engine");
-    expect(html).toContain("Research / Coding / Security / Presentation / Focus");
-    expect(html).toContain("Composition-aware persona");
-    expect(html).toContain("reason trace active");
-  });
-
-  it("keeps previous engine laboratories available behind disclosure", () => {
-    const html = renderToStaticMarkup(<App />);
-
     expect(html).toContain("Workspace Engine");
-    expect(html).toContain("Information Stream Engine");
-    expect(html).toContain("Visualization Engine");
     expect(html).toContain("Avatar Engine");
-    expect(html).toContain("Открыть инженерные лаборатории M0.3–M0.6");
   });
 });
