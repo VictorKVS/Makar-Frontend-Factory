@@ -65,7 +65,7 @@
   "current_projects": [
     "alina-control-center"
   ],
-  "active_task": "M1.3",
+  "active_task": "M1.4",
   "known_constraints": [
     "No unlabeled mock data",
     "No monolithic screen architecture",
@@ -73,6 +73,8 @@
     "Cinematic effects require fallback tiers"
   ],
   "recent_lessons": [
+    "Graph meaning must remain independent from renderer choice",
+    "Workspace graph state is presentation state, not business payload",
     "Composition combines engine contracts without merging responsibilities",
     "Cinematic features require Core fallback and quality evidence",
     "Product scene grammar should precede product shell implementation",

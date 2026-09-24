@@ -1,11 +1,9 @@
 {
-  "name": "@father/data-gateway",
+  "name": "@father/graph-model",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "exports": {
-    ".": "./src/index.ts"
-  },
+  "exports": { ".": "./src/index.ts" },
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
@@ -13,8 +11,5 @@
   "devDependencies": {
     "typescript": "^5.0.0",
     "vitest": "^2.1.0"
-  },
-  "dependencies": {
-    "@father/graph-model": "workspace:*"
   }
 }

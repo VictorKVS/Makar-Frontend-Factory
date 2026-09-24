@@ -1,0 +1,48 @@
+{
+  "taskId": "M1.4",
+  "projectId": "alina-control-center",
+  "title": "ALINA Knowledge Graph Workspace",
+  "goal": "Replace the decorative Research graph with a reusable, interactive and accessible knowledge graph workspace.",
+  "why": "Research mode needs a real causal/evidence surface that preserves graph meaning independently of renderer choice.",
+  "priority": "high",
+  "domains": [
+    "visualization",
+    "workspace",
+    "composition"
+  ],
+  "explicitKnowledgeRefs": [
+    "makar.visualization.intent_before_renderer",
+    "makar.visualization.accessible_fallback"
+  ],
+  "constraints": [
+    "no renderer dependency in graph model",
+    "workspace state must not contain business payload",
+    "DEMO provenance remains explicit",
+    "Core tier remains usable without WebGL"
+  ],
+  "deliverables": [
+    "@father/graph-model",
+    "KnowledgeGraphWorkspace",
+    "Data Gateway graph payload",
+    "Research ProductShell integration",
+    "unit tests",
+    "Playwright interaction proof",
+    "RESULT.md"
+  ],
+  "acceptanceCriteria": [
+    "stable typed nodes and edges",
+    "selection/focus/filter work deterministically",
+    "contradictions are semantic data",
+    "accessible list fallback exists",
+    "graph state serializes/restores",
+    "selected node shows evidence/confidence/provenance"
+  ],
+  "testContract": [
+    "pnpm typecheck",
+    "pnpm test",
+    "pnpm build",
+    "pnpm quality:budget",
+    "pnpm validate:alina-shell",
+    "Playwright Research graph interaction"
+  ]
+}
