@@ -1,3 +1,5 @@
+import type { GraphDocument } from "@father/graph-model";
+
 export type DataOrigin = "live" | "cached" | "demo" | "synthetic" | "unavailable";
 export type DataState = "loading" | "ready" | "empty" | "stale" | "error" | "offline";
 export type SemanticStreamClass = "primary" | "secondary" | "background" | "alert" | "agent";
@@ -61,6 +63,7 @@ export type PrimaryWorkPayload = {
   title: string;
   description: string;
   visualization?: VisualizationPayload;
+  graph?: GraphDocument;
   content?: string;
 };
 
