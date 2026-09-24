@@ -1,0 +1,37 @@
+{
+  "pilot_id": "001-makar-design-systems",
+  "student_id": "makar",
+  "checkpoint_id": "checkpoint.makar.design-systems.v0",
+  "state": "before-promotion-review",
+  "weighted_readiness": 0.2036,
+  "critical_requirements_passed": false,
+  "ready": false,
+  "verified_evidence_sources": [
+    "PR #2 — M0.1 Design Tokens foundation",
+    "PR #8 — M0.2 UI Primitives + ALINA Visual Token Lab",
+    "CI run 35921883245 — success"
+  ],
+  "current_explicit_mastery": {
+    "skill.semantic-tokens": {
+      "level": "K3",
+      "confidence": 0.8
+    },
+    "skill.ui-primitives": {
+      "level": "K3",
+      "confidence": 0.8
+    }
+  },
+  "evidence_backed_promotion_proposals": 8,
+  "policy_notes": [
+    "Existing evidence can propose K4 but cannot silently change mastery.",
+    "Unmapped prerequisite knowledge remains unconfirmed until separately assessed or reviewed.",
+    "A passed project may prove several skills, but each skill mapping remains independently reviewable."
+  ],
+  "next_actions": [
+    "Review eight K4 promotion proposals.",
+    "Run a short oral/structured architecture review for semantic roles and component boundaries.",
+    "Map prerequisite knowledge evidence separately.",
+    "Regenerate adaptive path after accepted mastery updates.",
+    "Only then decide whether competency.design-systems itself is K4."
+  ]
+}
