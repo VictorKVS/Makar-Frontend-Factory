@@ -24,7 +24,7 @@ M0 established the reusable frontend / interactive / game-ready foundation.
 - [x] M1.4 Knowledge graph workspace
 - [x] M1.5 Production avatar integration
 - [x] M1.6 Cinematic scene layer
-- [ ] M1.7 Accessibility and performance acceptance
+- [x] M1.7 Accessibility and performance acceptance
 - [ ] M1.8 Production-ready ALINA v1
 
 ## M2 — Reuse
