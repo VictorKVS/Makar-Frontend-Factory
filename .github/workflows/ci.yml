@@ -44,6 +44,9 @@ jobs:
       - name: Quality budget
         run: pnpm quality:budget
 
+      - name: Validate ALINA shell contract
+        run: pnpm validate:alina-shell
+
       - name: Install Chromium
         run: pnpm --filter @father/alina-control-center exec playwright install --with-deps chromium
 
