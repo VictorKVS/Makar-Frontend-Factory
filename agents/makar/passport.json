@@ -65,7 +65,7 @@
   "current_projects": [
     "alina-control-center"
   ],
-  "active_task": "M0.2",
+  "active_task": "M1.1",
   "known_constraints": [
     "No unlabeled mock data",
     "No monolithic screen architecture",
@@ -73,7 +73,9 @@
     "Cinematic effects require fallback tiers"
   ],
   "recent_lessons": [
-    "Separate stable professional knowledge from temporary project context"
+    "Separate stable professional knowledge from temporary project context",
+    "Composition combines engine contracts without merging responsibilities",
+    "Cinematic features require Core fallback and quality evidence"
   ],
   "handoff_contracts": [
     "schemas/handoff.schema.json"
