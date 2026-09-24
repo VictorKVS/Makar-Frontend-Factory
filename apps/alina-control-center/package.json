@@ -24,7 +24,8 @@
     "@father/scene-engine": "workspace:*",
     "@father/visual-qa": "workspace:*",
     "@father/agent-factory-core": "workspace:*",
-    "@father/agent-context-core": "workspace:*"
+    "@father/agent-context-core": "workspace:*",
+    "@father/data-gateway": "workspace:*"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
