@@ -12,6 +12,7 @@ import {
 import { WorkspaceDemo } from "./WorkspaceDemo";
 import { StreamDemo } from "./StreamDemo";
 import { VisualizationDemo } from "./VisualizationDemo";
+import { AvatarDemo } from "./AvatarDemo";
 
 const metrics = [
   { label: "ДАННЫЕ", value: "12.4K", delta: "+12%", deltaTone: "success" as const },
@@ -42,7 +43,7 @@ export function App() {
         </div>
         <div className="topbar-status">
           <Badge tone="warning">DEMO / MOCK</Badge>
-          <StatusIndicator tone="success" label="M0.5 in progress" />
+          <StatusIndicator tone="success" label="M0.6 in progress" />
         </div>
       </header>
 
@@ -81,7 +82,7 @@ export function App() {
               <h2>Интерфейс должен управлять вниманием, а не создавать шум.</h2>
               <p>
                 Живой полигон FATHER: UI foundation, Workspace Engine,
-                Information Stream Engine и теперь Visualization Engine.
+                Information Stream Engine, Visualization Engine и Avatar Engine.
               </p>
               <div className="hero-actions">
                 <Button variant="primary" onClick={() => setLastCommand("Запущен визуальный тест")}>
@@ -94,12 +95,12 @@ export function App() {
               </div>
             </div>
 
-            <div className="avatar-placeholder" aria-label="ALINA avatar placeholder">
+            <div className="avatar-placeholder" aria-label="ALINA avatar engine status">
               <div className="avatar-orbit orbit-one" />
               <div className="avatar-orbit orbit-two" />
               <div className="avatar-core">
                 <span>ALINA</span>
-                <small>Avatar Engine slot</small>
+                <small>Identity state linked</small>
               </div>
             </div>
           </GlassPanel>
@@ -158,7 +159,7 @@ export function App() {
                 <span className="eyebrow">CONTEXT FEEDBACK</span>
                 <h3>Последнее действие</h3>
               </div>
-              <Badge tone="warning">EXPERIMENT 004</Badge>
+              <Badge tone="warning">EXPERIMENT 005</Badge>
             </div>
             <p className="last-command">{lastCommand}</p>
             <p className="muted">
@@ -173,6 +174,8 @@ export function App() {
         <StreamDemo />
 
         <VisualizationDemo />
+
+        <AvatarDemo />
 
         <CommandBar
           value={command}
