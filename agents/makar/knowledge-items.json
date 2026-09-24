@@ -962,5 +962,138 @@
       "alina-control-center"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.qa.unknown_is_not_pass",
+    "title": "Unknown quality evidence is never treated as a passing measurement",
+    "domain": "quality",
+    "type": "constraint",
+    "level": "L11",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "experiment_result",
+    "sources": [
+      "experiments/M1.7/RESULT.md",
+      "configs/alina-v1/acceptance-matrix.json"
+    ],
+    "prerequisites": [
+      "makar.qa.cinematic_evidence"
+    ],
+    "related": [
+      "makar.scene.capability_truth"
+    ],
+    "examples": [
+      "LCP remains unknown until collected in a real browser measurement pipeline"
+    ],
+    "anti_patterns": [
+      "green build converted into a synthetic LCP pass"
+    ],
+    "tests": [
+      "release report lists unknown measurements and remains conditional"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.qa.product_acceptance_matrix",
+    "title": "Release acceptance spans scenarios, tiers, viewports and accessibility paths",
+    "domain": "quality",
+    "type": "pattern",
+    "level": "L11",
+    "status": "active",
+    "importance": 0.96,
+    "confidence": 1,
+    "source_type": "experiment_result",
+    "sources": [
+      "experiments/M1.7/RESULT.md",
+      "configs/alina-v1/acceptance-matrix.json"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.qa.visible_focus",
+      "makar.motion.reduced_motion"
+    ],
+    "examples": [
+      "five product scenarios are checked in Core, Enhanced and Cinematic paths"
+    ],
+    "anti_patterns": [
+      "declaring product acceptance from one desktop screenshot"
+    ],
+    "tests": [
+      "acceptance validator and Playwright cover the required matrix"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.data.provenance_runtime_state",
+    "title": "Frontend data contracts expose provenance and runtime state independently from payload",
+    "domain": "data-gateway",
+    "type": "principle",
+    "level": "L12",
+    "status": "active",
+    "importance": 0.98,
+    "confidence": 1,
+    "source_type": "experiment_result",
+    "sources": [
+      "experiments/M1.3/RESULT.md",
+      "packages/data-gateway"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.data.no_silent_demo_fallback"
+    ],
+    "examples": [
+      "ready/demo and offline/unavailable are explicit envelope facts"
+    ],
+    "anti_patterns": [
+      "component infers live/demo/offline from payload shape"
+    ],
+    "tests": [
+      "ProductShell exposes data state and provenance separately"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.data.no_silent_demo_fallback",
+    "title": "Live-service failure must not silently fall back to DEMO data",
+    "domain": "data-gateway",
+    "type": "constraint",
+    "level": "L12",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "release_rule",
+    "sources": [
+      "issues/42",
+      "experiments/M1.3/RESULT.md"
+    ],
+    "prerequisites": [
+      "makar.data.provenance_runtime_state"
+    ],
+    "related": [
+      "makar.qa.unknown_is_not_pass"
+    ],
+    "examples": [
+      "missing live API URL yields unavailable/offline state with origin unavailable"
+    ],
+    "anti_patterns": [
+      "production config error quietly switches to createDemoGateway"
+    ],
+    "tests": [
+      "live configuration failure cannot produce provenance origin demo"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
   }
 ]

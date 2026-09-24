@@ -8,11 +8,14 @@ import { WorkspaceDemo } from "./WorkspaceDemo";
 import { StreamDemo } from "./StreamDemo";
 import { VisualizationDemo } from "./VisualizationDemo";
 import { AvatarDemo } from "./AvatarDemo";
+import { AppErrorBoundary } from "./AppErrorBoundary";
+import { runtimeGateway } from "./runtime-config";
 
 export function App() {
   return (
-    <>
-      <ProductShell />
+    <AppErrorBoundary>
+      <>
+      <ProductShell gateway={runtimeGateway} />
 
       <details className="engineering-diagnostics">
         <summary>Engineering diagnostics · M0/M1 labs</summary>
@@ -28,6 +31,7 @@ export function App() {
           <AvatarDemo />
         </div>
       </details>
-    </>
+      </>
+    </AppErrorBoundary>
   );
 }

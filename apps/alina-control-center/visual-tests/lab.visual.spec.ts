@@ -1,3 +1,5 @@
+import { promises as fs } from "node:fs";
+import path from "node:path";
 import { expect, test, type Page } from "@playwright/test";
 
 const viewports = [
@@ -331,4 +333,125 @@ test("reduced-motion acceptance preserves semantic state while stopping cinemati
     "data-avatar-requested",
     "hologram"
   );
+});
+
+
+test("M1.8 collects real browser runtime quality evidence", async ({ page, browserName }) => {
+  await page.setViewportSize({ width: 1920, height: 1080 });
+  await page.goto("/");
+
+  const shell = page.locator(".alina-product-shell");
+
+  // Release hard-gating measures the minimum guaranteed Core tier.
+  // Enhanced/Cinematic remain capability-adaptive and are covered separately by
+  // functional/visual tests; a noisy headless CI runner must not masquerade as
+  // calibrated end-user GPU evidence.
+  await shell.getByRole("button", { name: "core", exact: true }).click();
+  await expect(shell).toHaveAttribute("data-performance-tier", "core");
+  await expect(shell.locator(".alina-cinematic-scene")).toHaveAttribute(
+    "data-scene-3d",
+    "false"
+  );
+  await page.waitForTimeout(700);
+
+  const input = shell.getByPlaceholder("Спросите ALINA или поставьте задачу агенту…");
+
+  const interactionStarted = Date.now();
+  await input.fill("Runtime quality probe");
+  await shell.getByRole("button", { name: "Отправить", exact: true }).click();
+  await expect(shell.getByText(/DEMO command accepted/)).toBeVisible();
+  const interactionRoundTripMs = Date.now() - interactionStarted;
+
+  const frameTime = await page.evaluate(async () => {
+    const runtime = (window as unknown as {
+      __ALINA_RUNTIME_QUALITY__?: {
+        sampleFrameTime(frameCount?: number): Promise<number | null>;
+      };
+    }).__ALINA_RUNTIME_QUALITY__;
+
+    if (!runtime) return null;
+    return await runtime.sampleFrameTime(30);
+  });
+
+  await page.waitForTimeout(150);
+
+  const snapshot = await page.evaluate(() => {
+    const runtime = (window as unknown as {
+      __ALINA_RUNTIME_QUALITY__?: {
+        snapshot(): {
+          collectedAt: string;
+          userAgent: string;
+          lcpMs: { value: number | null; source: string; supported: boolean };
+          cls: { value: number | null; source: string; supported: boolean };
+          interactionResponsivenessMs: {
+            value: number | null;
+            source: string;
+            supported: boolean;
+          };
+          maxLongTaskMs: {
+            value: number | null;
+            source: string;
+            supported: boolean;
+          };
+          avgFrameTimeMs: {
+            value: number | null;
+            source: string;
+            supported: boolean;
+          };
+        };
+      };
+    }).__ALINA_RUNTIME_QUALITY__;
+
+    return runtime?.snapshot() ?? null;
+  });
+
+  expect(snapshot).not.toBeNull();
+  if (!snapshot) return;
+
+  const interaction =
+    snapshot.interactionResponsivenessMs.value &&
+    snapshot.interactionResponsivenessMs.value > 0
+      ? snapshot.interactionResponsivenessMs
+      : {
+          value: interactionRoundTripMs,
+          source: "playwright-command-roundtrip-proxy",
+          supported: true,
+        };
+
+  const report = {
+    version: "1.0.0",
+    environment: {
+      browserName,
+      headless: true,
+      viewport: { width: 1920, height: 1080 },
+      userAgent: snapshot.userAgent,
+      dataMode: await shell.getAttribute("data-provenance-origin"),
+      performanceTier: await shell.getAttribute("data-performance-tier"),
+    },
+    collectedAt: snapshot.collectedAt,
+    metrics: {
+      lcpMs: snapshot.lcpMs,
+      cls: snapshot.cls,
+      interactionResponsivenessMs: interaction,
+      maxLongTaskMs: snapshot.maxLongTaskMs,
+      avgFrameTimeMs: {
+        ...snapshot.avgFrameTimeMs,
+        value: frameTime ?? snapshot.avgFrameTimeMs.value,
+      },
+    },
+    interactionRoundTripMs,
+  };
+
+  const repoRoot = path.resolve(process.cwd(), "../..");
+  const reports = path.join(repoRoot, "reports");
+  await fs.mkdir(reports, { recursive: true });
+  await fs.writeFile(
+    path.join(reports, "runtime-quality-report.json"),
+    JSON.stringify(report, null, 2) + "\n"
+  );
+
+  expect(report.environment.dataMode).toBe("demo");
+  expect(report.environment.performanceTier).toBe("core");
+  expect(report.metrics.cls.value).not.toBeNull();
+  expect(report.metrics.avgFrameTimeMs.value).not.toBeNull();
 });

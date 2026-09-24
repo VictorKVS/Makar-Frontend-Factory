@@ -56,6 +56,9 @@ jobs:
       - name: Visual QA
         run: pnpm --filter @father/alina-control-center test:visual
 
+      - name: Evaluate ALINA release readiness
+        run: pnpm evaluate:alina-release
+
       - name: Upload visual evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -65,4 +68,6 @@ jobs:
             apps/alina-control-center/test-results
             reports/quality-budget-report.json
             reports/alina-acceptance-report.json
+            reports/runtime-quality-report.json
+            reports/alina-release-manifest.json
           if-no-files-found: warn

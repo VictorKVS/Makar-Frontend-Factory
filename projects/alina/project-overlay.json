@@ -27,10 +27,11 @@
     "M1.3 — Data Gateway merged",
     "M1.4 — Knowledge Graph Workspace merged",
     "M1.5 — Production avatar integration merged",
-    "M1.6 — Cinematic scene layer merged"
+    "M1.6 — Cinematic scene layer merged",
+    "M1.7 — Product hard acceptance merged (release conditional)"
   ],
   "active_work": [
-    "Issue #40 — ALINA accessibility & performance acceptance"
+    "Issue #42 — ALINA v1 release candidate hardening"
   ],
   "visual_target": "docs/ALINA_TARGET_V1.md"
 }

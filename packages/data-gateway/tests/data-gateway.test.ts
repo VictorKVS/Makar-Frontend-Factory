@@ -4,6 +4,7 @@ import {
   createDemoScenarioEnvelope,
   createHttpGateway,
   createInMemoryRealtimeSource,
+  createUnavailableGateway,
   isStale,
   withDerivedState,
 } from "../src";
@@ -75,3 +76,19 @@ describe("data gateway", () => {
     expect(received).toEqual(["agent.activity"]);
   });
 });
+
+
+  it("never converts an unavailable live configuration into DEMO data", async () => {
+    const gateway = createUnavailableGateway({
+      sourceId: "father-live-config",
+      code: "LIVE_CONFIG_MISSING",
+      message: "Live API base URL is missing",
+    });
+
+    const result = await gateway.loadScenario("research");
+
+    expect(result.state).toBe("offline");
+    expect(result.provenance.origin).toBe("unavailable");
+    expect(result.provenance.origin).not.toBe("demo");
+    expect(result.error?.code).toBe("LIVE_CONFIG_MISSING");
+  });

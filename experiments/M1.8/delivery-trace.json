@@ -1,0 +1,55 @@
+{
+  "deliveryId": "delivery:makar:M1.8:v1",
+  "agentId": "makar",
+  "taskId": "M1.8",
+  "projectId": "alina-control-center",
+  "repository": "VictorKVS/Makar-Frontend-Factory",
+  "attentionBudget": 6,
+  "knowledge": [
+    {
+      "id": "makar.qa.unknown_is_not_pass",
+      "reason": [
+        "explicit-ref",
+        "release-blocker",
+        "previous-result"
+      ]
+    },
+    {
+      "id": "makar.data.no_silent_demo_fallback",
+      "reason": [
+        "explicit-ref",
+        "cost-of-missing",
+        "release-rule"
+      ]
+    },
+    {
+      "id": "makar.data.provenance_runtime_state",
+      "reason": [
+        "domain-match",
+        "project-match"
+      ]
+    },
+    {
+      "id": "makar.qa.product_acceptance_matrix",
+      "reason": [
+        "previous-result",
+        "release-gate"
+      ]
+    },
+    {
+      "id": "makar.scene.capability_truth",
+      "reason": [
+        "domain-match",
+        "runtime-truth"
+      ]
+    },
+    {
+      "id": "makar.scene.core_fallback",
+      "reason": [
+        "domain-match",
+        "release-fallback"
+      ]
+    }
+  ],
+  "previousResult": "experiments/M1.7/RESULT.md"
+}
