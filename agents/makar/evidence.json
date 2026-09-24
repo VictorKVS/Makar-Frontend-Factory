@@ -1,0 +1,36 @@
+{
+  "agent_id": "makar",
+  "evidence": [
+    {
+      "skill_id": "input.interaction",
+      "evidence_id": "pr-20",
+      "kind": "pull-request",
+      "ref": "PR #20",
+      "ci_run": 35981113185,
+      "artifact_id": 10799727963
+    },
+    {
+      "skill_id": "scene.asset.pipeline",
+      "evidence_id": "pr-22",
+      "kind": "pull-request",
+      "ref": "PR #22",
+      "ci_run": 35981467268,
+      "artifact_id": 10800700701
+    },
+    {
+      "skill_id": "visual.qa",
+      "evidence_id": "pr-24",
+      "kind": "pull-request",
+      "ref": "PR #24",
+      "ci_run": 35981882313,
+      "artifact_id": 10800273531
+    },
+    {
+      "skill_id": "agent.factory",
+      "evidence_id": "issue-25",
+      "kind": "architecture-task",
+      "ref": "Issue #25",
+      "status": "in-progress"
+    }
+  ]
+}
