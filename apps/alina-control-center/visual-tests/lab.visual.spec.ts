@@ -17,6 +17,7 @@ for (const viewport of viewports) {
     await expect(page.getByRole("heading", { name: "Workspace Engine" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Information Stream Engine" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Visualization Engine" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Avatar Engine" })).toBeVisible();
 
     await page.screenshot({
       path: testInfo.outputPath(`alina-${viewport.name}.png`),
@@ -36,11 +37,11 @@ test("keyboard navigation exposes visible focus", async ({ page }) => {
   expect(outlineStyle).not.toBe("none");
 });
 
-test("reduced-motion disables decorative orbit animation", async ({ page }) => {
+test("reduced-motion disables decorative avatar animation", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
 
-  const orbit = page.locator(".avatar-orbit").first();
+  const orbit = page.locator(".avatar-stage-orbit").first();
   await expect(orbit).toBeVisible();
 
   const animationName = await orbit.evaluate((element) => getComputedStyle(element).animationName);
@@ -131,4 +132,35 @@ test("visualization engine keeps an exact-value fallback available", async ({ pa
   await viz.getByRole("button", { name: "table", exact: true }).click();
   await expect(viz.getByRole("table")).toBeVisible();
   await expect(viz.getByRole("cell", { name: "92%" })).toBeVisible();
+});
+
+test("avatar mode changes preserve task and attention state", async ({ page }) => {
+  await page.goto("/");
+
+  const avatar = page.locator(".avatar-lab");
+  const stage = avatar.locator(".avatar-stage");
+
+  await expect(stage).toHaveAttribute("data-avatar-mode", "hologram");
+  await expect(avatar.getByText("M0.6", { exact: true })).toBeVisible();
+  await expect(avatar.getByText("Knowledge Graph", { exact: true }).first()).toBeVisible();
+
+  await avatar.getByRole("button", { name: "voice-only", exact: true }).click();
+
+  await expect(stage).toHaveAttribute("data-avatar-mode", "voice-only");
+  await expect(avatar.getByText("M0.6", { exact: true })).toBeVisible();
+  await expect(avatar.getByText("Knowledge Graph", { exact: true }).first()).toBeVisible();
+});
+
+test("avatar renderer negotiation falls back without losing persona state", async ({ page }) => {
+  await page.goto("/");
+
+  const avatar = page.locator(".avatar-lab");
+  const stage = avatar.locator(".avatar-stage");
+
+  await avatar.getByRole("button", { name: "hologram", exact: true }).click();
+  await avatar.getByRole("button", { name: "Accessible 2D", exact: true }).click();
+
+  await expect(stage).toHaveAttribute("data-avatar-mode", "portrait");
+  await expect(avatar.getByText("DEGRADED", { exact: true })).toBeVisible();
+  await expect(avatar.getByText("ALINA", { exact: true }).first()).toBeVisible();
 });
