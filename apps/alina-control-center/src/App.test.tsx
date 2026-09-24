@@ -8,7 +8,7 @@ describe("ALINA Engineering Lab", () => {
 
     expect(html).toContain("ALINA Engineering Lab");
     expect(html).toContain("DEMO / MOCK");
-    expect(html).toContain("EXPERIMENT 004");
+    expect(html).toContain("EXPERIMENT 005");
   });
 
   it("renders the reusable information surfaces", () => {
@@ -16,7 +16,7 @@ describe("ALINA Engineering Lab", () => {
 
     expect(html).toContain("Glass / Glow / Depth");
     expect(html).toContain("Stream states");
-    expect(html).toContain("Avatar Engine slot");
+    expect(html).toContain("Identity state linked");
   });
 
   it("renders the M0.3 workspace modules from serializable state", () => {
@@ -46,5 +46,14 @@ describe("ALINA Engineering Lab", () => {
     expect(html).toContain("RECOMMENDATION");
     expect(html).toContain("ACCESSIBLE FALLBACK");
     expect(html).toContain("DEMO DATA");
+  });
+
+  it("renders the M0.6 avatar engine with renderer negotiation", () => {
+    const html = renderToStaticMarkup(<App />);
+
+    expect(html).toContain("Avatar Engine");
+    expect(html).toContain("DEMO BEHAVIOR");
+    expect(html).toContain("Knowledge Graph");
+    expect(html).toContain("native presentation");
   });
 });
