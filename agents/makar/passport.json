@@ -65,7 +65,7 @@
   "current_projects": [
     "alina-control-center"
   ],
-  "active_task": "M1.5",
+  "active_task": "M1.6",
   "known_constraints": [
     "No unlabeled mock data",
     "No monolithic screen architecture",
@@ -73,12 +73,12 @@
     "Cinematic effects require fallback tiers"
   ],
   "recent_lessons": [
+    "Requested avatar presence and resolved renderer capability must both be observable",
+    "Stable asset IDs let avatar renderers change without rewriting persona state",
     "Graph meaning must remain independent from renderer choice",
     "Workspace graph state is presentation state, not business payload",
     "Composition combines engine contracts without merging responsibilities",
-    "Cinematic features require Core fallback and quality evidence",
-    "Product scene grammar should precede product shell implementation",
-    "Frontend data contracts must expose provenance and runtime state before live backend integration"
+    "Cinematic features require Core fallback and quality evidence"
   ],
   "handoff_contracts": [
     "schemas/handoff.schema.json"
