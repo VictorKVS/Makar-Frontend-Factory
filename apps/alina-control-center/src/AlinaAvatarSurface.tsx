@@ -119,7 +119,10 @@ export function AlinaAvatarSurface({
       data-avatar-asset={plan.assetId ?? ""}
       data-avatar-degraded={String(plan.degraded)}
       data-avatar-motion={String(plan.motionEnabled)}
-      data-avatar-3d={String(plan.rendererId === "alina-webgl-cinematic")}
+      data-avatar-3d={String(
+        plan.rendererId === "alina-webgl-cinematic" &&
+          plan.resolvedMode === "hologram"
+      )}
     >
       <div className="alina-avatar-rings" aria-hidden="true">
         <span /><span /><span />
