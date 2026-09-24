@@ -1,0 +1,55 @@
+{
+  "taskId": "M1.8",
+  "projectId": "alina-control-center",
+  "title": "ALINA v1 release candidate hardening",
+  "goal": "Collect real runtime quality evidence, harden runtime configuration/failure boundaries and compute a truthful frontend release-candidate status.",
+  "why": "M1.7 hard gates passed but release readiness remained conditional because runtime metrics were unknown.",
+  "priority": "critical",
+  "domains": [
+    "quality",
+    "data-gateway",
+    "scene",
+    "frontend",
+    "release"
+  ],
+  "explicitKnowledgeRefs": [
+    "makar.qa.unknown_is_not_pass",
+    "makar.data.no_silent_demo_fallback"
+  ],
+  "constraints": [
+    "no synthetic runtime metric passes",
+    "live mode must never silently fall back to DEMO",
+    "runtime measurements must record browser/environment provenance",
+    "Core remains release fallback",
+    "renderer failures must not crash product state"
+  ],
+  "deliverables": [
+    "@father/runtime-quality",
+    "runtime quality browser collector",
+    "explicit runtime data configuration",
+    "application error boundary",
+    "Playwright runtime-quality report",
+    "release readiness evaluator",
+    "release manifest",
+    "known limitations",
+    "RESULT.md"
+  ],
+  "acceptanceCriteria": [
+    "LCP/CLS/interaction responsiveness/long-task/frame-time are measured or explicitly unresolved",
+    "live config without API is unavailable, never demo",
+    "runtime quality report contains environment provenance",
+    "release status is computed from evidence",
+    "fatal render failure has user-visible boundary",
+    "CI uploads runtime and release reports"
+  ],
+  "testContract": [
+    "pnpm typecheck",
+    "pnpm test",
+    "pnpm build",
+    "pnpm quality:budget",
+    "pnpm validate:alina-shell",
+    "pnpm validate:alina-acceptance",
+    "Playwright runtime measurement",
+    "pnpm evaluate:alina-release"
+  ]
+}
