@@ -1,4 +1,12 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  createDemoGateway,
+  createDemoScenarioEnvelope,
+  type DataEnvelope,
+  type DataGateway,
+  type GatewayScenarioId,
+  type ScenarioSnapshot,
+} from "@father/data-gateway";
 import {
   Badge,
   Button,
@@ -20,29 +28,15 @@ const scenarioLabels: Record<ScenarioId, string> = {
   focus: "Focus",
 };
 
-const scenarioTitles: Record<ScenarioId, string> = {
-  research: "Исследование связей и доказательств",
-  coding: "Разработка и проверка изменений",
-  security: "Оперативная картина безопасности",
-  presentation: "Подача выводов и визуальная история",
-  focus: "Один объект. Никакого лишнего шума.",
-};
-
-const primaryDescriptions: Record<string, string> = {
-  "knowledge-graph": "Факты, документы, сущности и гипотезы в одной причинно-связной модели.",
-  editor: "Код, контекст задачи и результат проверок в одном рабочем контуре.",
-  "security-graph": "Активы, угрозы, события и критические связи с приоритетом внимания.",
-  visualization: "Один крупный визуальный тезис с минимальным интерфейсным шумом.",
-  "document-or-editor": "Сфокусированная работа с одним документом или задачей.",
-};
-
-const demoNodes = [
-  { id: "fact", label: "Факт", x: 18, y: 47 },
-  { id: "source", label: "Источник", x: 42, y: 25 },
-  { id: "entity", label: "Сущность", x: 64, y: 48 },
-  { id: "hypothesis", label: "Гипотеза", x: 45, y: 72 },
-  { id: "control", label: "Контроль", x: 79, y: 73 },
+const graphPositions = [
+  { x: 18, y: 47 },
+  { x: 42, y: 25 },
+  { x: 64, y: 48 },
+  { x: 45, y: 72 },
+  { x: 79, y: 73 },
 ];
+
+const defaultGateway = createDemoGateway();
 
 function resolveAvatar(requested: string, tier: PerformanceTier): string {
   if (requested === "hidden") return "hidden";
@@ -53,59 +47,82 @@ function resolveAvatar(requested: string, tier: PerformanceTier): string {
   return requested;
 }
 
+function provenanceLabel(origin: DataEnvelope<unknown>["provenance"]["origin"]): string {
+  if (origin === "demo") return "DEMO / MOCK";
+  return origin.toUpperCase();
+}
+
+function loadingEnvelope(): DataEnvelope<ScenarioSnapshot> {
+  const now = new Date().toISOString();
+  return {
+    state: "loading",
+    data: null,
+    provenance: {
+      origin: "unavailable",
+      sourceId: "pending-gateway",
+      observedAt: null,
+      receivedAt: now,
+    },
+  };
+}
+
 function PrimarySurface({
   scenarioId,
-  primary,
+  snapshot,
 }: {
   scenarioId: ScenarioId;
-  primary: string;
+  snapshot: ScenarioSnapshot;
 }) {
+  const primary = snapshot.primary;
+
   if (scenarioId === "coding") {
     return (
       <div className="alina-code-surface">
         <div className="alina-code-tabs">
-          <span className="is-active">ProductShell.tsx</span>
+          <span className="is-active">{primary.content ?? "editor"}</span>
           <span>tests</span>
           <span>terminal</span>
         </div>
         <pre>{"const composition = alina.compose({\n  scenario: \"coding\",\n  primary: \"editor\",\n  attention: \"focused\",\n  avatar: \"compact\"\n});"}</pre>
         <div className="alina-terminal">
           <span>$ pnpm test</span>
-          <strong>✓ 48 checks passed · DEMO</strong>
+          <strong>{snapshot.secondary.find((item) => item.id === "tests")?.summary ?? "tests pending"}</strong>
         </div>
       </div>
     );
   }
 
   if (scenarioId === "security") {
+    const labels = primary.visualization?.data.map((item) => item.label) ?? [];
     return (
       <div className="alina-security-surface">
         <div className="alina-threat-orbit">
           <span className="threat-core">PRIMARY</span>
-          <span className="threat-node threat-node-a">Asset</span>
-          <span className="threat-node threat-node-b">Threat</span>
-          <span className="threat-node threat-node-c">Control</span>
-          <span className="threat-node threat-node-d">Alert</span>
+          <span className="threat-node threat-node-a">{labels[0] ?? "Asset"}</span>
+          <span className="threat-node threat-node-b">{labels[1] ?? "Threat"}</span>
+          <span className="threat-node threat-node-c">{labels[2] ?? "Control"}</span>
+          <span className="threat-node threat-node-d">{labels[3] ?? "Alert"}</span>
         </div>
         <div className="alina-security-strip">
           <Badge tone="danger">CRITICAL · DEMO</Badge>
-          <span>Контекст корреляции готов к анализу</span>
+          <span>{snapshot.alerts[0]?.summary ?? "Нет критических событий"}</span>
         </div>
       </div>
     );
   }
 
   if (scenarioId === "presentation") {
+    const confidence = primary.visualization?.data[0]?.value ?? 0;
     return (
       <div className="alina-presentation-surface">
         <div className="presentation-ring">
-          <strong>92%</strong>
+          <strong>{confidence}%</strong>
           <span>confidence · DEMO</span>
         </div>
         <div>
           <span className="eyebrow">PRIMARY NARRATIVE</span>
-          <h3>Связь подтверждена несколькими независимыми источниками</h3>
-          <p>Сцена очищена от вторичных потоков и оставляет только тезис, доказательство и ALINA.</p>
+          <h3>{primary.title}</h3>
+          <p>{primary.description}</p>
         </div>
       </div>
     );
@@ -115,18 +132,14 @@ function PrimarySurface({
     return (
       <article className="alina-focus-document">
         <span className="eyebrow">FOCUS DOCUMENT · DEMO</span>
-        <h3>Рабочая гипотеза</h3>
-        <p>
-          Интерфейс удерживает один активный объект. Вторичные панели не исчезают из состояния,
-          но не конкурируют за внимание.
-        </p>
-        <blockquote>
-          Primary context remains stable while background work continues silently.
-        </blockquote>
+        <h3>{primary.title}</h3>
+        <p>{primary.description}</p>
+        <blockquote>{primary.content ?? "Primary context remains stable."}</blockquote>
       </article>
     );
   }
 
+  const nodes = primary.visualization?.data ?? [];
   return (
     <div className="alina-graph-surface" aria-label="DEMO knowledge graph">
       <svg className="alina-graph-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
@@ -136,21 +149,32 @@ function PrimarySurface({
         <line x1="45" y1="72" x2="64" y2="48" />
         <line x1="64" y1="48" x2="79" y2="73" />
       </svg>
-      {demoNodes.map((node) => (
+      {nodes.slice(0, graphPositions.length).map((node, index) => (
         <span
-          key={node.id}
-          className={"alina-graph-node alina-graph-node--" + node.id}
-          style={{ left: node.x + "%", top: node.y + "%" }}
+          key={node.label}
+          className={"alina-graph-node alina-graph-node--node-" + index}
+          style={{
+            left: graphPositions[index].x + "%",
+            top: graphPositions[index].y + "%",
+          }}
         >
           {node.label}
         </span>
       ))}
-      <span className="alina-graph-caption">{primaryDescriptions[primary]}</span>
+      <span className="alina-graph-caption">{primary.description}</span>
     </div>
   );
 }
 
-export function ProductShell() {
+export type ProductShellProps = {
+  gateway?: DataGateway;
+  initialEnvelope?: DataEnvelope<ScenarioSnapshot>;
+};
+
+export function ProductShell({
+  gateway = defaultGateway,
+  initialEnvelope,
+}: ProductShellProps = {}) {
   const scenarioIds = Object.keys(shellContract.scenarios) as ScenarioId[];
   const tierIds = Object.keys(shellContract.performance) as PerformanceTier[];
 
@@ -158,20 +182,60 @@ export function ProductShell() {
   const [tier, setTier] = useState<PerformanceTier>("cinematic");
   const [command, setCommand] = useState("");
   const [lastCommand, setLastCommand] = useState("Готова к работе");
+  const [envelope, setEnvelope] = useState<DataEnvelope<ScenarioSnapshot>>(
+    () =>
+      initialEnvelope ??
+      (gateway.id === "demo"
+        ? createDemoScenarioEnvelope("research")
+        : loadingEnvelope())
+  );
+  const requestSequence = useRef(0);
 
   const scenario = shellContract.scenarios[scenarioId];
+  const snapshot = envelope.data;
   const avatarMode = useMemo(
     () => resolveAvatar(scenario.avatar, tier),
     [scenario.avatar, tier]
   );
 
+  useEffect(() => {
+    let active = true;
+
+    if (gateway.id !== "demo") {
+      setEnvelope((current) => ({
+        ...current,
+        state: "loading",
+      }));
+    }
+
+    void gateway.loadScenario(scenarioId as GatewayScenarioId).then((next) => {
+      if (active) setEnvelope(next);
+    });
+
+    return () => {
+      active = false;
+    };
+  }, [gateway, scenarioId]);
+
+  const chooseScenario = (id: ScenarioId) => {
+    setScenarioId(id);
+    if (gateway.id === "demo") {
+      setEnvelope(createDemoScenarioEnvelope(id as GatewayScenarioId));
+    }
+  };
+
+  const primaryModule = snapshot?.primary.module ?? scenario.primary;
+  const projectTitle = snapshot?.projectTitle ?? "ALINA Control Center";
+
   return (
     <main
       className="alina-product-shell"
       data-scenario={scenarioId}
-      data-primary-module={scenario.primary}
+      data-primary-module={primaryModule}
       data-avatar-presence={avatarMode}
       data-performance-tier={tier}
+      data-provenance-origin={envelope.provenance.origin}
+      data-data-state={envelope.state}
     >
       <div className="alina-ambient" aria-hidden="true">
         <div className="ambient-grid" />
@@ -189,8 +253,13 @@ export function ProductShell() {
         </div>
 
         <div className="alina-topbar-center">
-          <span className="alina-project-name">Makar Frontend Factory</span>
-          <Badge tone="warning">DEMO / MOCK</Badge>
+          <span className="alina-project-name">{projectTitle}</span>
+          <Badge tone={envelope.provenance.origin === "live" ? "success" : "warning"}>
+            {provenanceLabel(envelope.provenance.origin)}
+          </Badge>
+          <Badge tone={envelope.state === "ready" ? "success" : envelope.state === "stale" ? "warning" : "neutral"}>
+            {envelope.state.toUpperCase()}
+          </Badge>
         </div>
 
         <div className="alina-system-status">
@@ -221,7 +290,7 @@ export function ProductShell() {
             <Button
               key={id}
               variant={scenarioId === id ? "primary" : "ghost"}
-              onClick={() => setScenarioId(id)}
+              onClick={() => chooseScenario(id)}
               aria-pressed={scenarioId === id}
             >
               {scenarioLabels[id]}
@@ -234,20 +303,29 @@ export function ProductShell() {
             <div className="alina-plane-heading">
               <div>
                 <span className="eyebrow">PRIMARY WORK PLANE</span>
-                <h2>{scenarioTitles[scenarioId]}</h2>
-                <p>{primaryDescriptions[scenario.primary]}</p>
+                <h2>{snapshot?.primary.title ?? "Загрузка контекста…"}</h2>
+                <p>{snapshot?.primary.description ?? "Ожидание источника данных."}</p>
               </div>
-              <Badge tone="info">{scenario.primary}</Badge>
+              <Badge tone="info">{primaryModule}</Badge>
             </div>
 
-            <PrimarySurface scenarioId={scenarioId} primary={scenario.primary} />
+            {snapshot ? (
+              <PrimarySurface scenarioId={scenarioId} snapshot={snapshot} />
+            ) : (
+              <div className="alina-data-state">
+                <strong>{envelope.state}</strong>
+                <span>{envelope.error?.message ?? "Источник пока не предоставил данные."}</span>
+              </div>
+            )}
 
             <div className="alina-reason-trace">
               <span className="eyebrow">COMPOSITION TRACE</span>
               <code>{scenario.reason}</code>
-              <code>{"primary:" + scenario.primary}</code>
+              <code>{"primary:" + primaryModule}</code>
               <code>{"tier:" + tier}</code>
               <code>{"avatar:" + avatarMode}</code>
+              <code>{"source:" + envelope.provenance.origin}</code>
+              <code>{"state:" + envelope.state}</code>
             </div>
           </GlassPanel>
 
@@ -258,17 +336,19 @@ export function ProductShell() {
                   <span className="eyebrow">SECONDARY CONTEXT</span>
                   <h3>Контекст задачи</h3>
                 </div>
-                <Badge tone="neutral">{scenario.secondary.length}</Badge>
+                <Badge tone="neutral">{snapshot?.secondary.length ?? 0}</Badge>
               </div>
               <div className="alina-context-list">
-                {scenario.secondary.length ? scenario.secondary.map((item) => (
-                  <div key={item}>
+                {snapshot?.secondary.length ? snapshot.secondary.map((item) => (
+                  <div key={item.id}>
                     <span className="context-dot" aria-hidden="true" />
-                    <strong>{item}</strong>
-                    <small>available · DEMO</small>
+                    <strong>{item.title}</strong>
+                    <small>{item.summary ?? item.kind} · {envelope.provenance.origin.toUpperCase()}</small>
                   </div>
                 )) : (
-                  <p className="alina-empty-context">Скрыто режимом фокуса</p>
+                  <p className="alina-empty-context">
+                    {envelope.state === "loading" ? "Загрузка…" : "Нет вторичного контекста"}
+                  </p>
                 )}
               </div>
             </GlassPanel>
@@ -280,13 +360,13 @@ export function ProductShell() {
                   <h3>Attention budget</h3>
                 </div>
               </div>
-              <div className="alina-stream-row"><Badge tone="info">PRIMARY</Badge><span>{scenario.primary}</span></div>
-              <div className="alina-stream-row"><Badge tone="neutral">BACKGROUND</Badge><span>{scenario.background.join(" · ") || "suppressed"}</span></div>
+              <div className="alina-stream-row"><Badge tone="info">PRIMARY</Badge><span>{primaryModule}</span></div>
+              <div className="alina-stream-row"><Badge tone="neutral">BACKGROUND</Badge><span>{snapshot?.background.map((item) => item.title).join(" · ") || "suppressed"}</span></div>
               <div className="alina-stream-row">
-                <Badge tone={scenario.alerts.some((item) => item.includes("critical")) ? "danger" : "warning"}>ALERT</Badge>
-                <span>{scenario.alerts.join(" · ")}</span>
+                <Badge tone={snapshot?.alerts.some((item) => item.severity === "critical") ? "danger" : "warning"}>ALERT</Badge>
+                <span>{snapshot?.alerts.map((item) => item.title).join(" · ") || "none"}</span>
               </div>
-              <div className="alina-stream-row"><Badge tone="success">AGENT</Badge><span>{scenario.agent_activity}</span></div>
+              <div className="alina-stream-row"><Badge tone="success">AGENT</Badge><span>{snapshot?.agentActivity.map((item) => item.agentId + ":" + item.status).join(" · ") || "hidden"}</span></div>
             </GlassPanel>
           </aside>
 
@@ -318,11 +398,11 @@ export function ProductShell() {
           </aside>
         </section>
 
-        {scenarioId === "security" ? (
+        {snapshot?.alerts.some((item) => item.severity === "critical") ? (
           <div className="alina-alert-overlay" role="status">
-            <Badge tone="danger">CRITICAL · DEMO</Badge>
-            <strong>Security stream requests interruption</strong>
-            <span>Only qualifying alerts may cross the primary attention boundary.</span>
+            <Badge tone="danger">CRITICAL · {envelope.provenance.origin.toUpperCase()}</Badge>
+            <strong>{snapshot.alerts.find((item) => item.severity === "critical")?.title}</strong>
+            <span>{snapshot.alerts.find((item) => item.severity === "critical")?.summary}</span>
           </div>
         ) : null}
 
@@ -346,8 +426,23 @@ export function ProductShell() {
             onSubmitCommand={(value) => {
               const trimmed = value.trim();
               if (!trimmed) return;
-              setLastCommand(trimmed);
+
+              requestSequence.current += 1;
+              const requestId = "ui-" + requestSequence.current;
+              setLastCommand("Отправка " + requestId + "…");
               setCommand("");
+
+              void gateway.submitCommand({
+                text: trimmed,
+                scenarioId: scenarioId as GatewayScenarioId,
+                requestId,
+              }).then((result) => {
+                if (result.data) {
+                  setLastCommand(result.data.message + " · " + result.data.correlationId);
+                } else {
+                  setLastCommand(result.error?.message ?? "Команда не принята");
+                }
+              });
             }}
             placeholder="Спросите ALINA или поставьте задачу агенту…"
             startSlot={<span aria-hidden="true">✦</span>}

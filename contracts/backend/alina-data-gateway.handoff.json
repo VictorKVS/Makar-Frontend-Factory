@@ -1,0 +1,55 @@
+{
+  "from": "makar",
+  "to": "backend-agent",
+  "artifact": "ALINA Frontend Data Gateway v1",
+  "status": "ready",
+  "version": "1.0.0",
+  "source_refs": [
+    "packages/data-gateway/src/types.ts",
+    "issues/31"
+  ],
+  "contract": {
+    "http": {
+      "scenario": {
+        "method": "GET",
+        "path_template": "/api/v1/alina/scenarios/{scenarioId}",
+        "response": "DataEnvelope<ScenarioSnapshot>"
+      },
+      "command": {
+        "method": "POST",
+        "path": "/api/v1/alina/commands",
+        "request": "CommandRequest",
+        "response": "DataEnvelope<CommandResult>"
+      }
+    },
+    "realtime": {
+      "events": [
+        "stream.updated",
+        "alert.created",
+        "alert.acknowledged",
+        "agent.activity",
+        "project.updated"
+      ],
+      "envelope": "RealtimeEvent<T>"
+    },
+    "required_provenance": [
+      "origin",
+      "sourceId",
+      "observedAt",
+      "receivedAt"
+    ],
+    "required_runtime_states": [
+      "loading",
+      "ready",
+      "empty",
+      "stale",
+      "error",
+      "offline"
+    ],
+    "correlation": {
+      "commands": "requestId -> correlationId",
+      "required": true
+    }
+  },
+  "ui_expectation": "Backend responses must not decide visual priority or renderer choice. Frontend Stream/Visualization/Composition engines retain those responsibilities."
+}

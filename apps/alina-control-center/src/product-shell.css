@@ -851,3 +851,32 @@
     display: none;
   }
 }
+
+
+.alina-data-state {
+  min-height: 260px;
+  margin: 16px 0;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  border: 1px dashed var(--father-theme-colors-border-strong);
+  border-radius: 18px;
+  color: var(--father-theme-colors-text-secondary);
+  text-align: center;
+}
+
+.alina-data-state strong {
+  color: var(--father-theme-colors-warning);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.alina-product-shell[data-data-state="offline"] .alina-primary-plane,
+.alina-product-shell[data-data-state="error"] .alina-primary-plane {
+  border-color: color-mix(in srgb, var(--father-theme-colors-danger) 55%, transparent);
+}
+
+.alina-product-shell[data-data-state="stale"] .alina-primary-plane {
+  border-color: color-mix(in srgb, var(--father-theme-colors-warning) 55%, transparent);
+}

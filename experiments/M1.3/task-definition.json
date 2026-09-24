@@ -1,0 +1,52 @@
+{
+  "taskId": "M1.3",
+  "projectId": "alina-control-center",
+  "title": "ALINA real information streams and frontend data gateway",
+  "goal": "Separate ProductShell business data from transport/source implementation and make provenance/runtime state explicit.",
+  "why": "M1.2 created the product shell; M1.3 prepares it for real ALINA/FATHER services without disguising demo data as live data.",
+  "priority": "high",
+  "domains": [
+    "information-streams",
+    "frontend",
+    "quality",
+    "composition"
+  ],
+  "explicitKnowledgeRefs": [
+    "makar.stream.semantic_priority",
+    "makar.stream.agent_distinction",
+    "makar.composition.engines_remain_independent"
+  ],
+  "constraints": [
+    "Makar owns frontend contracts, not backend implementation",
+    "Every payload has provenance",
+    "DEMO and synthetic data are explicit",
+    "Runtime loading/ready/empty/stale/error/offline states are representable",
+    "Transport does not own attention priority",
+    "Command requests are correlatable"
+  ],
+  "deliverables": [
+    "@father/data-gateway",
+    "demo adapter",
+    "HTTP adapter contract",
+    "realtime adapter contract",
+    "backend handoff",
+    "ProductShell integration",
+    "tests",
+    "RESULT.md"
+  ],
+  "acceptanceCriteria": [
+    "ProductShell can consume a gateway snapshot",
+    "Demo mode is explicit",
+    "HTTP transport can be replaced without component rewrite",
+    "offline/stale states are testable",
+    "backend handoff exists",
+    "current visual and performance QA remain green"
+  ],
+  "testContract": [
+    "data-gateway unit tests",
+    "ProductShell DEMO provenance assertion",
+    "offline adapter assertion",
+    "command correlation assertion",
+    "existing product visual QA"
+  ]
+}

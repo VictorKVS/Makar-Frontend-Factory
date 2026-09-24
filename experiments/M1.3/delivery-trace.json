@@ -1,0 +1,57 @@
+{
+  "delivery_id": "delivery:makar:M1.3:v1",
+  "agent_id": "makar",
+  "task_id": "M1.3",
+  "project_id": "alina-control-center",
+  "selection_policy": "bounded-role-aware-context-v1",
+  "selected_knowledge": [
+    {
+      "id": "makar.stream.semantic_priority",
+      "reasons": [
+        "explicit-ref",
+        "domain-match",
+        "project-match"
+      ]
+    },
+    {
+      "id": "makar.stream.agent_distinction",
+      "reasons": [
+        "explicit-ref",
+        "domain-match",
+        "project-match"
+      ]
+    },
+    {
+      "id": "makar.composition.engines_remain_independent",
+      "reasons": [
+        "explicit-ref",
+        "domain-match",
+        "project-match"
+      ]
+    },
+    {
+      "id": "makar.stream.attention_budget",
+      "reasons": [
+        "domain-match",
+        "project-match"
+      ]
+    },
+    {
+      "id": "makar.stream.interruption_policy",
+      "reasons": [
+        "domain-match",
+        "project-match"
+      ]
+    },
+    {
+      "id": "makar.types.fixture_required_fields",
+      "reasons": [
+        "quality-lesson",
+        "project-match"
+      ]
+    }
+  ],
+  "bounded": true,
+  "full_library_dump": false,
+  "previous_task_input": "experiments/M1.2/RESULT.md"
+}
