@@ -65,7 +65,7 @@
   "current_projects": [
     "alina-control-center"
   ],
-  "active_task": "M1.4",
+  "active_task": "M1.5",
   "known_constraints": [
     "No unlabeled mock data",
     "No monolithic screen architecture",

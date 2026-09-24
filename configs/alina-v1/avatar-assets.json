@@ -1,0 +1,58 @@
+{
+  "id": "alina-avatar-assets-v1",
+  "version": "1.0.0",
+  "identity": "alina",
+  "bindings": {
+    "hidden": null,
+    "voice-only": "asset:alina:voice:v1",
+    "compact": "asset:alina:portrait:v1",
+    "portrait": "asset:alina:portrait:v1",
+    "bust": "asset:alina:bust:v1",
+    "full": "asset:alina:full:v1",
+    "hologram": "asset:alina:hologram:v1"
+  },
+  "assets": [
+    {
+      "id": "asset:alina:voice:v1",
+      "type": "audio",
+      "source": "runtime://alina-voice",
+      "version": "1",
+      "license": "project-owned",
+      "required": false
+    },
+    {
+      "id": "asset:alina:portrait:v1",
+      "type": "image",
+      "source": "renderer://dom/alina-portrait",
+      "version": "1",
+      "license": "project-owned",
+      "required": false
+    },
+    {
+      "id": "asset:alina:bust:v1",
+      "type": "image",
+      "source": "renderer://dom/alina-bust",
+      "version": "1",
+      "license": "project-owned",
+      "required": false
+    },
+    {
+      "id": "asset:alina:full:v1",
+      "type": "image",
+      "source": "renderer://dom/alina-full",
+      "version": "1",
+      "license": "project-owned",
+      "required": false
+    },
+    {
+      "id": "asset:alina:hologram:v1",
+      "type": "model",
+      "source": "adapter://future-webgl/alina-hologram",
+      "version": "1",
+      "license": "project-owned",
+      "required": false,
+      "status": "adapter-not-installed"
+    }
+  ],
+  "note": "Current production adapter renders Core/Enhanced presence in DOM/CSS. Hologram mode may be requested and shown as a degraded proxy until M1.6 installs the cinematic scene/WebGL adapter."
+}

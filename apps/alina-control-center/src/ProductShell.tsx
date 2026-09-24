@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import type { AvatarActivity, AvatarPresenceMode } from "@father/avatar-engine";
 import {
   createDemoGateway,
   createDemoScenarioEnvelope,
@@ -16,6 +17,8 @@ import {
 } from "@father/ui";
 import shellContract from "../../../configs/alina-v1/product-shell.contract.json";
 import { KnowledgeGraphWorkspace } from "./KnowledgeGraphWorkspace";
+import { AlinaAvatarSurface } from "./AlinaAvatarSurface";
+import { resolveProductAvatarMode } from "./alina-avatar-runtime";
 import "./product-shell.css";
 
 type ScenarioId = keyof typeof shellContract.scenarios;
@@ -38,15 +41,6 @@ const graphPositions = [
 ];
 
 const defaultGateway = createDemoGateway();
-
-function resolveAvatar(requested: string, tier: PerformanceTier): string {
-  if (requested === "hidden") return "hidden";
-  if (tier === "core") return requested === "voice-only" ? "voice-only" : "portrait";
-  if (tier === "enhanced" && (requested === "hologram" || requested === "full")) {
-    return "bust";
-  }
-  return requested;
-}
 
 function provenanceLabel(origin: DataEnvelope<unknown>["provenance"]["origin"]): string {
   if (origin === "demo") return "DEMO / MOCK";
@@ -194,6 +188,7 @@ export function ProductShell({
   const [tier, setTier] = useState<PerformanceTier>("cinematic");
   const [command, setCommand] = useState("");
   const [lastCommand, setLastCommand] = useState("Готова к работе");
+  const [avatarActivity, setAvatarActivity] = useState<AvatarActivity>("idle");
   const [envelope, setEnvelope] = useState<DataEnvelope<ScenarioSnapshot>>(
     () =>
       initialEnvelope ??
@@ -206,7 +201,11 @@ export function ProductShell({
   const scenario = shellContract.scenarios[scenarioId];
   const snapshot = envelope.data;
   const avatarMode = useMemo(
-    () => resolveAvatar(scenario.avatar, tier),
+    () =>
+      resolveProductAvatarMode(
+        scenario.avatar as AvatarPresenceMode,
+        tier
+      ),
     [scenario.avatar, tier]
   );
 
@@ -231,6 +230,7 @@ export function ProductShell({
 
   const chooseScenario = (id: ScenarioId) => {
     setScenarioId(id);
+    setAvatarActivity("idle");
     if (gateway.id === "demo") {
       setEnvelope(createDemoScenarioEnvelope(id as GatewayScenarioId));
     }
@@ -245,6 +245,7 @@ export function ProductShell({
       data-scenario={scenarioId}
       data-primary-module={primaryModule}
       data-avatar-presence={avatarMode}
+      data-avatar-activity={avatarActivity}
       data-performance-tier={tier}
       data-provenance-origin={envelope.provenance.origin}
       data-data-state={envelope.state}
@@ -390,27 +391,15 @@ export function ProductShell({
             className={"alina-avatar-plane avatar-" + avatarMode}
             aria-label={avatarMode === "hidden" ? "ALINA hidden" : "ALINA " + avatarMode}
           >
-            {avatarMode === "hidden" ? (
-              <div className="alina-avatar-hidden">
-                <span className="eyebrow">ALINA PRESENCE</span>
-                <strong>hidden</strong>
-                <small>state retained</small>
-              </div>
-            ) : (
-              <>
-                <div className="alina-avatar-rings" aria-hidden="true"><span /><span /><span /></div>
-                <div className="alina-avatar-figure">
-                  <div className="alina-avatar-head" />
-                  <div className="alina-avatar-body" />
-                  <strong>ALINA</strong>
-                  <span>{avatarMode}</span>
-                </div>
-                <div className="alina-avatar-message">
-                  <span className="eyebrow">PRESENCE</span>
-                  <p>{scenarioLabels[scenarioId]} mode. {lastCommand}</p>
-                </div>
-              </>
-            )}
+            <AlinaAvatarSurface
+              requestedMode={scenario.avatar as AvatarPresenceMode}
+              tier={tier}
+              activity={avatarActivity}
+              taskId={scenarioId}
+              contextRef={primaryModule}
+              attentionLabel={snapshot?.primary.title ?? primaryModule}
+              message={scenarioLabels[scenarioId] + " mode. " + lastCommand}
+            />
           </aside>
         </section>
 
@@ -439,6 +428,13 @@ export function ProductShell({
           <CommandBar
             value={command}
             onValueChange={setCommand}
+            inputProps={{
+              onFocus: () => setAvatarActivity("listening"),
+              onBlur: () =>
+                setAvatarActivity((current) =>
+                  current === "listening" ? "idle" : current
+                ),
+            }}
             onSubmitCommand={(value) => {
               const trimmed = value.trim();
               if (!trimmed) return;
@@ -446,6 +442,7 @@ export function ProductShell({
               requestSequence.current += 1;
               const requestId = "ui-" + requestSequence.current;
               setLastCommand("Отправка " + requestId + "…");
+              setAvatarActivity("thinking");
               setCommand("");
 
               void gateway.submitCommand({
@@ -455,8 +452,10 @@ export function ProductShell({
               }).then((result) => {
                 if (result.data) {
                   setLastCommand(result.data.message + " · " + result.data.correlationId);
+                  setAvatarActivity("speaking");
                 } else {
                   setLastCommand(result.error?.message ?? "Команда не принята");
+                  setAvatarActivity("speaking");
                 }
               });
             }}

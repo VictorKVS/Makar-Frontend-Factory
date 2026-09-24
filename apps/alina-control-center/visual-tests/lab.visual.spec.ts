@@ -64,6 +64,11 @@ test("scenario switching changes primary context and avatar presence", async ({ 
   await expect(shell).toHaveAttribute("data-scenario", "presentation");
   await expect(shell).toHaveAttribute("data-primary-module", "visualization");
   await expect(shell).toHaveAttribute("data-avatar-presence", "hologram");
+  const presentationAvatar = shell.locator(".alina-avatar-surface");
+  await expect(presentationAvatar).toHaveAttribute("data-avatar-requested", "hologram");
+  await expect(presentationAvatar).toHaveAttribute("data-avatar-resolved", "hologram");
+  await expect(presentationAvatar).toHaveAttribute("data-avatar-degraded", "true");
+  await expect(presentationAvatar.getByText("missing:3d", { exact: true })).toBeVisible();
   await page.screenshot({
     path: testInfo.outputPath("alina-presentation.png"),
     fullPage: true,
@@ -90,6 +95,10 @@ test("Core performance tier preserves the task and degrades avatar presentation"
   await expect(shell).toHaveAttribute("data-performance-tier", "core");
   await expect(shell).toHaveAttribute("data-primary-module", "visualization");
   await expect(shell).toHaveAttribute("data-avatar-presence", "portrait");
+  const avatar = shell.locator(".alina-avatar-surface");
+  await expect(avatar).toHaveAttribute("data-avatar-resolved", "portrait");
+  await expect(avatar).toHaveAttribute("data-avatar-renderer", "alina-dom-core");
+  await expect(avatar).toHaveAttribute("data-avatar-degraded", "true");
   await expect(shell.getByText("PRIMARY NARRATIVE", { exact: true })).toBeVisible();
 });
 
@@ -110,10 +119,15 @@ test("command plane preserves semantic interaction", async ({ page }) => {
   const shell = page.locator(".alina-product-shell");
   const input = shell.getByPlaceholder("Спросите ALINA или поставьте задачу агенту…");
 
+  await input.focus();
+  await expect(shell).toHaveAttribute("data-avatar-activity", "listening");
+
   await input.fill("Проверь контекст проекта");
   await shell.getByRole("button", { name: "Отправить", exact: true }).click();
 
   await expect(shell.getByText(/Research mode. DEMO command accepted · demo:ui-1/)).toBeVisible();
+  await expect(shell).toHaveAttribute("data-avatar-activity", "speaking");
+  await expect(shell.locator(".alina-avatar-surface")).toHaveAttribute("data-avatar-activity", "speaking");
 });
 
 test("engineering diagnostics stay available without becoming the homepage", async ({ page }) => {
@@ -177,4 +191,25 @@ test("Research Knowledge Graph supports inspect, focus and accessible fallback",
   await workspace.getByRole("button", { name: "Accessible list", exact: true }).click();
   await expect(workspace).toHaveAttribute("data-graph-mode", "list");
   await expect(workspace.getByText("supports", { exact: true })).toBeVisible();
+});
+
+
+test("avatar renderer adapter preserves scenario intent and stable asset identity", async ({ page }) => {
+  await page.goto("/");
+
+  const shell = page.locator(".alina-product-shell");
+  const avatar = shell.locator(".alina-avatar-surface");
+
+  await expect(avatar).toHaveAttribute("data-avatar-requested", "bust");
+  await expect(avatar).toHaveAttribute("data-avatar-resolved", "bust");
+  await expect(avatar).toHaveAttribute("data-avatar-asset", "asset:alina:bust:v1");
+
+  await shell.getByRole("button", { name: "Coding", exact: true }).click();
+  await expect(avatar).toHaveAttribute("data-avatar-requested", "compact");
+  await expect(avatar).toHaveAttribute("data-avatar-resolved", "compact");
+  await expect(avatar).toHaveAttribute("data-avatar-asset", "asset:alina:portrait:v1");
+
+  await shell.getByRole("button", { name: "Focus", exact: true }).click();
+  await expect(avatar).toHaveAttribute("data-avatar-resolved", "hidden");
+  await expect(avatar.getByText("state retained", { exact: true })).toBeVisible();
 });
