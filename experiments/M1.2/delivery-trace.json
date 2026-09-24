@@ -1,0 +1,79 @@
+{
+  "delivery_id": "delivery:makar:M1.2:v1",
+  "agent_id": "makar",
+  "task_id": "M1.2",
+  "project_id": "alina-control-center",
+  "repository": "VictorKVS/Makar-Frontend-Factory",
+  "source_contract": "configs/alina-v1/product-shell.contract.json",
+  "selection_policy": "bounded-role-aware-context-v1",
+  "selected_knowledge": [
+    {
+      "id": "makar.composition.engines_remain_independent",
+      "score": 2.425,
+      "reasons": [
+        "explicit-ref",
+        "domain-match",
+        "project-match",
+        "skill-K1"
+      ]
+    },
+    {
+      "id": "makar.composition.reason_trace",
+      "score": 2.418,
+      "reasons": [
+        "explicit-ref",
+        "domain-match",
+        "project-match",
+        "skill-K1"
+      ]
+    },
+    {
+      "id": "makar.avatar.capability_negotiation",
+      "score": 2.404,
+      "reasons": [
+        "explicit-ref",
+        "domain-match",
+        "project-match",
+        "skill-K1"
+      ]
+    },
+    {
+      "id": "makar.stream.attention_budget",
+      "score": 1.411,
+      "reasons": [
+        "domain-match",
+        "project-match",
+        "skill-K1"
+      ]
+    },
+    {
+      "id": "makar.workspace.state.presentation_separation",
+      "score": 1.425,
+      "reasons": [
+        "domain-match",
+        "project-match",
+        "skill-K1"
+      ]
+    },
+    {
+      "id": "makar.motion.reduced_motion",
+      "score": 1.408,
+      "reasons": [
+        "domain-match",
+        "project-match",
+        "skill-K1"
+      ]
+    },
+    {
+      "id": "makar.qa.change_impact_ui_assertions",
+      "score": 1.369,
+      "reasons": [
+        "domain-match",
+        "project-match",
+        "skill-K1"
+      ]
+    }
+  ],
+  "bounded": true,
+  "full_library_dump": false
+}
