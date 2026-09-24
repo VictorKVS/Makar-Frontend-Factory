@@ -54,7 +54,7 @@ test("scenario switching changes primary context and avatar presence", async ({ 
   await shell.getByRole("button", { name: "Security", exact: true }).click();
   await expect(shell).toHaveAttribute("data-scenario", "security");
   await expect(shell).toHaveAttribute("data-primary-module", "security-graph");
-  await expect(shell.getByText("Security stream requests interruption", { exact: true })).toBeVisible();
+  await expect(shell.locator(".alina-alert-overlay").getByText("Security stream requests interruption", { exact: true })).toBeVisible();
   await page.screenshot({
     path: testInfo.outputPath("alina-security.png"),
     fullPage: true,
