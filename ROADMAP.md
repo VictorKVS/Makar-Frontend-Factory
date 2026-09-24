@@ -17,10 +17,10 @@ M0 established the reusable frontend / interactive / game-ready foundation.
 
 ## M1 — ALINA + Agent Factory
 
-- [ ] M1.0 ALINA Agent Factory v0 — Makar reference implementation
-- [ ] M1.1 Visual decomposition of target ALINA concept
-- [ ] M1.2 Responsive product shell
-- [ ] M1.3 Real information streams
+- [x] M1.0 ALINA Agent Factory v0 — Makar reference implementation
+- [x] M1.1 Visual decomposition of target ALINA concept
+- [x] M1.2 Responsive product shell
+- [x] M1.3 Real information streams
 - [ ] M1.4 Knowledge graph workspace
 - [ ] M1.5 Production avatar integration
 - [ ] M1.6 Cinematic scene layer
