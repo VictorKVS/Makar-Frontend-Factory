@@ -245,3 +245,18 @@ test("QA lab exposes failing budgets and recommends core tier", async ({ page })
   await expect(qa.getByText("Quality budget failed", { exact: true })).toBeVisible();
   await expect(qa.locator('[data-gate-status="fail"]').first()).toBeVisible();
 });
+
+
+test("Agent Factory provisions bounded traceable context and routes feedback", async ({ page }) => {
+  await page.goto("/");
+
+  const factory = page.locator(".factory-lab");
+  await expect(factory.getByRole("heading", { name: "Makar Provisioning" })).toBeVisible();
+  await expect(factory).toHaveAttribute("data-selected-knowledge", "3");
+  await expect(factory.locator('[data-knowledge-id="makar.agent.traceability"]')).toBeVisible();
+
+  await factory.getByRole("button", { name: "Repository gap", exact: true }).click();
+
+  await expect(factory).toHaveAttribute("data-feedback-route", "repository-contract");
+  await expect(factory.getByRole("heading", { name: "repository-contract" })).toBeVisible();
+});
