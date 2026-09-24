@@ -4,6 +4,9 @@ import { alinaCinematicTokens, toCssVariables } from "@father/design-tokens";
 import "@father/ui/styles.css";
 import "./app.css";
 import { App } from "./App";
+import { installRuntimeQualityCollector } from "./runtime-quality-global";
+
+installRuntimeQualityCollector();
 
 const themeStyle = document.createElement("style");
 themeStyle.dataset.source = "father-design-tokens";
