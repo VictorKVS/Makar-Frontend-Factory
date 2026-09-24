@@ -22,7 +22,9 @@
     "react-dom": "^19.0.0",
     "@father/input-engine": "workspace:*",
     "@father/scene-engine": "workspace:*",
-    "@father/visual-qa": "workspace:*"
+    "@father/visual-qa": "workspace:*",
+    "@father/agent-factory-core": "workspace:*",
+    "@father/agent-context-core": "workspace:*"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
