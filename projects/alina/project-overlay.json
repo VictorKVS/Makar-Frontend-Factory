@@ -21,10 +21,11 @@
     "performance-tiered"
   ],
   "current_dependencies": [
-    "M1.0 — ALINA Agent Factory v0 merged"
+    "M1.0 — ALINA Agent Factory v0 merged",
+    "M1.1 — ALINA v1 scene grammar merged"
   ],
   "active_work": [
-    "Issue #27 — ALINA v1 visual decomposition and scene grammar"
+    "Issue #29 — ALINA v1 product shell implementation"
   ],
   "visual_target": "docs/ALINA_TARGET_V1.md"
 }
