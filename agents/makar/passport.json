@@ -65,7 +65,7 @@
   "current_projects": [
     "alina-control-center"
   ],
-  "active_task": "M1.1",
+  "active_task": "M1.2",
   "known_constraints": [
     "No unlabeled mock data",
     "No monolithic screen architecture",
@@ -75,7 +75,8 @@
   "recent_lessons": [
     "Separate stable professional knowledge from temporary project context",
     "Composition combines engine contracts without merging responsibilities",
-    "Cinematic features require Core fallback and quality evidence"
+    "Cinematic features require Core fallback and quality evidence",
+    "Product scene grammar should precede product shell implementation"
   ],
   "handoff_contracts": [
     "schemas/handoff.schema.json"
