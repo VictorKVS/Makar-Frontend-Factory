@@ -1,0 +1,19 @@
+{
+  "task_id": "M1.5",
+  "agent_id": "makar",
+  "project_id": "alina-control-center",
+  "delivery_id": "delivery:makar:M1.5:v1",
+  "knowledge_refs": [
+    "makar.avatar.state.renderer_independence",
+    "makar.avatar.capability_negotiation",
+    "makar.scene.asset.stable_ids",
+    "makar.scene.core_fallback",
+    "makar.composition.reason_trace",
+    "makar.qa.cinematic_evidence"
+  ],
+  "previous_result": "experiments/M1.4/RESULT.md",
+  "repository_contract": "repository-contract.json",
+  "product_contract": "configs/alina-v1/product-shell.contract.json",
+  "quality_budget": "quality-budget.json",
+  "boundary": "Avatar Engine owns persona/presentation state. Renderer adapter owns drawing. Scene assets are referenced by stable IDs. ProductShell selects scenario intent."
+}
