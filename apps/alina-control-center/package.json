@@ -17,6 +17,7 @@
     "@father/stream-engine": "workspace:*",
     "@father/visualization-engine": "workspace:*",
     "@father/avatar-engine": "workspace:*",
+    "@father/composition-engine": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
