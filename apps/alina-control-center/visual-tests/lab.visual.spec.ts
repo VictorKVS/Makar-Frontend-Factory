@@ -248,3 +248,87 @@ test("cinematic scene capability is truthful and Core disposes WebGL ownership",
   await expect(scene).toHaveAttribute("data-scene-3d", "false");
   await expect(shell).toHaveAttribute("data-cinematic-3d", "false");
 });
+
+
+test("M1.7 acceptance matrix keeps every scenario usable across all performance tiers", async ({ page }) => {
+  await page.goto("/");
+
+  const shell = page.locator(".alina-product-shell");
+  const scenarios = [
+    ["Research", "research", "knowledge-graph"],
+    ["Coding", "coding", "editor"],
+    ["Security", "security", "security-graph"],
+    ["Presentation", "presentation", "visualization"],
+    ["Focus", "focus", "document-or-editor"],
+  ] as const;
+
+  const tiers = ["core", "enhanced", "cinematic"] as const;
+
+  for (const tier of tiers) {
+    await shell.getByRole("button", { name: tier, exact: true }).click();
+    await expect(shell).toHaveAttribute("data-performance-tier", tier);
+
+    for (const [label, scenarioId, primary] of scenarios) {
+      await shell.getByRole("button", { name: label, exact: true }).click();
+
+      await expect(shell).toHaveAttribute("data-scenario", scenarioId);
+      await expect(shell).toHaveAttribute("data-primary-module", primary);
+      await expect(shell).toHaveAttribute("data-provenance-origin", "demo");
+      await expect(shell.locator(".alina-primary-plane")).toBeVisible();
+      await expect(
+        shell.getByPlaceholder("Спросите ALINA или поставьте задачу агенту…")
+      ).toBeVisible();
+
+      if (tier === "core") {
+        await expect(shell.locator(".alina-cinematic-scene")).toHaveAttribute(
+          "data-scene-3d",
+          "false"
+        );
+      }
+    }
+  }
+});
+
+test("narrow acceptance keeps primary task and command plane usable", async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 768, height: 1024 });
+  await page.goto("/");
+
+  const shell = page.locator(".alina-product-shell");
+  await expect(shell).toHaveAttribute("data-scenario", "research");
+  await expect(shell.locator(".alina-primary-plane")).toBeVisible();
+  await expect(
+    shell.getByPlaceholder("Спросите ALINA или поставьте задачу агенту…")
+  ).toBeVisible();
+
+  const graph = page.getByRole("region", { name: "Knowledge Graph Workspace" });
+  await expect(graph).toBeVisible();
+
+  await graph.getByRole("button", { name: "Accessible list", exact: true }).click();
+  await expect(graph).toHaveAttribute("data-graph-mode", "list");
+
+  await page.screenshot({
+    path: testInfo.outputPath("alina-product-narrow.png"),
+    fullPage: true,
+  });
+});
+
+test("reduced-motion acceptance preserves semantic state while stopping cinematic animation", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+
+  const shell = page.locator(".alina-product-shell");
+  const scene = shell.locator(".alina-cinematic-scene");
+
+  await shell.getByRole("button", { name: "Presentation", exact: true }).click();
+  await expect(shell).toHaveAttribute("data-primary-module", "visualization");
+
+  const webgl = await scene.getAttribute("data-scene-webgl");
+  if (webgl === "true") {
+    await expect(scene).toHaveAttribute("data-scene-animated", "false");
+  }
+
+  await expect(shell.locator(".alina-avatar-surface")).toHaveAttribute(
+    "data-avatar-requested",
+    "hologram"
+  );
+});
