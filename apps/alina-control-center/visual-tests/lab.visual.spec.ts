@@ -214,3 +214,19 @@ test("avatar renderer negotiation falls back without losing persona state", asyn
   await expect(avatar.getByText("DEGRADED", { exact: true })).toBeVisible();
   await expect(avatar.getByText("ALINA", { exact: true }).first()).toBeVisible();
 });
+
+
+test("scene engine degrades cinematic scene to core without WebGL", async ({ page }) => {
+  await page.goto("/");
+
+  const scene = page.locator(".scene-lab");
+  await expect(scene.getByRole("heading", { name: "Scene & Asset Pipeline" })).toBeVisible();
+
+  await scene.getByRole("button", { name: "No WebGL / Core", exact: true }).click();
+
+  const stage = scene.locator(".scene-stage");
+  await expect(stage).toHaveAttribute("data-scene-tier", "core");
+  await expect(stage).toHaveAttribute("data-scene-degraded", "true");
+  await expect(scene.getByText("2D portrait fallback", { exact: true })).toBeVisible();
+  await expect(scene.getByText(/Fallback reasons: no-webgl/)).toBeVisible();
+});
