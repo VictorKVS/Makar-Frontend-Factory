@@ -22,10 +22,11 @@
   ],
   "current_dependencies": [
     "M1.0 — ALINA Agent Factory v0 merged",
-    "M1.1 — ALINA v1 scene grammar merged"
+    "M1.1 — ALINA v1 scene grammar merged",
+    "M1.2 — ALINA v1 product shell merged"
   ],
   "active_work": [
-    "Issue #29 — ALINA v1 product shell implementation"
+    "Issue #31 — ALINA real information streams & frontend data gateway"
   ],
   "visual_target": "docs/ALINA_TARGET_V1.md"
 }
