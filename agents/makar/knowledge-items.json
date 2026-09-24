@@ -500,5 +500,168 @@
       "alina-control-center"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.visualization.intent_before_renderer",
+    "title": "Visualization intent is independent from renderer choice",
+    "domain": "visualization",
+    "type": "principle",
+    "level": "L6",
+    "status": "active",
+    "importance": 0.98,
+    "confidence": 1,
+    "source_type": "experiment_result",
+    "sources": [
+      "experiments/M0.5/RESULT.md",
+      "packages/visualization-engine"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.visualization.accessible_fallback"
+    ],
+    "examples": [
+      "compare/records may recommend chart while preserving table fallback"
+    ],
+    "anti_patterns": [
+      "choosing 3D or graph renderer before identifying the information intent"
+    ],
+    "tests": [
+      "recommendation is deterministic from semantic request without importing renderer library"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.visualization.accessible_fallback",
+    "title": "Non-tabular visualizations preserve an accessible fallback",
+    "domain": "visualization",
+    "type": "constraint",
+    "level": "L6",
+    "status": "active",
+    "importance": 0.97,
+    "confidence": 1,
+    "source_type": "experiment_result",
+    "sources": [
+      "experiments/M0.5/RESULT.md"
+    ],
+    "prerequisites": [
+      "makar.visualization.intent_before_renderer"
+    ],
+    "related": [],
+    "examples": [
+      "chart has textual/table representation for exact values"
+    ],
+    "anti_patterns": [
+      "visual-only meaning with no alternative representation"
+    ],
+    "tests": [
+      "accessible fallback remains available when primary representation changes"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.avatar.state.renderer_independence",
+    "title": "Avatar identity and behavioral state are independent from renderer",
+    "domain": "avatar-ui",
+    "type": "principle",
+    "level": "L8",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "issues/15",
+      "packages/avatar-engine"
+    ],
+    "prerequisites": [
+      "makar.avatar.presentation_independence"
+    ],
+    "related": [
+      "makar.avatar.capability_negotiation"
+    ],
+    "examples": [
+      "ALINA keeps task and attention while switching hologram to voice-only"
+    ],
+    "anti_patterns": [
+      "conversation/task state stored inside Three.js scene objects"
+    ],
+    "tests": [
+      "identity, task and attention survive presentation-mode switch"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.avatar.capability_negotiation",
+    "title": "Avatar presentation degrades through explicit renderer capability negotiation",
+    "domain": "avatar-ui",
+    "type": "pattern",
+    "level": "L8",
+    "status": "active",
+    "importance": 0.94,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "issues/15",
+      "packages/avatar-engine"
+    ],
+    "prerequisites": [
+      "makar.avatar.state.renderer_independence"
+    ],
+    "related": [
+      "makar.motion.reduced_motion"
+    ],
+    "examples": [
+      "hologram request falls back to portrait on accessible 2D renderer"
+    ],
+    "anti_patterns": [
+      "failing the avatar entirely when WebGL or motion is unavailable"
+    ],
+    "tests": [
+      "unsupported mode selects deterministic fallback while preserving persona state"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.qa.change_impact_ui_assertions",
+    "title": "Top-level UI changes require explicit test impact review",
+    "domain": "quality",
+    "type": "lesson",
+    "level": "L11",
+    "status": "active",
+    "importance": 0.84,
+    "confidence": 1,
+    "source_type": "experiment_result",
+    "sources": [
+      "experiments/M0.5/RESULT.md",
+      "CI run 35925214036"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.qa.scoped_semantic_selectors"
+    ],
+    "examples": [
+      "renaming lab identity requires checking render and Playwright assertions"
+    ],
+    "anti_patterns": [
+      "change visible product identity while leaving exact-copy tests untouched"
+    ],
+    "tests": [
+      "context package lists affected UI tests when top-level copy or surface identity changes"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
   }
 ]
