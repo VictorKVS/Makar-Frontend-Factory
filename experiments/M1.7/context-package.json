@@ -1,0 +1,18 @@
+{
+  "task_id": "M1.7",
+  "agent_id": "makar",
+  "project_id": "alina-control-center",
+  "delivery_id": "delivery:makar:M1.7:v1",
+  "knowledge_refs": [
+    "makar.qa.cinematic_evidence",
+    "makar.scene.core_fallback",
+    "makar.qa.visible_focus",
+    "makar.motion.reduced_motion",
+    "makar.visualization.accessible_fallback",
+    "makar.scene.capability_truth"
+  ],
+  "quality_budget": "quality-budget.json",
+  "product_contract": "configs/alina-v1/product-shell.contract.json",
+  "acceptance_matrix": "configs/alina-v1/acceptance-matrix.json",
+  "policy": "Unknown runtime metrics remain explicit known limitations and do not become synthetic passes."
+}

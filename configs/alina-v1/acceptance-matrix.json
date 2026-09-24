@@ -1,0 +1,118 @@
+{
+  "id": "alina-v1-acceptance",
+  "version": "1.0.0",
+  "scenarios": [
+    "research",
+    "coding",
+    "security",
+    "presentation",
+    "focus"
+  ],
+  "tiers": [
+    "core",
+    "enhanced",
+    "cinematic"
+  ],
+  "viewports": [
+    {
+      "id": "narrow",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "id": "laptop",
+      "width": 1366,
+      "height": 768
+    },
+    {
+      "id": "desktop",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "ultrawide",
+      "width": 2560,
+      "height": 1080
+    }
+  ],
+  "hardGates": [
+    "typecheck",
+    "unit-tests",
+    "build",
+    "asset-budget",
+    "shell-contract",
+    "scenario-tier-behavior",
+    "keyboard-focus",
+    "reduced-motion",
+    "knowledge-graph-accessible-fallback",
+    "core-no-webgl",
+    "demo-provenance"
+  ],
+  "scenarioRequirements": {
+    "research": {
+      "primary": "knowledge-graph",
+      "accessibleFallback": "list",
+      "coreRequired": true
+    },
+    "coding": {
+      "primary": "editor",
+      "coreRequired": true
+    },
+    "security": {
+      "primary": "security-graph",
+      "criticalAlertSemantic": true,
+      "coreRequired": true
+    },
+    "presentation": {
+      "primary": "visualization",
+      "coreRequired": true
+    },
+    "focus": {
+      "primary": "document-or-editor",
+      "avatar": "hidden",
+      "coreRequired": true
+    }
+  },
+  "tierRequirements": {
+    "core": {
+      "webglRequired": false,
+      "taskCompletionRequired": true
+    },
+    "enhanced": {
+      "webglRequired": false,
+      "taskCompletionRequired": true
+    },
+    "cinematic": {
+      "webglRequired": false,
+      "taskCompletionRequired": true,
+      "capabilityTraceRequired": true
+    }
+  },
+  "observationalMetrics": {
+    "lcp": {
+      "budgetMs": 2500,
+      "status": "not-collected-in-ci-v0"
+    },
+    "cls": {
+      "budget": 0.1,
+      "status": "not-collected-in-ci-v0"
+    },
+    "inp": {
+      "budgetMs": 200,
+      "status": "not-collected-in-ci-v0"
+    },
+    "maxLongTask": {
+      "budgetMs": 120,
+      "status": "not-collected-in-ci-v0"
+    },
+    "frameTime": {
+      "budgetMs": 16.7,
+      "status": "not-collected-in-ci-v0"
+    }
+  },
+  "policy": {
+    "unknownIsPass": false,
+    "unknownIsVisible": true,
+    "releaseHardeningMustClassifyUnknowns": true
+  }
+}

@@ -11,7 +11,8 @@
     "test": "turbo test",
     "typecheck": "turbo typecheck",
     "quality:budget": "node scripts/check-quality-budget.mjs",
-    "validate:alina-shell": "node scripts/validate-alina-shell.mjs"
+    "validate:alina-shell": "node scripts/validate-alina-shell.mjs",
+    "validate:alina-acceptance": "node scripts/validate-alina-acceptance.mjs"
   },
   "devDependencies": {
     "turbo": "^2.0.0",

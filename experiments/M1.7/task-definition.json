@@ -1,0 +1,53 @@
+{
+  "taskId": "M1.7",
+  "projectId": "alina-control-center",
+  "title": "ALINA accessibility & performance acceptance",
+  "goal": "Prove the combined ALINA v1 product across scenarios, performance tiers, responsive modes and accessibility fallbacks before release hardening.",
+  "why": "Subsystem tests are green, but release confidence requires a product-level acceptance matrix and explicit known limitations.",
+  "priority": "high",
+  "domains": [
+    "quality",
+    "accessibility",
+    "scene",
+    "visualization",
+    "workspace"
+  ],
+  "explicitKnowledgeRefs": [
+    "makar.qa.cinematic_evidence",
+    "makar.scene.core_fallback"
+  ],
+  "constraints": [
+    "richer tiers cannot be the only path to task completion",
+    "unknown runtime measurements must be reported, not silently passed",
+    "all five product scenarios must be covered",
+    "keyboard and reduced-motion paths are mandatory",
+    "DEMO provenance remains explicit"
+  ],
+  "deliverables": [
+    "acceptance-matrix.json",
+    "static acceptance validator",
+    "CI acceptance report",
+    "scenario x tier Playwright proof",
+    "narrow responsive proof",
+    "known limitations list",
+    "RESULT.md"
+  ],
+  "acceptanceCriteria": [
+    "Research/Coding/Security/Presentation/Focus all pass Core path",
+    "Core/Enhanced/Cinematic semantics remain consistent",
+    "keyboard focus and reduced motion pass",
+    "Knowledge Graph accessible fallback passes",
+    "narrow/laptop/desktop/ultrawide product is usable",
+    "quality budget remains green",
+    "unknown runtime metrics are explicit"
+  ],
+  "testContract": [
+    "pnpm typecheck",
+    "pnpm test",
+    "pnpm build",
+    "pnpm quality:budget",
+    "pnpm validate:alina-shell",
+    "pnpm validate:alina-acceptance",
+    "Playwright product acceptance matrix"
+  ]
+}

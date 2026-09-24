@@ -47,6 +47,9 @@ jobs:
       - name: Validate ALINA shell contract
         run: pnpm validate:alina-shell
 
+      - name: Validate ALINA acceptance matrix
+        run: pnpm validate:alina-acceptance
+
       - name: Install Chromium
         run: pnpm --filter @father/alina-control-center exec playwright install --with-deps chromium
 
@@ -61,4 +64,5 @@ jobs:
           path: |
             apps/alina-control-center/test-results
             reports/quality-budget-report.json
+            reports/alina-acceptance-report.json
           if-no-files-found: warn
