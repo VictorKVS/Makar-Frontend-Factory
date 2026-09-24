@@ -4,6 +4,7 @@ import type {
   MasteryLevel,
   MasteryProposal,
   MasteryRecord,
+  MasteryReview,
 } from "./types";
 import { levelRank } from "./graph";
 
@@ -75,4 +76,32 @@ export function hasEvidence(
       item.verified &&
       mastery.evidenceRefs.includes(item.id)
   );
+}
+
+
+export function applyMasteryReview(
+  current: MasteryRecord,
+  review: MasteryReview
+): MasteryRecord {
+  if (
+    review.proposal.studentId !== current.studentId ||
+    review.proposal.nodeId !== current.nodeId
+  ) {
+    throw new Error("Mastery review does not match current record");
+  }
+
+  if (!review.accepted) {
+    return current;
+  }
+
+  return {
+    ...current,
+    level: review.proposal.proposedLevel,
+    confidence: review.confidence,
+    evidenceRefs: [...new Set([
+      ...current.evidenceRefs,
+      ...review.proposal.evidenceRefs,
+    ])],
+    lastAssessedAt: review.reviewedAt ?? current.lastAssessedAt,
+  };
 }
