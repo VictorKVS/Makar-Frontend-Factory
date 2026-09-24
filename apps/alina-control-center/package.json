@@ -26,7 +26,8 @@
     "@father/agent-factory-core": "workspace:*",
     "@father/agent-context-core": "workspace:*",
     "@father/data-gateway": "workspace:*",
-    "@father/graph-model": "workspace:*"
+    "@father/graph-model": "workspace:*",
+    "@father/cinematic-scene-adapter": "workspace:*"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
