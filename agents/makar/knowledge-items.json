@@ -962,5 +962,72 @@
       "alina-control-center"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.qa.unknown_is_not_pass",
+    "title": "Unknown quality evidence is never treated as a passing measurement",
+    "domain": "quality",
+    "type": "constraint",
+    "level": "L11",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "experiment_result",
+    "sources": [
+      "experiments/M1.7/RESULT.md",
+      "configs/alina-v1/acceptance-matrix.json"
+    ],
+    "prerequisites": [
+      "makar.qa.cinematic_evidence"
+    ],
+    "related": [
+      "makar.scene.capability_truth"
+    ],
+    "examples": [
+      "LCP remains unknown until collected in a real browser measurement pipeline"
+    ],
+    "anti_patterns": [
+      "green build converted into a synthetic LCP pass"
+    ],
+    "tests": [
+      "release report lists unknown measurements and remains conditional"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.qa.product_acceptance_matrix",
+    "title": "Release acceptance spans scenarios, tiers, viewports and accessibility paths",
+    "domain": "quality",
+    "type": "pattern",
+    "level": "L11",
+    "status": "active",
+    "importance": 0.96,
+    "confidence": 1,
+    "source_type": "experiment_result",
+    "sources": [
+      "experiments/M1.7/RESULT.md",
+      "configs/alina-v1/acceptance-matrix.json"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.qa.visible_focus",
+      "makar.motion.reduced_motion"
+    ],
+    "examples": [
+      "five product scenarios are checked in Core, Enhanced and Cinematic paths"
+    ],
+    "anti_patterns": [
+      "declaring product acceptance from one desktop screenshot"
+    ],
+    "tests": [
+      "acceptance validator and Playwright cover the required matrix"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
   }
 ]
