@@ -1,0 +1,56 @@
+{
+  "deliveryId": "delivery:makar:M1.6:v1",
+  "agentId": "makar",
+  "taskId": "M1.6",
+  "projectId": "alina-control-center",
+  "repository": "VictorKVS/Makar-Frontend-Factory",
+  "attentionBudget": 6,
+  "knowledge": [
+    {
+      "id": "makar.scene.core_fallback",
+      "reason": [
+        "explicit-ref",
+        "domain-match",
+        "cost-of-missing"
+      ]
+    },
+    {
+      "id": "makar.scene.asset.stable_ids",
+      "reason": [
+        "explicit-ref",
+        "domain-match",
+        "project-match"
+      ]
+    },
+    {
+      "id": "makar.avatar.state.renderer_independence",
+      "reason": [
+        "domain-match",
+        "previous-result"
+      ]
+    },
+    {
+      "id": "makar.avatar.capability_negotiation",
+      "reason": [
+        "domain-match",
+        "previous-result"
+      ]
+    },
+    {
+      "id": "makar.composition.reason_trace",
+      "reason": [
+        "domain-match",
+        "project-match"
+      ]
+    },
+    {
+      "id": "makar.qa.cinematic_evidence",
+      "reason": [
+        "domain-match",
+        "acceptance-gate"
+      ]
+    }
+  ],
+  "previousResult": "experiments/M1.5/RESULT.md",
+  "omissionPolicy": "The six-item pack carries only scene/avatar/capability/QA knowledge needed for M1.6."
+}
