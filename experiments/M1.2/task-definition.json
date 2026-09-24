@@ -1,0 +1,58 @@
+{
+  "taskId": "M1.2",
+  "projectId": "alina-control-center",
+  "title": "ALINA v1 product shell implementation",
+  "goal": "Render the first real ALINA Control Center v1 shell from the M1.1 product-shell contract.",
+  "why": "Move from engineering laboratory surfaces to a product-first default experience while preserving all diagnostic engines behind a developer surface.",
+  "priority": "high",
+  "domains": [
+    "composition",
+    "workspace",
+    "information-streams",
+    "avatar-ui",
+    "quality",
+    "motion"
+  ],
+  "explicitKnowledgeRefs": [
+    "makar.composition.engines_remain_independent",
+    "makar.composition.reason_trace",
+    "makar.avatar.capability_negotiation"
+  ],
+  "constraints": [
+    "Default route is product UI, not Engineering Lab",
+    "Exactly one primary work context",
+    "All synthetic information is visibly labeled DEMO/MOCK",
+    "Core mode remains usable without WebGL",
+    "Reduced motion remains valid",
+    "Diagnostics remain accessible",
+    "Current quality budget must pass"
+  ],
+  "deliverables": [
+    "config-driven ProductShell",
+    "five scenario modes",
+    "performance tier switch",
+    "diagnostics disclosure",
+    "updated render tests",
+    "product-first Playwright suite",
+    "responsive screenshots"
+  ],
+  "acceptanceCriteria": [
+    "Research is the default scenario",
+    "Security, Presentation and Focus visibly alter primary context and avatar state",
+    "Core tier degrades Presentation avatar to portrait while keeping visualization",
+    "Command plane remains functional",
+    "Engineering diagnostics are closed by default but accessible",
+    "CI passes typecheck, tests, build, quality budget, shell contract validation and visual QA"
+  ],
+  "testContract": [
+    "React server render test",
+    "Playwright laptop/desktop/ultrawide screenshots",
+    "Security screenshot",
+    "Presentation screenshot",
+    "Focus screenshot",
+    "Core fallback assertion",
+    "reduced-motion assertion",
+    "keyboard focus assertion",
+    "diagnostics accessibility assertion"
+  ]
+}

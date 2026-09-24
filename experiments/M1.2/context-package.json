@@ -1,0 +1,35 @@
+{
+  "task_id": "M1.2",
+  "agent_id": "makar",
+  "project_id": "alina-control-center",
+  "goal": "Implement ALINA Control Center v1 product shell from M1.1 scene grammar.",
+  "priority": "high",
+  "status": "in_progress",
+  "delivery_id": "delivery:makar:M1.2:v1",
+  "inputs": [
+    "configs/alina-v1/product-shell.contract.json",
+    "docs/alina-v1/SCENE_GRAMMAR.md",
+    "docs/alina-v1/ATTENTION_MAP.md",
+    "docs/alina-v1/AVATAR_PLACEMENT_MATRIX.md",
+    "docs/alina-v1/RESPONSIVE_PERFORMANCE_GRAMMAR.md",
+    "quality-budget.json"
+  ],
+  "knowledge_refs": [
+    "makar.composition.engines_remain_independent",
+    "makar.composition.reason_trace",
+    "makar.avatar.capability_negotiation",
+    "makar.stream.attention_budget",
+    "makar.workspace.state.presentation_separation",
+    "makar.motion.reduced_motion",
+    "makar.qa.change_impact_ui_assertions"
+  ],
+  "acceptance_criteria": [
+    "product shell is default",
+    "diagnostics are secondary",
+    "five scenarios render",
+    "core fallback works",
+    "visual QA covers key scenarios",
+    "quality budget passes"
+  ],
+  "context_version": "1.0.0"
+}
