@@ -24,6 +24,8 @@ for (const viewport of viewports) {
     await expect(shell).toHaveAttribute("data-scenario", "research");
     await expect(shell).toHaveAttribute("data-primary-module", "knowledge-graph");
     await expect(shell).toHaveAttribute("data-performance-tier", "cinematic");
+    await expect(shell).toHaveAttribute("data-provenance-origin", "demo");
+    await expect(shell).toHaveAttribute("data-data-state", "ready");
 
     await page.screenshot({
       path: testInfo.outputPath("alina-product-" + viewport.name + ".png"),
@@ -111,7 +113,7 @@ test("command plane preserves semantic interaction", async ({ page }) => {
   await input.fill("Проверь контекст проекта");
   await shell.getByRole("button", { name: "Отправить", exact: true }).click();
 
-  await expect(shell.getByText(/Research mode. Проверь контекст проекта/)).toBeVisible();
+  await expect(shell.getByText(/Research mode. DEMO command accepted · demo:ui-1/)).toBeVisible();
 });
 
 test("engineering diagnostics stay available without becoming the homepage", async ({ page }) => {
