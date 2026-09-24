@@ -10,7 +10,8 @@
     "lint": "turbo lint",
     "test": "turbo test",
     "typecheck": "turbo typecheck",
-    "quality:budget": "node scripts/check-quality-budget.mjs"
+    "quality:budget": "node scripts/check-quality-budget.mjs",
+    "validate:alina-shell": "node scripts/validate-alina-shell.mjs"
   },
   "devDependencies": {
     "turbo": "^2.0.0",
