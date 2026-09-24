@@ -21,7 +21,7 @@ M0 established the reusable frontend / interactive / game-ready foundation.
 - [x] M1.1 Visual decomposition of target ALINA concept
 - [x] M1.2 Responsive product shell
 - [x] M1.3 Real information streams
-- [ ] M1.4 Knowledge graph workspace
+- [x] M1.4 Knowledge graph workspace
 - [ ] M1.5 Production avatar integration
 - [ ] M1.6 Cinematic scene layer
 - [ ] M1.7 Accessibility and performance acceptance
