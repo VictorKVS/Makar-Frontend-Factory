@@ -663,5 +663,107 @@
       "alina-control-center"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.composition.engines_remain_independent",
+    "title": "Composition combines engine contracts without merging their responsibilities",
+    "domain": "composition",
+    "type": "principle",
+    "level": "L12",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "issues/17",
+      "packages/composition-engine"
+    ],
+    "prerequisites": [
+      "makar.workspace.state.presentation_separation",
+      "makar.stream.semantic_priority",
+      "makar.visualization.intent_before_renderer",
+      "makar.avatar.state.renderer_independence"
+    ],
+    "related": [
+      "makar.composition.reason_trace"
+    ],
+    "examples": [
+      "Composition selects graph + compact avatar without embedding stream ranking or avatar state machine"
+    ],
+    "anti_patterns": [
+      "single god component owns layout, attention, visualization and avatar behavior"
+    ],
+    "tests": [
+      "composition package depends on engine contracts but engines do not depend on composition"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.composition.reason_trace",
+    "title": "Automatic composition decisions require a reason trace",
+    "domain": "composition",
+    "type": "constraint",
+    "level": "L12",
+    "status": "active",
+    "importance": 0.98,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "issues/17",
+      "packages/composition-engine"
+    ],
+    "prerequisites": [
+      "makar.composition.engines_remain_independent"
+    ],
+    "related": [
+      "makar.composition.human_override"
+    ],
+    "examples": [
+      "avatar:performance-core:hologram->compact"
+    ],
+    "anti_patterns": [
+      "layout changes with no inspectable reason"
+    ],
+    "tests": [
+      "plan exposes deterministic reason strings for scenario and downgrade decisions"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.composition.human_override",
+    "title": "Human composition overrides are explicit and locked",
+    "domain": "composition",
+    "type": "pattern",
+    "level": "L12",
+    "status": "active",
+    "importance": 0.94,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "issues/17"
+    ],
+    "prerequisites": [
+      "makar.composition.reason_trace"
+    ],
+    "related": [],
+    "examples": [
+      "user locks Context as primary and center region"
+    ],
+    "anti_patterns": [
+      "automatic recomposition silently moves a user-locked panel"
+    ],
+    "tests": [
+      "override changes plan and marks affected item locked"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
   }
 ]
