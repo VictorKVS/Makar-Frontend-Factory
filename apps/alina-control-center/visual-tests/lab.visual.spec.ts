@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 
 const viewports = [
   { name: "laptop", width: 1366, height: 768 },
@@ -6,18 +6,23 @@ const viewports = [
   { name: "ultrawide", width: 2560, height: 1080 },
 ] as const;
 
+async function openEngineLabs(page: Page) {
+  const disclosure = page.locator(".engine-labs-disclosure");
+  if (!(await disclosure.evaluate((node) => (node as HTMLDetailsElement).open))) {
+    await disclosure.locator("summary").click();
+  }
+}
+
 for (const viewport of viewports) {
-  test(`renders ALINA lab at ${viewport.name}`, async ({ page }, testInfo) => {
+  test(`renders ALINA composition at ${viewport.name}`, async ({ page }, testInfo) => {
     await page.setViewportSize({ width: viewport.width, height: viewport.height });
     await page.goto("/");
 
     await expect(page.getByRole("heading", { name: "ALINA Engineering Lab" })).toBeVisible();
     await expect(page.getByText("DEMO / MOCK", { exact: true }).first()).toBeVisible();
-    await expect(page.getByText("Glass / Glow / Depth")).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Workspace Engine" })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Information Stream Engine" })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Visualization Engine" })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Avatar Engine" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Composition Engine" })).toBeVisible();
+    await expect(page.locator(".composition-canvas")).toHaveAttribute("data-scenario", "research");
+    await expect(page.locator(".composition-canvas")).toHaveAttribute("data-primary-module", "knowledge-graph");
 
     await page.screenshot({
       path: testInfo.outputPath(`alina-${viewport.name}.png`),
@@ -37,9 +42,47 @@ test("keyboard navigation exposes visible focus", async ({ page }) => {
   expect(outlineStyle).not.toBe("none");
 });
 
+test("composition switches scenarios and rearranges primary context", async ({ page }) => {
+  await page.goto("/");
+
+  const composition = page.locator(".composition-lab");
+  const canvas = composition.locator(".composition-canvas");
+
+  await expect(canvas).toHaveAttribute("data-scenario", "research");
+  await expect(canvas).toHaveAttribute("data-primary-module", "knowledge-graph");
+
+  await composition.getByRole("button", { name: "presentation", exact: true }).click();
+
+  await expect(canvas).toHaveAttribute("data-scenario", "presentation");
+  await expect(canvas).toHaveAttribute("data-primary-module", "visualization");
+  await expect(canvas).toHaveAttribute("data-avatar-presence", "hologram");
+
+  await composition.getByRole("button", { name: "focus", exact: true }).click();
+
+  await expect(canvas).toHaveAttribute("data-scenario", "focus");
+  await expect(canvas).toHaveAttribute("data-primary-module", "document");
+  await expect(canvas).toHaveAttribute("data-avatar-presence", "hidden");
+});
+
+test("composition adapts presentation to breakpoint and performance tier", async ({ page }) => {
+  await page.goto("/");
+
+  const composition = page.locator(".composition-lab");
+  const canvas = composition.locator(".composition-canvas");
+
+  await composition.getByRole("button", { name: "presentation", exact: true }).click();
+  await composition.getByRole("button", { name: "core", exact: true }).click();
+  await composition.getByRole("button", { name: "mobile", exact: true }).click();
+
+  await expect(canvas).toHaveAttribute("data-breakpoint", "mobile");
+  await expect(canvas).toHaveAttribute("data-avatar-presence", "compact");
+  await expect(composition.getByText("responsive:mobile-collapse-secondary", { exact: true })).toBeVisible();
+});
+
 test("reduced-motion disables decorative avatar animation", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
+  await openEngineLabs(page);
 
   const orbit = page.locator(".avatar-stage-orbit").first();
   await expect(orbit).toBeVisible();
@@ -50,6 +93,7 @@ test("reduced-motion disables decorative avatar animation", async ({ page }) => 
 
 test("workspace focus preserves panel identity and isolates the focused module", async ({ page }) => {
   await page.goto("/");
+  await openEngineLabs(page);
 
   const workspace = page.locator(".workspace-demo");
   await expect(workspace.locator('[data-panel-id="graph"]')).toBeVisible();
@@ -69,6 +113,7 @@ test("workspace focus preserves panel identity and isolates the focused module",
 
 test("workspace mode changes are explicit and serializable", async ({ page }) => {
   await page.goto("/");
+  await openEngineLabs(page);
 
   const workspace = page.locator(".workspace-demo");
   const context = workspace.locator('[data-panel-id="context"]');
@@ -94,6 +139,7 @@ test("workspace mode changes are explicit and serializable", async ({ page }) =>
 
 test("stream engine keeps primary attention separate from background noise", async ({ page }) => {
   await page.goto("/");
+  await openEngineLabs(page);
 
   const stream = page.locator(".stream-demo");
   const primaryZone = stream.locator(".stream-primary-zone");
@@ -108,6 +154,7 @@ test("stream engine keeps primary attention separate from background noise", asy
 
 test("acknowledging an alert stops its interruption state", async ({ page }) => {
   await page.goto("/");
+  await openEngineLabs(page);
 
   const stream = page.locator(".stream-demo");
   const alert = stream.locator('.stream-feed [data-stream-id="alert-security"]');
@@ -124,6 +171,7 @@ test("acknowledging an alert stops its interruption state", async ({ page }) => 
 
 test("visualization engine keeps an exact-value fallback available", async ({ page }) => {
   await page.goto("/");
+  await openEngineLabs(page);
 
   const viz = page.locator(".viz-lab");
   await expect(viz.getByRole("heading", { name: "Visualization Engine" })).toBeVisible();
@@ -136,6 +184,7 @@ test("visualization engine keeps an exact-value fallback available", async ({ pa
 
 test("avatar mode changes preserve task and attention state", async ({ page }) => {
   await page.goto("/");
+  await openEngineLabs(page);
 
   const avatar = page.locator(".avatar-lab");
   const stage = avatar.locator(".avatar-stage");
@@ -153,6 +202,7 @@ test("avatar mode changes preserve task and attention state", async ({ page }) =
 
 test("avatar renderer negotiation falls back without losing persona state", async ({ page }) => {
   await page.goto("/");
+  await openEngineLabs(page);
 
   const avatar = page.locator(".avatar-lab");
   const stage = avatar.locator(".avatar-stage");
