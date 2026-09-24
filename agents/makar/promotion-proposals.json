@@ -1,0 +1,37 @@
+{
+  "agent_id": "makar",
+  "automatic_promotion": false,
+  "proposals": [
+    {
+      "skill_id": "game.input",
+      "current_level": "K1",
+      "proposed_level": "K2",
+      "evidence": [
+        "PR #20",
+        "CI 35981113185"
+      ],
+      "review_required": true
+    },
+    {
+      "skill_id": "scene.asset.pipeline",
+      "current_level": "unregistered",
+      "proposed_level": "K3",
+      "evidence": [
+        "PR #22",
+        "CI 35981467268"
+      ],
+      "review_required": true
+    },
+    {
+      "skill_id": "visual.qa",
+      "current_level": "K3",
+      "proposed_level": "K4",
+      "evidence": [
+        "PR #24",
+        "CI 35981882313",
+        "artifact 10800273531"
+      ],
+      "review_required": true
+    }
+  ]
+}
