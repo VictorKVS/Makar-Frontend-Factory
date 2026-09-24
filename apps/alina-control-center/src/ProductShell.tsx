@@ -15,6 +15,7 @@ import {
   StatusIndicator,
 } from "@father/ui";
 import shellContract from "../../../configs/alina-v1/product-shell.contract.json";
+import { KnowledgeGraphWorkspace } from "./KnowledgeGraphWorkspace";
 import "./product-shell.css";
 
 type ScenarioId = keyof typeof shellContract.scenarios;
@@ -69,9 +70,11 @@ function loadingEnvelope(): DataEnvelope<ScenarioSnapshot> {
 function PrimarySurface({
   scenarioId,
   snapshot,
+  provenance,
 }: {
   scenarioId: ScenarioId;
   snapshot: ScenarioSnapshot;
+  provenance: string;
 }) {
   const primary = snapshot.primary;
 
@@ -136,6 +139,15 @@ function PrimarySurface({
         <p>{primary.description}</p>
         <blockquote>{primary.content ?? "Primary context remains stable."}</blockquote>
       </article>
+    );
+  }
+
+  if (scenarioId === "research" && primary.graph) {
+    return (
+      <KnowledgeGraphWorkspace
+        graph={primary.graph}
+        provenance={provenance}
+      />
     );
   }
 
@@ -310,7 +322,11 @@ export function ProductShell({
             </div>
 
             {snapshot ? (
-              <PrimarySurface scenarioId={scenarioId} snapshot={snapshot} />
+              <PrimarySurface
+                scenarioId={scenarioId}
+                snapshot={snapshot}
+                provenance={envelope.provenance.origin}
+              />
             ) : (
               <div className="alina-data-state">
                 <strong>{envelope.state}</strong>
