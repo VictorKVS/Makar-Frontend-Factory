@@ -65,7 +65,7 @@
   "current_projects": [
     "alina-control-center"
   ],
-  "active_task": "M1.2",
+  "active_task": "M1.3",
   "known_constraints": [
     "No unlabeled mock data",
     "No monolithic screen architecture",
@@ -73,10 +73,10 @@
     "Cinematic effects require fallback tiers"
   ],
   "recent_lessons": [
-    "Separate stable professional knowledge from temporary project context",
     "Composition combines engine contracts without merging responsibilities",
     "Cinematic features require Core fallback and quality evidence",
-    "Product scene grammar should precede product shell implementation"
+    "Product scene grammar should precede product shell implementation",
+    "Frontend data contracts must expose provenance and runtime state before live backend integration"
   ],
   "handoff_contracts": [
     "schemas/handoff.schema.json"
