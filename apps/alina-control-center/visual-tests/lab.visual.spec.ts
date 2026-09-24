@@ -11,11 +11,12 @@ for (const viewport of viewports) {
     await page.setViewportSize({ width: viewport.width, height: viewport.height });
     await page.goto("/");
 
-    await expect(page.getByRole("heading", { name: "ALINA Visual Token Lab" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "ALINA Engineering Lab" })).toBeVisible();
     await expect(page.getByText("DEMO / MOCK", { exact: true }).first()).toBeVisible();
     await expect(page.getByText("Glass / Glow / Depth")).toBeVisible();
     await expect(page.getByRole("heading", { name: "Workspace Engine" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Information Stream Engine" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Visualization Engine" })).toBeVisible();
 
     await page.screenshot({
       path: testInfo.outputPath(`alina-${viewport.name}.png`),
@@ -118,4 +119,16 @@ test("acknowledging an alert stops its interruption state", async ({ page }) => 
   await expect(alert).toHaveAttribute("data-acknowledged", "true");
   await expect(alert.getByText("ACKNOWLEDGED", { exact: true })).toBeVisible();
   await expect(stream.getByText("attention stable", { exact: true })).toBeVisible();
+});
+
+test("visualization engine keeps an exact-value fallback available", async ({ page }) => {
+  await page.goto("/");
+
+  const viz = page.locator(".viz-lab");
+  await expect(viz.getByRole("heading", { name: "Visualization Engine" })).toBeVisible();
+  await expect(viz.getByText("ACCESSIBLE FALLBACK", { exact: true })).toBeVisible();
+
+  await viz.getByRole("button", { name: "table", exact: true }).click();
+  await expect(viz.getByRole("table")).toBeVisible();
+  await expect(viz.getByRole("cell", { name: "92%" })).toBeVisible();
 });

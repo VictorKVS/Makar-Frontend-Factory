@@ -2,16 +2,16 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { App } from "./App";
 
-describe("ALINA Visual Token Lab", () => {
-  it("renders the experiment identity and explicit mock-data label", () => {
+describe("ALINA Engineering Lab", () => {
+  it("renders the current lab identity and explicit mock-data label", () => {
     const html = renderToStaticMarkup(<App />);
 
-    expect(html).toContain("ALINA Visual Token Lab");
+    expect(html).toContain("ALINA Engineering Lab");
     expect(html).toContain("DEMO / MOCK");
-    expect(html).toContain("EXPERIMENT 001");
+    expect(html).toContain("EXPERIMENT 004");
   });
 
-  it("renders the first reusable information surfaces", () => {
+  it("renders the reusable information surfaces", () => {
     const html = renderToStaticMarkup(<App />);
 
     expect(html).toContain("Glass / Glow / Depth");
@@ -37,5 +37,14 @@ describe("ALINA Visual Token Lab", () => {
     expect(html).toContain("BACKGROUND");
     expect(html).toContain("ALERT");
     expect(html).toContain("AGENT");
+  });
+
+  it("renders the M0.5 visualization engine and accessible fallback path", () => {
+    const html = renderToStaticMarkup(<App />);
+
+    expect(html).toContain("Visualization Engine");
+    expect(html).toContain("RECOMMENDATION");
+    expect(html).toContain("ACCESSIBLE FALLBACK");
+    expect(html).toContain("DEMO DATA");
   });
 });
