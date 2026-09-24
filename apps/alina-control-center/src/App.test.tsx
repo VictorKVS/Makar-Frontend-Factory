@@ -11,6 +11,8 @@ describe("ALINA Control Center v1 shell", () => {
     expect(html).toContain("DEMO / MOCK");
     expect(html).toContain('data-scenario="research"');
     expect(html).toContain('data-primary-module="knowledge-graph"');
+    expect(html).toContain('data-provenance-origin="demo"');
+    expect(html).toContain('data-data-state="ready"');
   });
 
   it("renders semantic product planes and the command surface", () => {
