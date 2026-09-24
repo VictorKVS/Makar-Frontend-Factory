@@ -269,3 +269,28 @@
     display: none;
   }
 }
+
+
+.engine-labs-disclosure {
+  margin-top: var(--father-foundation-spacing-5);
+  border: 1px solid var(--father-theme-colors-border);
+  border-radius: var(--father-foundation-radius-lg);
+  background: var(--father-theme-colors-surface);
+  overflow: hidden;
+}
+
+.engine-labs-disclosure > summary {
+  cursor: pointer;
+  padding: var(--father-foundation-spacing-4);
+  color: var(--father-theme-colors-text-secondary);
+  font-weight: var(--father-foundation-typography-weight-semibold);
+}
+
+.engine-labs-disclosure[open] > summary {
+  border-bottom: 1px solid var(--father-theme-colors-border);
+  color: var(--father-theme-colors-text-primary);
+}
+
+.engine-labs-stack {
+  padding: 0 var(--father-foundation-spacing-4) var(--father-foundation-spacing-4);
+}
