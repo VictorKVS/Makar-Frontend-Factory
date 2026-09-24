@@ -174,3 +174,13 @@ export type MasteryProposal = {
   requiresReview: true;
   blockedReason?: string;
 };
+
+
+export type MasteryReview = {
+  proposal: MasteryProposal;
+  accepted: boolean;
+  reviewer: string;
+  confidence: number;
+  reviewedAt?: string;
+  notes?: string[];
+};
