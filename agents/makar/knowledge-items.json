@@ -765,5 +765,136 @@
       "alina-control-center"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.scene.asset.stable_ids",
+    "title": "Scene assets use stable IDs instead of scattered file paths",
+    "domain": "scene",
+    "type": "principle",
+    "level": "L9",
+    "status": "active",
+    "importance": 0.97,
+    "confidence": 1,
+    "source_type": "experiment_result",
+    "sources": [
+      "experiments/M0.9/RESULT.md",
+      "packages/scene-engine"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.avatar.state.renderer_independence"
+    ],
+    "examples": [
+      "avatar state references asset:alina:portrait:v1 rather than a component-local /assets path"
+    ],
+    "anti_patterns": [
+      "renderer/component hard-codes asset path and owns provenance"
+    ],
+    "tests": [
+      "renderer adapter can switch asset implementation while stable asset ID remains unchanged"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.scene.core_fallback",
+    "title": "Cinematic scene features require an operational Core fallback",
+    "domain": "scene",
+    "type": "constraint",
+    "level": "L9",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "experiment_result",
+    "sources": [
+      "experiments/M0.9/RESULT.md",
+      "quality-budget.json"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.avatar.capability_negotiation",
+      "makar.motion.reduced_motion"
+    ],
+    "examples": [
+      "3D avatar request degrades to portrait or voice-only without WebGL"
+    ],
+    "anti_patterns": [
+      "feature disappears or breaks when WebGL is unavailable"
+    ],
+    "tests": [
+      "Core tier preserves task completion and avatar communication"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.qa.cinematic_evidence",
+    "title": "Cinematic features require explicit performance and visual evidence",
+    "domain": "quality",
+    "type": "constraint",
+    "level": "L11",
+    "status": "active",
+    "importance": 0.96,
+    "confidence": 1,
+    "source_type": "experiment_result",
+    "sources": [
+      "experiments/M0.10/RESULT.md",
+      "quality-budget.json"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.scene.core_fallback"
+    ],
+    "examples": [
+      "avatar cinematic mode carries reduced-motion, frame-time and fallback evidence"
+    ],
+    "anti_patterns": [
+      "calling a feature cinematic based only on a developer-machine screenshot"
+    ],
+    "tests": [
+      "CI captures quality-budget and visual evidence for cinematic feature changes"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.graph.renderer_independence",
+    "title": "Graph semantics remain independent from visual renderer",
+    "domain": "visualization",
+    "type": "lesson",
+    "level": "L6",
+    "status": "active",
+    "importance": 0.94,
+    "confidence": 1,
+    "source_type": "experiment_result",
+    "sources": [
+      "experiments/M1.4/RESULT.md",
+      "packages/graph-model"
+    ],
+    "prerequisites": [
+      "makar.visualization.intent_before_renderer"
+    ],
+    "related": [
+      "makar.visualization.accessible_fallback"
+    ],
+    "examples": [
+      "GraphDocument survives DOM/SVG/Canvas/WebGL renderer replacement"
+    ],
+    "anti_patterns": [
+      "business relation type inferred from line color or renderer object"
+    ],
+    "tests": [
+      "graph-model imports no renderer package and list fallback preserves relation meaning"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
   }
 ]
