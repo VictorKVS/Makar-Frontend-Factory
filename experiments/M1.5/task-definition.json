@@ -1,0 +1,52 @@
+{
+  "taskId": "M1.5",
+  "projectId": "alina-control-center",
+  "title": "ALINA production avatar integration",
+  "goal": "Replace placeholder-only ALINA presence with a stateful renderer-adapter integration that preserves persona state and degrades safely across product scenarios and performance tiers.",
+  "why": "ALINA must be a reusable digital specialist presence, not markup tied to one screen or one future 3D renderer.",
+  "priority": "high",
+  "domains": [
+    "avatar-ui",
+    "scene",
+    "composition",
+    "quality",
+    "motion"
+  ],
+  "explicitKnowledgeRefs": [
+    "makar.avatar.state.renderer_independence",
+    "makar.avatar.capability_negotiation"
+  ],
+  "constraints": [
+    "persona/task state must not live in renderer objects",
+    "stable asset IDs are required",
+    "Core tier must remain usable without WebGL",
+    "reduced motion must disable decorative avatar motion",
+    "cinematic missing capabilities must be visible rather than silently claimed"
+  ],
+  "deliverables": [
+    "avatar render-plan contract",
+    "stable ALINA avatar asset bindings",
+    "AlinaAvatarSurface adapter boundary",
+    "ProductShell scenario integration",
+    "activity state integration with command plane",
+    "unit tests",
+    "Playwright avatar interaction and fallback proof",
+    "RESULT.md"
+  ],
+  "acceptanceCriteria": [
+    "identity/task/attention survive presence-mode changes",
+    "Presentation requests hologram and exposes degraded proxy if 3D capability is absent",
+    "Core tier resolves Presentation to portrait",
+    "Focus mode remains hidden with state retained",
+    "command focus/listen and submit/speak states are visible",
+    "renderer can change without changing persona state"
+  ],
+  "testContract": [
+    "pnpm typecheck",
+    "pnpm test",
+    "pnpm build",
+    "pnpm quality:budget",
+    "pnpm validate:alina-shell",
+    "Playwright avatar scenario/fallback/activity proof"
+  ]
+}
