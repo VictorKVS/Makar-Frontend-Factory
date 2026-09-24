@@ -896,5 +896,71 @@
       "alina-control-center"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.scene.capability_truth",
+    "title": "Renderer capabilities are runtime facts and may be advertised only after successful initialization",
+    "domain": "scene",
+    "type": "principle",
+    "level": "L9",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "experiment_result",
+    "sources": [
+      "experiments/M1.6/RESULT.md",
+      "packages/cinematic-scene-adapter"
+    ],
+    "prerequisites": [
+      "makar.scene.core_fallback"
+    ],
+    "related": [
+      "makar.avatar.capability_negotiation"
+    ],
+    "examples": [
+      "3d capability becomes true only after the WebGL controller is created"
+    ],
+    "anti_patterns": [
+      "assuming 3d support from requested performance tier alone"
+    ],
+    "tests": [
+      "capability trace matches actual adapter initialization and falls back on failure"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.scene.lifecycle_cleanup",
+    "title": "Scene renderers own explicit start/stop/resize/dispose lifecycle",
+    "domain": "scene",
+    "type": "pattern",
+    "level": "L9",
+    "status": "active",
+    "importance": 0.95,
+    "confidence": 1,
+    "source_type": "experiment_result",
+    "sources": [
+      "experiments/M1.6/RESULT.md",
+      "packages/cinematic-scene-adapter/src/webgl.ts"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.qa.cinematic_evidence"
+    ],
+    "examples": [
+      "cancel animation frame and delete WebGL buffer/program on dispose"
+    ],
+    "anti_patterns": [
+      "renderer survives product mode change and leaks GPU/browser resources"
+    ],
+    "tests": [
+      "tier change disposes cinematic ownership and Core reports no 3d"
+    ],
+    "projects_used_in": [
+      "alina-control-center"
+    ],
+    "last_verified_at": null
   }
 ]
