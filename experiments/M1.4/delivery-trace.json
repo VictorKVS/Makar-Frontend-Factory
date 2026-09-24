@@ -1,0 +1,55 @@
+{
+  "deliveryId": "delivery:makar:M1.4:v1",
+  "agentId": "makar",
+  "taskId": "M1.4",
+  "projectId": "alina-control-center",
+  "repository": "VictorKVS/Makar-Frontend-Factory",
+  "attentionBudget": 6,
+  "knowledge": [
+    {
+      "id": "makar.visualization.intent_before_renderer",
+      "reason": [
+        "explicit-ref",
+        "domain-match",
+        "project-match"
+      ]
+    },
+    {
+      "id": "makar.visualization.accessible_fallback",
+      "reason": [
+        "explicit-ref",
+        "domain-match",
+        "project-match"
+      ]
+    },
+    {
+      "id": "makar.workspace.state.presentation_separation",
+      "reason": [
+        "domain-match",
+        "project-match"
+      ]
+    },
+    {
+      "id": "makar.workspace.layout.serializable",
+      "reason": [
+        "domain-match",
+        "project-match"
+      ]
+    },
+    {
+      "id": "makar.workspace.panel.stable_ids",
+      "reason": [
+        "domain-match",
+        "project-match"
+      ]
+    },
+    {
+      "id": "makar.composition.engines_remain_independent",
+      "reason": [
+        "domain-match",
+        "project-match"
+      ]
+    }
+  ],
+  "omissionPolicy": "Relevant but non-essential catalog items are omitted by the bounded attention budget."
+}

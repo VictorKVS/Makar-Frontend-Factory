@@ -1,0 +1,18 @@
+{
+  "task_id": "M1.4",
+  "agent_id": "makar",
+  "project_id": "alina-control-center",
+  "delivery_id": "delivery:makar:M1.4:v1",
+  "knowledge_refs": [
+    "makar.visualization.intent_before_renderer",
+    "makar.visualization.accessible_fallback",
+    "makar.workspace.state.presentation_separation",
+    "makar.workspace.layout.serializable",
+    "makar.workspace.panel.stable_ids",
+    "makar.composition.engines_remain_independent"
+  ],
+  "previous_result": "experiments/M1.3/RESULT.md",
+  "repository_contract": "repository-contract.json",
+  "backend_handoff": "contracts/backend/alina-data-gateway.handoff.json",
+  "frontend_boundary": "Data Gateway transports graph payload; graph model owns graph semantics; ProductShell owns presentation."
+}
