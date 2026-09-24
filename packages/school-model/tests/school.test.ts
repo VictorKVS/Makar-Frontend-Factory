@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  applyMasteryReview,
   buildAdaptiveLearningPath,
   calculateGraduateReadiness,
   prerequisiteClosure,
@@ -151,6 +152,55 @@ describe("ALINA School model", () => {
     const proposal = proposeMasteryUpdate(current, evidence);
     expect(proposal.proposedLevel).toBe("K1");
     expect(proposal.requiresReview).toBe(true);
+  });
+
+  it("changes mastery only after an accepted review", () => {
+    const current: MasteryRecord = {
+      studentId: "makar",
+      nodeId: "skill.component-api",
+      level: "K3",
+      confidence: 0.75,
+      evidenceRefs: [],
+    };
+
+    const evidence: EvidenceRecord[] = [
+      {
+        id: "project-2",
+        studentId: "makar",
+        nodeId: "skill.component-api",
+        kind: "project",
+        capability: "independent-application",
+        strength: 0.85,
+        independent: true,
+        verified: true,
+        sourceRef: "pr:ui",
+      },
+    ];
+
+    const proposal = proposeMasteryUpdate(current, evidence);
+
+    expect(current.level).toBe("K3");
+    expect(proposal.proposedLevel).toBe("K4");
+
+    const rejected = applyMasteryReview(current, {
+      proposal,
+      accepted: false,
+      reviewer: "school-review",
+      confidence: 0.9,
+    });
+
+    expect(rejected.level).toBe("K3");
+
+    const accepted = applyMasteryReview(current, {
+      proposal,
+      accepted: true,
+      reviewer: "school-review",
+      confidence: 0.9,
+      reviewedAt: "2026-09-24T00:00:00Z",
+    });
+
+    expect(accepted.level).toBe("K4");
+    expect(accepted.evidenceRefs).toContain("project-2");
   });
 
   it("keeps graduate readiness blocked without critical evidence", () => {
