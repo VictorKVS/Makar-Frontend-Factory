@@ -106,6 +106,23 @@ describe("composition engine", () => {
     expect(alert?.visible).toBe(true);
   });
 
+  it("keeps interrupting alerts in overlay on mobile", () => {
+    const plan = composeInterface({
+      scenario: "security",
+      breakpoint: "mobile",
+      performanceTier: "core",
+      reducedMotion: true,
+      primaryStreamClass: "primary",
+      interruptingAlert: true,
+      availableModules: allModules
+    });
+
+    const alert = plan.modules.find((item) => item.id === "alerts");
+
+    expect(alert?.region).toBe("overlay");
+    expect(alert?.collapsed).toBe(false);
+  });
+
   it("honors human primary and region overrides", () => {
     const plan = composeInterface({
       scenario: "research",
@@ -125,6 +142,30 @@ describe("composition engine", () => {
     expect(plan.primaryModuleId).toBe("context");
     expect(plan.modules.find((item) => item.id === "context")?.locked).toBe(true);
     expect(plan.avatar.presence).toBe("voice-only");
+    expect(plan.avatar.locked).toBe(true);
+  });
+
+  it("preserves locked human overrides during responsive transforms", () => {
+    const plan = composeInterface({
+      scenario: "research",
+      breakpoint: "mobile",
+      performanceTier: "core",
+      reducedMotion: true,
+      primaryStreamClass: "primary",
+      interruptingAlert: false,
+      availableModules: allModules,
+      overrides: {
+        primaryModuleId: "context",
+        moduleRegions: { context: "right" },
+        avatarPresence: "hologram"
+      }
+    });
+
+    const context = plan.modules.find((item) => item.id === "context");
+
+    expect(context?.region).toBe("right");
+    expect(context?.locked).toBe(true);
+    expect(plan.avatar.presence).toBe("hologram");
     expect(plan.avatar.locked).toBe(true);
   });
 
