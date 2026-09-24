@@ -9,7 +9,7 @@ const viewports = [
 async function openEngineLabs(page: Page) {
   const disclosure = page.locator(".engine-labs-disclosure");
   if (!(await disclosure.evaluate((node) => (node as HTMLDetailsElement).open))) {
-    await disclosure.locator("summary").click();
+    await disclosure.locator(":scope > summary").click();
   }
 }
 
