@@ -154,3 +154,27 @@ test("workspace diagnostics remain operational", async ({ page }) => {
   await expect(workspace.locator('[data-panel-id="context"]')).toHaveCount(0);
   await expect(workspace.locator('[data-panel-id="activity"]')).toHaveCount(0);
 });
+
+
+test("Research Knowledge Graph supports inspect, focus and accessible fallback", async ({ page }) => {
+  await page.goto("/");
+
+  const workspace = page.getByRole("region", { name: "Knowledge Graph Workspace" });
+  await expect(workspace).toBeVisible();
+  await expect(workspace).toHaveAttribute("data-graph-mode", "graph");
+
+  const fact = workspace.getByRole("button", { name: "fact: Факт" });
+  await fact.click();
+  await expect(workspace).toHaveAttribute("data-selected-node", "fact-1");
+  await expect(workspace.getByText("92%", { exact: true })).toBeVisible();
+
+  await workspace.getByRole("button", { name: "Focus neighborhood", exact: true }).click();
+  await expect(workspace).toHaveAttribute("data-focused-node", "fact-1");
+
+  await workspace.getByRole("button", { name: "hypothesis", exact: true }).click();
+  await expect(workspace.getByRole("button", { name: "hypothesis: Гипотеза" })).toHaveCount(0);
+
+  await workspace.getByRole("button", { name: "Accessible list", exact: true }).click();
+  await expect(workspace).toHaveAttribute("data-graph-mode", "list");
+  await expect(workspace.getByText("supports", { exact: true })).toBeVisible();
+});
