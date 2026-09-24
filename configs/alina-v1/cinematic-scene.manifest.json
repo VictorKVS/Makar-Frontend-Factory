@@ -1,0 +1,96 @@
+{
+  "id": "alina-cinematic-scene-v1",
+  "version": "1.0.0",
+  "defaultTier": "cinematic",
+  "assets": [
+    {
+      "id": "asset:scene:alina-grid:v1",
+      "type": "environment",
+      "source": "shader://alina-grid-v1",
+      "version": "1",
+      "license": "project-owned",
+      "loadPolicy": "preload",
+      "required": false,
+      "tags": [
+        "procedural",
+        "webgl",
+        "environment"
+      ]
+    },
+    {
+      "id": "asset:alina:hologram:v1",
+      "type": "model",
+      "source": "renderer://webgl/procedural-point-cloud-v1",
+      "version": "1",
+      "license": "project-owned",
+      "loadPolicy": "lazy",
+      "required": false,
+      "fallbackAssetId": "asset:alina:bust:v1",
+      "tags": [
+        "procedural",
+        "avatar",
+        "webgl"
+      ]
+    },
+    {
+      "id": "asset:alina:bust:v1",
+      "type": "image",
+      "source": "renderer://dom/alina-bust",
+      "version": "1",
+      "license": "project-owned",
+      "loadPolicy": "preload",
+      "required": false,
+      "tags": [
+        "fallback",
+        "avatar",
+        "dom"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "environment-grid",
+      "kind": "environment",
+      "assetId": "asset:scene:alina-grid:v1",
+      "visible": true,
+      "minTier": "cinematic"
+    },
+    {
+      "id": "avatar-hologram",
+      "kind": "avatar",
+      "assetId": "asset:alina:hologram:v1",
+      "visible": true,
+      "minTier": "cinematic",
+      "lod": {
+        "high": "asset:alina:hologram:v1",
+        "medium": "asset:alina:bust:v1",
+        "low": "asset:alina:bust:v1"
+      }
+    }
+  ],
+  "camera": {
+    "mode": "perspective",
+    "fov": 42,
+    "near": 0.1,
+    "far": 100,
+    "target": [
+      0,
+      0.2,
+      0
+    ]
+  },
+  "lights": [
+    {
+      "id": "ambient",
+      "kind": "ambient",
+      "intensity": 0.45,
+      "minTier": "core"
+    },
+    {
+      "id": "hologram-key",
+      "kind": "point",
+      "intensity": 1.1,
+      "minTier": "cinematic"
+    }
+  ]
+}
