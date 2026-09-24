@@ -20,7 +20,7 @@ for (const viewport of viewports) {
 
     const shell = page.locator(".alina-product-shell");
     await expect(page.getByRole("heading", { name: "ALINA", exact: true })).toBeVisible();
-    await expect(page.getByText("DEMO / MOCK", { exact: true })).toBeVisible();
+    await expect(shell.getByText("DEMO / MOCK", { exact: true })).toBeVisible();
     await expect(shell).toHaveAttribute("data-scenario", "research");
     await expect(shell).toHaveAttribute("data-primary-module", "knowledge-graph");
     await expect(shell).toHaveAttribute("data-performance-tier", "cinematic");
