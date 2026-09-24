@@ -1,14 +1,18 @@
 # M1.1 — Result
 
-Status: **implementation complete / awaiting CI and review**
+Status: **implementation complete / CI accepted / merged**
 
 ## Evidence
 
-- issue: #27
+- issue: **#27**
 - branch: `feat/m1.1-scene-grammar`
+- pull request: **PR #28**
+- CI run: **35984793511**
+- QA artifact: **10801184717 — alina-visual-evidence**
+- artifact size: about **5.18 MB**
 - delivery trace: `experiments/M1.1/delivery-trace.json`
-- pull request:
-- CI:
+- shell-contract validation: passed
+- typecheck / tests / build / quality budget / visual QA: passed
 
 ## Delivered
 
@@ -45,6 +49,7 @@ None identified in the six-item Knowledge Pack.
 - selected knowledge items: **6**
 - full-library dump: **no**
 - repository/bootstrap rework: **0**
+- CI repair cycles: **0**
 
 ## Lessons for KB-1
 
@@ -58,3 +63,8 @@ None identified in the six-item Knowledge Pack.
 1. Six selected knowledge items were sufficient for this decomposition task.
 2. Product-transition tasks should explicitly state which diagnostic surfaces are not the product homepage.
 3. Machine-readable output contracts reduce ambiguity for the next implementation task.
+4. M1.1 proved that a real product task can be completed from a bounded Agent Factory delivery.
+
+## Conclusion
+
+M1.1 is the first accepted real ALINA product task provisioned through Agent Factory v0. Its contract is now the direct input for M1.2.
