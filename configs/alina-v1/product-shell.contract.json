@@ -1,0 +1,188 @@
+{
+  "id": "alina-control-center-v1",
+  "version": "1.0.0",
+  "principles": {
+    "screen_is_composition": true,
+    "one_primary_context": true,
+    "avatar_renderer_independent": true,
+    "semantic_stream_priority": true,
+    "reason_trace_required": true,
+    "core_tier_must_be_usable": true
+  },
+  "planes": [
+    {
+      "id": "background",
+      "owner": "scene-engine",
+      "purpose": "ambient environment",
+      "fallback": "static-background"
+    },
+    {
+      "id": "navigation",
+      "owner": "ui+workspace-engine",
+      "purpose": "global orientation",
+      "fallback": "compact-navigation"
+    },
+    {
+      "id": "primary-work",
+      "owner": "workspace+composition-engine",
+      "purpose": "current user task",
+      "fallback": "single-primary-surface"
+    },
+    {
+      "id": "secondary-context",
+      "owner": "workspace+stream-engine",
+      "purpose": "supporting context",
+      "fallback": "drawer-or-collapsed"
+    },
+    {
+      "id": "avatar-presence",
+      "owner": "avatar-engine",
+      "purpose": "ALINA presence",
+      "fallback": "portrait-or-voice-only"
+    },
+    {
+      "id": "command",
+      "owner": "input-engine+ui",
+      "purpose": "user intent entry",
+      "fallback": "text-command"
+    },
+    {
+      "id": "alert-overlay",
+      "owner": "stream+composition-engine",
+      "purpose": "qualified interruption",
+      "fallback": "accessible-alert-list"
+    }
+  ],
+  "scenarios": {
+    "research": {
+      "primary": "knowledge-graph",
+      "secondary": [
+        "sources",
+        "hypotheses",
+        "context-inspector"
+      ],
+      "background": [
+        "indexing",
+        "rag",
+        "osint"
+      ],
+      "alerts": [
+        "contradiction",
+        "source-integrity",
+        "task-failure"
+      ],
+      "agent_activity": "compact",
+      "avatar": "bust",
+      "reason": "scenario:research"
+    },
+    "coding": {
+      "primary": "editor",
+      "secondary": [
+        "terminal",
+        "tests",
+        "architecture-context"
+      ],
+      "background": [
+        "build",
+        "indexing",
+        "agents"
+      ],
+      "alerts": [
+        "build-failure",
+        "test-failure",
+        "security-failure"
+      ],
+      "agent_activity": "development-feed",
+      "avatar": "compact",
+      "reason": "scenario:coding"
+    },
+    "security": {
+      "primary": "security-graph",
+      "secondary": [
+        "alerts",
+        "assets",
+        "timeline",
+        "controls"
+      ],
+      "background": [
+        "scans",
+        "enrichment",
+        "correlation"
+      ],
+      "alerts": [
+        "critical-security"
+      ],
+      "agent_activity": "security-feed",
+      "avatar": "compact",
+      "reason": "scenario:security"
+    },
+    "presentation": {
+      "primary": "visualization",
+      "secondary": [
+        "presenter-notes"
+      ],
+      "background": [],
+      "alerts": [
+        "critical-only"
+      ],
+      "agent_activity": "hidden",
+      "avatar": "hologram",
+      "reason": "scenario:presentation"
+    },
+    "focus": {
+      "primary": "document-or-editor",
+      "secondary": [],
+      "background": [
+        "silent"
+      ],
+      "alerts": [
+        "critical-only"
+      ],
+      "agent_activity": "hidden",
+      "avatar": "hidden",
+      "reason": "scenario:focus"
+    }
+  },
+  "responsive": {
+    "narrow": {
+      "secondary": "drawer",
+      "avatar": "compact-or-hidden",
+      "navigation": "collapsed"
+    },
+    "laptop": {
+      "secondary": "single-bounded-panel",
+      "avatar": "compact-or-bust",
+      "navigation": "visible"
+    },
+    "desktop": {
+      "secondary": "docked",
+      "avatar": "optional-presence-zone",
+      "navigation": "visible"
+    },
+    "ultrawide": {
+      "secondary": "multi-region-with-attention-budget",
+      "avatar": "independent-zone",
+      "navigation": "visible"
+    }
+  },
+  "performance": {
+    "core": {
+      "webgl_required": false,
+      "avatar": "portrait-or-voice-only",
+      "motion": "minimal",
+      "environment": "static"
+    },
+    "enhanced": {
+      "webgl_required": false,
+      "avatar": "2.5d-or-bust",
+      "motion": "rich",
+      "environment": "layered"
+    },
+    "cinematic": {
+      "webgl_required": false,
+      "avatar": "3d-or-hologram-if-capable",
+      "motion": "cinematic",
+      "environment": "3d-if-capable"
+    }
+  }
+}

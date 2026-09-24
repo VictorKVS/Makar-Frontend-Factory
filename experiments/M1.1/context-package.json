@@ -1,0 +1,48 @@
+{
+  "task_id": "M1.1",
+  "agent_id": "makar",
+  "project_id": "alina-control-center",
+  "goal": "Define ALINA v1 product scene grammar and machine-readable shell contract.",
+  "priority": "high",
+  "status": "in_progress",
+  "delivery_id": "delivery:makar:M1.1:v1",
+  "knowledge_refs": [
+    "makar.composition.engines_remain_independent",
+    "makar.stream.semantic_priority",
+    "makar.avatar.state.renderer_independence",
+    "makar.workspace.state.presentation_separation",
+    "makar.composition.reason_trace",
+    "makar.visualization.intent_before_renderer"
+  ],
+  "project_decisions": [
+    "Screen is a composition of modules, not a monolithic page",
+    "Information streams are semantically prioritized",
+    "Avatar state is independent from presentation mode",
+    "Shared engines remain ALINA-agnostic",
+    "Engineering Labs are diagnostics, not the product homepage"
+  ],
+  "repository_contract": {
+    "package_manager": "pnpm",
+    "build": "pnpm build",
+    "typecheck": "pnpm typecheck",
+    "test": "pnpm test",
+    "visual_qa": "pnpm --filter @father/alina-control-center test:visual",
+    "quality_budget": "quality-budget.json"
+  },
+  "deliverables": [
+    "docs/alina-v1/SCENE_GRAMMAR.md",
+    "docs/alina-v1/ATTENTION_MAP.md",
+    "docs/alina-v1/AVATAR_PLACEMENT_MATRIX.md",
+    "docs/alina-v1/RESPONSIVE_PERFORMANCE_GRAMMAR.md",
+    "configs/alina-v1/product-shell.contract.json"
+  ],
+  "acceptance_criteria": [
+    "Seven product planes have explicit owners",
+    "Five scenarios have one primary module each",
+    "Avatar presence is defined per scenario",
+    "Responsive transformations are explicit",
+    "Performance tiers define degradation paths",
+    "Contract is serializable and M1.2-ready"
+  ],
+  "context_version": "1.0.0"
+}

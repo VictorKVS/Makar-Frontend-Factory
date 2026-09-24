@@ -1,0 +1,81 @@
+{
+  "delivery_id": "delivery:makar:M1.1:v1",
+  "agent_id": "makar",
+  "task_id": "M1.1",
+  "project_id": "alina-control-center",
+  "repository": "VictorKVS/Makar-Frontend-Factory",
+  "selection_policy": "bounded-role-aware-context-v1",
+  "selected_knowledge": [
+    {
+      "id": "makar.composition.engines_remain_independent",
+      "score": 2.425,
+      "reasons": [
+        "explicit-ref",
+        "domain-match",
+        "project-match",
+        "skill-K1"
+      ]
+    },
+    {
+      "id": "makar.stream.semantic_priority",
+      "score": 2.425,
+      "reasons": [
+        "explicit-ref",
+        "domain-match",
+        "project-match",
+        "skill-K1"
+      ]
+    },
+    {
+      "id": "makar.avatar.state.renderer_independence",
+      "score": 2.425,
+      "reasons": [
+        "explicit-ref",
+        "domain-match",
+        "project-match",
+        "skill-K1"
+      ]
+    },
+    {
+      "id": "makar.workspace.state.presentation_separation",
+      "score": 1.425,
+      "reasons": [
+        "domain-match",
+        "project-match",
+        "skill-K1"
+      ]
+    },
+    {
+      "id": "makar.composition.reason_trace",
+      "score": 1.418,
+      "reasons": [
+        "domain-match",
+        "project-match",
+        "skill-K1"
+      ]
+    },
+    {
+      "id": "makar.visualization.intent_before_renderer",
+      "score": 1.418,
+      "reasons": [
+        "domain-match",
+        "project-match",
+        "skill-K1"
+      ]
+    }
+  ],
+  "omitted_by_attention_budget": [
+    "makar.stream.attention_budget",
+    "makar.avatar.capability_negotiation",
+    "makar.qa.change_impact_ui_assertions"
+  ],
+  "repository_contract_ref": "repository-contract / CI policy embedded in current project configuration",
+  "generated_artifacts": [
+    "TASK.md",
+    "CONTEXT.md",
+    "KNOWLEDGE_PACK.md",
+    "ACCEPTANCE.md",
+    "RESULT.md",
+    "context-package.json"
+  ]
+}

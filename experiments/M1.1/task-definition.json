@@ -1,0 +1,53 @@
+{
+  "taskId": "M1.1",
+  "projectId": "alina-control-center",
+  "title": "ALINA v1 visual decomposition and scene grammar",
+  "goal": "Turn the cinematic ALINA target into an explicit, reusable product composition that M1.2 can render.",
+  "why": "Bridge the completed M0 engineering foundation to the actual ALINA Control Center product without collapsing independent engines into a monolithic screen.",
+  "priority": "high",
+  "domains": [
+    "composition",
+    "information-streams",
+    "avatar-ui",
+    "workspace",
+    "visualization",
+    "quality"
+  ],
+  "explicitKnowledgeRefs": [
+    "makar.composition.engines_remain_independent",
+    "makar.stream.semantic_priority",
+    "makar.avatar.state.renderer_independence"
+  ],
+  "constraints": [
+    "No monolithic page architecture",
+    "Engineering Labs remain diagnostic, not the product homepage",
+    "Every visual layer must have semantic purpose",
+    "3D must have a non-3D fallback",
+    "Primary task remains legible in Core tier",
+    "DEMO data stays visibly marked"
+  ],
+  "deliverables": [
+    "scene grammar",
+    "module map",
+    "attention map",
+    "avatar placement matrix",
+    "responsive grammar",
+    "performance grammar",
+    "machine-readable product-shell contract"
+  ],
+  "acceptanceCriteria": [
+    "Every target surface maps to a reusable engine/component or a named new requirement",
+    "Research, Coding, Security, Presentation and Focus scenarios are defined",
+    "Avatar placement is scenario-specific and renderer-independent",
+    "Laptop, desktop, ultrawide and narrow behavior are explicit",
+    "Core, Enhanced and Cinematic tiers preserve the primary task",
+    "Product shell contract is serializable and reason-trace ready"
+  ],
+  "testContract": [
+    "JSON contracts parse successfully",
+    "Every scenario declares exactly one primary module",
+    "Every scenario declares avatar presence",
+    "Every plane has an owning engine",
+    "Every cinematic-only capability has a lower-tier fallback"
+  ]
+}
