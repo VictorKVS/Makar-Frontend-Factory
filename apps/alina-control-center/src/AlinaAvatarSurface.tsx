@@ -32,6 +32,7 @@ export function AlinaAvatarSurface({
   contextRef,
   attentionLabel,
   message,
+  cinematic3dAvailable = false,
 }: {
   requestedMode: AvatarPresenceMode;
   tier: AlinaPerformanceTier;
@@ -40,6 +41,7 @@ export function AlinaAvatarSurface({
   contextRef: string;
   attentionLabel: string;
   message: string;
+  cinematic3dAvailable?: boolean;
 }) {
   const reducedMotion = useReducedMotion();
 
@@ -53,6 +55,7 @@ export function AlinaAvatarSurface({
         taskId,
         contextRef,
         attentionLabel,
+        cinematic3dAvailable,
       }),
     [
       requestedMode,
@@ -62,6 +65,7 @@ export function AlinaAvatarSurface({
       taskId,
       contextRef,
       attentionLabel,
+      cinematic3dAvailable,
     ]
   );
 
@@ -115,22 +119,35 @@ export function AlinaAvatarSurface({
       data-avatar-asset={plan.assetId ?? ""}
       data-avatar-degraded={String(plan.degraded)}
       data-avatar-motion={String(plan.motionEnabled)}
+      data-avatar-3d={String(
+        plan.rendererId === "alina-webgl-cinematic" &&
+          plan.resolvedMode === "hologram"
+      )}
     >
       <div className="alina-avatar-rings" aria-hidden="true">
         <span /><span /><span />
       </div>
 
-      <div className="alina-avatar-figure" data-expression={plan.expression}>
-        <div className="alina-avatar-head">
-          <span className="alina-avatar-eye left" />
-          <span className="alina-avatar-eye right" />
+      {plan.rendererId === "alina-webgl-cinematic" &&
+      plan.resolvedMode === "hologram" ? (
+        <div className="alina-avatar-webgl-owned">
+          <strong>{plan.identityName}</strong>
+          <span>3D hologram · {plan.activity}</span>
+          <small>rendered by cinematic scene adapter</small>
         </div>
-        <div className="alina-avatar-body">
-          <span className="alina-avatar-core" />
+      ) : (
+        <div className="alina-avatar-figure" data-expression={plan.expression}>
+          <div className="alina-avatar-head">
+            <span className="alina-avatar-eye left" />
+            <span className="alina-avatar-eye right" />
+          </div>
+          <div className="alina-avatar-body">
+            <span className="alina-avatar-core" />
+          </div>
+          <strong>{plan.identityName}</strong>
+          <span>{plan.resolvedMode} · {plan.activity}</span>
         </div>
-        <strong>{plan.identityName}</strong>
-        <span>{plan.resolvedMode} · {plan.activity}</span>
-      </div>
+      )}
 
       <div className="alina-avatar-message">
         <div className="alina-avatar-state-row">

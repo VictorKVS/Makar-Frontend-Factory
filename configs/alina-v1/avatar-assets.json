@@ -47,12 +47,12 @@
     {
       "id": "asset:alina:hologram:v1",
       "type": "model",
-      "source": "adapter://future-webgl/alina-hologram",
+      "source": "renderer://webgl/procedural-point-cloud-v1",
       "version": "1",
       "license": "project-owned",
       "required": false,
-      "status": "adapter-not-installed"
+      "status": "available-via-m1.6"
     }
   ],
-  "note": "Current production adapter renders Core/Enhanced presence in DOM/CSS. Hologram mode may be requested and shown as a degraded proxy until M1.6 installs the cinematic scene/WebGL adapter."
+  "note": "Core/Enhanced use DOM/CSS avatar adapters. M1.6 provides an actual procedural WebGL 3D hologram adapter when capability initialization succeeds."
 }

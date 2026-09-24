@@ -1,0 +1,52 @@
+{
+  "taskId": "M1.6",
+  "projectId": "alina-control-center",
+  "title": "ALINA cinematic scene layer",
+  "goal": "Install a real capability-driven cinematic scene adapter without making WebGL a product dependency.",
+  "why": "M1.5 now exposes honest missing-3D capability. M1.6 must satisfy that capability when the browser can actually run the cinematic adapter and degrade safely otherwise.",
+  "priority": "high",
+  "domains": [
+    "scene",
+    "avatar-ui",
+    "composition",
+    "quality",
+    "motion"
+  ],
+  "explicitKnowledgeRefs": [
+    "makar.scene.core_fallback",
+    "makar.scene.asset.stable_ids"
+  ],
+  "constraints": [
+    "WebGL is an adapter, not the application",
+    "domain and Agent Factory state must not live in WebGL objects",
+    "Core remains usable without WebGL",
+    "reduced motion may suppress animation without changing semantic state",
+    "3d capability can only be advertised when the adapter successfully initializes"
+  ],
+  "deliverables": [
+    "@father/cinematic-scene-adapter",
+    "ALINA cinematic scene manifest",
+    "CinematicSceneLayer",
+    "WebGL capability handshake with Avatar Surface",
+    "Core/Enhanced fallback",
+    "scene lifecycle tests",
+    "Playwright capability/fallback proof",
+    "RESULT.md"
+  ],
+  "acceptanceCriteria": [
+    "actual WebGL initialization controls 3d capability truthfully",
+    "scene adapter has start/stop/resize/dispose lifecycle",
+    "avatar hologram stops reporting missing 3d only when WebGL adapter is active",
+    "Core and reduced-motion remain usable",
+    "scene uses stable asset/manifest identity",
+    "quality budgets remain green"
+  ],
+  "testContract": [
+    "pnpm typecheck",
+    "pnpm test",
+    "pnpm build",
+    "pnpm quality:budget",
+    "pnpm validate:alina-shell",
+    "Playwright cinematic capability and fallback proof"
+  ]
+}

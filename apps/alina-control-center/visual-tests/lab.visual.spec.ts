@@ -65,10 +65,20 @@ test("scenario switching changes primary context and avatar presence", async ({ 
   await expect(shell).toHaveAttribute("data-primary-module", "visualization");
   await expect(shell).toHaveAttribute("data-avatar-presence", "hologram");
   const presentationAvatar = shell.locator(".alina-avatar-surface");
+  const cinematicScene = shell.locator(".alina-cinematic-scene");
   await expect(presentationAvatar).toHaveAttribute("data-avatar-requested", "hologram");
   await expect(presentationAvatar).toHaveAttribute("data-avatar-resolved", "hologram");
-  await expect(presentationAvatar).toHaveAttribute("data-avatar-degraded", "true");
-  await expect(presentationAvatar.getByText("missing:3d", { exact: true })).toBeVisible();
+
+  const webgl3d = await cinematicScene.getAttribute("data-scene-3d");
+  if (webgl3d === "true") {
+    await expect(presentationAvatar).toHaveAttribute("data-avatar-renderer", "alina-webgl-cinematic");
+    await expect(presentationAvatar).toHaveAttribute("data-avatar-3d", "true");
+    await expect(presentationAvatar.getByText("missing:3d", { exact: true })).toHaveCount(0);
+  } else {
+    await expect(presentationAvatar).toHaveAttribute("data-avatar-renderer", "alina-dom-cinematic-proxy");
+    await expect(presentationAvatar).toHaveAttribute("data-avatar-degraded", "true");
+    await expect(presentationAvatar.getByText("missing:3d", { exact: true })).toBeVisible();
+  }
   await page.screenshot({
     path: testInfo.outputPath("alina-presentation.png"),
     fullPage: true,
@@ -212,4 +222,29 @@ test("avatar renderer adapter preserves scenario intent and stable asset identit
   await shell.getByRole("button", { name: "Focus", exact: true }).click();
   await expect(avatar).toHaveAttribute("data-avatar-resolved", "hidden");
   await expect(avatar.getByText("state retained", { exact: true })).toBeVisible();
+});
+
+
+test("cinematic scene capability is truthful and Core disposes WebGL ownership", async ({ page }) => {
+  await page.goto("/");
+
+  const shell = page.locator(".alina-product-shell");
+  const scene = shell.locator(".alina-cinematic-scene");
+
+  await expect(scene).toHaveAttribute("data-scene-tier", /cinematic|enhanced/);
+
+  const initial3d = await scene.getAttribute("data-scene-3d");
+  if (initial3d === "true") {
+    await expect(scene).toHaveAttribute("data-scene-adapter", "webgl-cinematic");
+    await expect(shell).toHaveAttribute("data-cinematic-3d", "true");
+  } else {
+    await expect(scene).toHaveAttribute("data-scene-adapter", "dom-enhanced");
+    await expect(shell).toHaveAttribute("data-cinematic-3d", "false");
+  }
+
+  await shell.getByRole("button", { name: "core", exact: true }).click();
+
+  await expect(scene).toHaveAttribute("data-scene-adapter", "dom-core");
+  await expect(scene).toHaveAttribute("data-scene-3d", "false");
+  await expect(shell).toHaveAttribute("data-cinematic-3d", "false");
 });

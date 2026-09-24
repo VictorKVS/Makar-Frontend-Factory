@@ -26,7 +26,8 @@ export const alinaAvatarAssets: AvatarAssetBindings = {
 
 export function avatarRendererForTier(
   tier: AlinaPerformanceTier,
-  reducedMotion: boolean
+  reducedMotion: boolean,
+  cinematic3dAvailable = false
 ): AvatarRendererProfile {
   if (tier === "core") {
     return {
@@ -46,20 +47,35 @@ export function avatarRendererForTier(
     };
   }
 
-  return {
-    id: "alina-dom-cinematic-proxy",
-    supportedModes: [
-      "hologram",
-      "full",
-      "bust",
-      "portrait",
-      "compact",
-      "voice-only",
-      "hidden",
-    ],
-    capabilities: ["audio", "2d", "2.5d", "motion"],
-    reducedMotion,
-  };
+  return cinematic3dAvailable
+    ? {
+        id: "alina-webgl-cinematic",
+        supportedModes: [
+          "hologram",
+          "full",
+          "bust",
+          "portrait",
+          "compact",
+          "voice-only",
+          "hidden",
+        ],
+        capabilities: ["audio", "2d", "2.5d", "3d", "motion"],
+        reducedMotion,
+      }
+    : {
+        id: "alina-dom-cinematic-proxy",
+        supportedModes: [
+          "hologram",
+          "full",
+          "bust",
+          "portrait",
+          "compact",
+          "voice-only",
+          "hidden",
+        ],
+        capabilities: ["audio", "2d", "2.5d", "motion"],
+        reducedMotion,
+      };
 }
 
 function expressionForActivity(activity: AvatarActivity) {
@@ -97,6 +113,7 @@ export function createAlinaAvatarPlan(input: {
   taskId: string;
   contextRef: string;
   attentionLabel: string;
+  cinematic3dAvailable?: boolean;
 }) {
   let state = createAvatarState(
     {
@@ -120,7 +137,11 @@ export function createAlinaAvatarPlan(input: {
 
   return createAvatarRenderPlan(
     state,
-    avatarRendererForTier(input.tier, input.reducedMotion),
+    avatarRendererForTier(
+      input.tier,
+      input.reducedMotion,
+      input.cinematic3dAvailable ?? false
+    ),
     alinaAvatarAssets
   );
 }

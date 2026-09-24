@@ -163,3 +163,34 @@
     display: none;
   }
 }
+
+
+.alina-avatar-webgl-owned {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  margin-top: 34%;
+  color: var(--father-theme-colors-accent);
+  text-align: center;
+  text-shadow: 0 0 12px
+    color-mix(in srgb, var(--father-theme-colors-accent) 55%, transparent);
+}
+
+.alina-avatar-webgl-owned strong {
+  letter-spacing: 0.2em;
+}
+
+.alina-avatar-webgl-owned span,
+.alina-avatar-webgl-owned small {
+  color: var(--father-theme-colors-text-secondary);
+}
+
+.alina-avatar-surface[data-avatar-3d="true"] .alina-avatar-rings {
+  opacity: 0.35;
+}
+
+.alina-avatar-surface[data-avatar-3d="true"] {
+  z-index: 2;
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "M1.6",
+  "agent_id": "makar",
+  "project_id": "alina-control-center",
+  "delivery_id": "delivery:makar:M1.6:v1",
+  "knowledge_refs": [
+    "makar.scene.core_fallback",
+    "makar.scene.asset.stable_ids",
+    "makar.avatar.state.renderer_independence",
+    "makar.avatar.capability_negotiation",
+    "makar.composition.reason_trace",
+    "makar.qa.cinematic_evidence"
+  ],
+  "previous_result": "experiments/M1.5/RESULT.md",
+  "product_contract": "configs/alina-v1/product-shell.contract.json",
+  "avatar_assets": "configs/alina-v1/avatar-assets.json",
+  "quality_budget": "quality-budget.json",
+  "boundary": "Scene adapter owns rendering lifecycle. Avatar Engine owns persona state. ProductShell owns scenario intent. Capability handshake is explicit."
+}

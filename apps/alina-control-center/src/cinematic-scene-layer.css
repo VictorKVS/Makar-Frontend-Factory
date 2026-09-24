@@ -1,0 +1,74 @@
+.alina-cinematic-scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.alina-cinematic-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity var(--father-foundation-motion-duration-slow)
+    var(--father-foundation-motion-easing-standard);
+}
+
+.scene-webgl-cinematic .alina-cinematic-canvas {
+  opacity: 0.92;
+}
+
+.alina-scene-depth {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  border: 1px solid
+    color-mix(in srgb, var(--father-theme-colors-accent) 18%, transparent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.depth-a {
+  width: 78%;
+  aspect-ratio: 1;
+}
+
+.depth-b {
+  width: 52%;
+  aspect-ratio: 1;
+}
+
+.scene-webgl-cinematic .alina-scene-depth {
+  opacity: 0.24;
+}
+
+.scene-dom-enhanced .alina-scene-depth {
+  opacity: 0.5;
+  box-shadow: var(--father-foundation-glow-soft);
+}
+
+.scene-dom-core .alina-scene-depth {
+  opacity: 0.14;
+}
+
+.alina-scene-horizon {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 16%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--father-theme-colors-accent) 32%, transparent),
+    transparent
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alina-cinematic-canvas {
+    transition: none;
+  }
+}
