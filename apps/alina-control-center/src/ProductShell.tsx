@@ -18,6 +18,7 @@ import {
 import shellContract from "../../../configs/alina-v1/product-shell.contract.json";
 import { KnowledgeGraphWorkspace } from "./KnowledgeGraphWorkspace";
 import { AlinaAvatarSurface } from "./AlinaAvatarSurface";
+import { CinematicSceneLayer } from "./CinematicSceneLayer";
 import { resolveProductAvatarMode } from "./alina-avatar-runtime";
 import "./product-shell.css";
 
@@ -189,6 +190,7 @@ export function ProductShell({
   const [command, setCommand] = useState("");
   const [lastCommand, setLastCommand] = useState("Готова к работе");
   const [avatarActivity, setAvatarActivity] = useState<AvatarActivity>("idle");
+  const [cinematic3dAvailable, setCinematic3dAvailable] = useState(false);
   const [envelope, setEnvelope] = useState<DataEnvelope<ScenarioSnapshot>>(
     () =>
       initialEnvelope ??
@@ -246,6 +248,7 @@ export function ProductShell({
       data-primary-module={primaryModule}
       data-avatar-presence={avatarMode}
       data-avatar-activity={avatarActivity}
+      data-cinematic-3d={String(cinematic3dAvailable)}
       data-performance-tier={tier}
       data-provenance-origin={envelope.provenance.origin}
       data-data-state={envelope.state}
@@ -391,6 +394,11 @@ export function ProductShell({
             className={"alina-avatar-plane avatar-" + avatarMode}
             aria-label={avatarMode === "hidden" ? "ALINA hidden" : "ALINA " + avatarMode}
           >
+            <CinematicSceneLayer
+              tier={tier}
+              scenarioId={scenarioId}
+              onThreeDimensionalCapabilityChange={setCinematic3dAvailable}
+            />
             <AlinaAvatarSurface
               requestedMode={scenario.avatar as AvatarPresenceMode}
               tier={tier}
@@ -399,6 +407,7 @@ export function ProductShell({
               contextRef={primaryModule}
               attentionLabel={snapshot?.primary.title ?? primaryModule}
               message={scenarioLabels[scenarioId] + " mode. " + lastCommand}
+              cinematic3dAvailable={cinematic3dAvailable}
             />
           </aside>
         </section>
