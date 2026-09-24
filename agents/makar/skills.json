@@ -50,10 +50,26 @@
       "next_target": "K4"
     },
     {
+      "id": "visualization.engine",
+      "level": "K3",
+      "evidence": [
+        "PR #14",
+        "CI run 35966850494",
+        "Visualization Engine unit tests",
+        "Playwright artifact 10794696367"
+      ],
+      "next_target": "K4"
+    },
+    {
       "id": "avatar.integration",
-      "level": "K1",
-      "evidence": [],
-      "next_target": "K2"
+      "level": "K3",
+      "evidence": [
+        "PR #16",
+        "CI run 35967457930",
+        "Avatar Engine unit tests",
+        "Playwright artifact 10794722488"
+      ],
+      "next_target": "K4"
     },
     {
       "id": "threejs.scene",
@@ -66,8 +82,10 @@
       "level": "K3",
       "evidence": [
         "CI run 35921402235",
+        "CI run 35966850494",
+        "CI run 35967457930",
         "Playwright responsive/focus/reduced-motion suite",
-        "Artifact 10777077746"
+        "Artifact 10794722488"
       ],
       "next_target": "K4"
     },
