@@ -1624,5 +1624,104 @@
       "alina-control-center"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.atomic.asset_component_effect_split",
+    "title": "Separate visual assets, UI components and effects before implementation",
+    "domain": "frontend-architecture",
+    "type": "principle",
+    "level": "L3",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_experiment",
+    "sources": [
+      "projects/book-craft/COMPONENT_ARCHITECTURE_V1.md"
+    ],
+    "prerequisites": [
+      "makar.visual.layers_not_baked"
+    ],
+    "related": [
+      "makar.scene.asset.stable_ids"
+    ],
+    "examples": [
+      "hero image is an asset; CTA is a component; eye shimmer is an effect"
+    ],
+    "anti_patterns": [
+      "treat every visible item as a React component or bake all elements into one image"
+    ],
+    "tests": [
+      "MASTER inventory classifies each major element as asset, component or effect"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.atomic.master_to_component_tree",
+    "title": "Translate approved MASTER into a traceable component hierarchy",
+    "domain": "frontend-architecture",
+    "type": "pattern",
+    "level": "L3",
+    "status": "active",
+    "importance": 0.99,
+    "confidence": 1,
+    "source_type": "project_experiment",
+    "sources": [
+      "projects/book-craft/COMPONENT_ARCHITECTURE_V1.md"
+    ],
+    "prerequisites": [
+      "makar.visual.master_before_code"
+    ],
+    "related": [
+      "makar.responsive.three_canonical_sizes"
+    ],
+    "examples": [
+      "HeroSection decomposes into AmbientScene, HeroCopyBlock, HeroCharacter and HeroHudCluster"
+    ],
+    "anti_patterns": [
+      "monolithic landing component owns all layout, art, motion and business state"
+    ],
+    "tests": [
+      "every major MASTER region maps to a named component or asset owner"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.atomic.promote_after_stability",
+    "title": "Promote project components into factory IP only after stability is proven",
+    "domain": "frontend-architecture",
+    "type": "constraint",
+    "level": "L3",
+    "status": "active",
+    "importance": 0.94,
+    "confidence": 1,
+    "source_type": "project_experiment",
+    "sources": [
+      "projects/book-craft/COMPONENT_ARCHITECTURE_V1.md"
+    ],
+    "prerequisites": [
+      "makar.commercial.reusable_ip_overlay"
+    ],
+    "related": [
+      "makar.commercial.factory_flywheel"
+    ],
+    "examples": [
+      "GlowCard becomes shared only after BOOK-CRAFT validates variants, responsive behavior and QA"
+    ],
+    "anti_patterns": [
+      "prematurely generalize one-off project code into shared packages"
+    ],
+    "tests": [
+      "shared promotion has evidence of repeated need or stable project usage"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
   }
 ]
