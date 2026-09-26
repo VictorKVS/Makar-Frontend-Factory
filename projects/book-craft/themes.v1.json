@@ -1,0 +1,670 @@
+{
+  "schema_version": "1.0",
+  "project": "book-craft",
+  "character_canon_id": "asset:bookcraft:hero:canon:v1",
+  "canonical_breakpoints": {
+    "desktop": 1440,
+    "tablet": 834,
+    "phone": 390
+  },
+  "invariant_rules": [
+    "preserve canonical face identity",
+    "preserve product structure and CTA hierarchy",
+    "character and environment remain separate assets",
+    "all themes support desktop/tablet/phone crop strategy",
+    "motion obeys reduced-motion and performance budgets"
+  ],
+  "motion_profiles": {
+    "core": {
+      "ambient_particles": false,
+      "parallax": false,
+      "eye_shimmer": false,
+      "cta_runner": "static-accent"
+    },
+    "premium": {
+      "ambient_particles": "sparse",
+      "parallax": "low",
+      "eye_shimmer": "occasional",
+      "cta_runner": "4-6s"
+    },
+    "signature": {
+      "ambient_particles": "bounded",
+      "parallax": "low-to-medium",
+      "eye_shimmer": "occasional",
+      "cta_runner": "4-6s",
+      "hud_drift": "slow"
+    }
+  },
+  "themes": [
+    {
+      "id": "bookcraft-2026-01",
+      "month": 1,
+      "title": "Winter Executive Studio",
+      "season": "winter",
+      "hero": {
+        "assetId": "asset:bookcraft:hero:2026-01",
+        "hair": "medium-long polished waves",
+        "outfit": "ivory turtleneck + dark tailored jacket",
+        "accessories": [
+          "minimal jewelry"
+        ],
+        "roleSignals": [
+          "laptop",
+          "script pages",
+          "storyboard",
+          "analytics panel"
+        ]
+      },
+      "environment": {
+        "assetId": "asset:bookcraft:environment:2026-01",
+        "scene": "night creative studio with snow outside",
+        "weather": "snow",
+        "timeOfDay": "night",
+        "props": [
+          "desk",
+          "storyboard",
+          "glass analytics"
+        ]
+      },
+      "lighting": {
+        "key": "cool cyan window",
+        "fill": "warm amber desk",
+        "rim": "violet-blue",
+        "mood": "precise premium strategic"
+      },
+      "palette": {
+        "warm": "#F59E62",
+        "cool": "#33D6FF",
+        "violet": "#8B5CF6",
+        "neutral": "#0B1020"
+      },
+      "decor": [
+        "snow haze",
+        "subtle particles"
+      ],
+      "motionProfile": "premium",
+      "crops": {
+        "desktop": "waist-up with studio context",
+        "tablet": "bust crop shifted right",
+        "phone": "portrait crop with winter light"
+      }
+    },
+    {
+      "id": "bookcraft-2026-02",
+      "month": 2,
+      "title": "Neon Premiere Night",
+      "season": "winter",
+      "hero": {
+        "assetId": "asset:bookcraft:hero:2026-02",
+        "hair": "sleek shoulder-length",
+        "outfit": "dark elegant suit/dress",
+        "accessories": [
+          "minimal metallic accent"
+        ],
+        "roleSignals": [
+          "screenplay tablet",
+          "production timeline",
+          "video-avatar preview"
+        ]
+      },
+      "environment": {
+        "assetId": "asset:bookcraft:environment:2026-02",
+        "scene": "private screening room with city reflections",
+        "weather": "clear",
+        "timeOfDay": "night",
+        "props": [
+          "screen",
+          "timeline HUD"
+        ]
+      },
+      "lighting": {
+        "key": "soft warm face key",
+        "fill": "violet ambient",
+        "rim": "magenta-cyan",
+        "mood": "cinematic confident glamorous"
+      },
+      "palette": {
+        "warm": "#F08A5D",
+        "cool": "#32D5FF",
+        "violet": "#A855F7",
+        "neutral": "#090B16"
+      },
+      "decor": [
+        "city bokeh",
+        "neon reflections"
+      ],
+      "motionProfile": "signature",
+      "crops": {
+        "desktop": "waist-up with screening room",
+        "tablet": "bust with one HUD",
+        "phone": "portrait with neon rim"
+      }
+    },
+    {
+      "id": "bookcraft-2026-03",
+      "month": 3,
+      "title": "Spring Glass Office",
+      "season": "spring",
+      "hero": {
+        "assetId": "asset:bookcraft:hero:2026-03",
+        "hair": "layered shoulder-length",
+        "outfit": "light blazer + silk top",
+        "accessories": [
+          "watch"
+        ],
+        "roleSignals": [
+          "content plan",
+          "campaign board",
+          "tablet",
+          "notebook"
+        ]
+      },
+      "environment": {
+        "assetId": "asset:bookcraft:environment:2026-03",
+        "scene": "modern glass creative office",
+        "weather": "early spring",
+        "timeOfDay": "day",
+        "props": [
+          "greenery",
+          "city view"
+        ]
+      },
+      "lighting": {
+        "key": "soft daylight",
+        "fill": "neutral bounce",
+        "rim": "cyan glass reflection",
+        "mood": "fresh intelligent forward-looking"
+      },
+      "palette": {
+        "warm": "#F6A86C",
+        "cool": "#66D9FF",
+        "violet": "#8B7CFF",
+        "neutral": "#101827"
+      },
+      "decor": [
+        "soft bloom",
+        "glass reflections"
+      ],
+      "motionProfile": "premium",
+      "crops": {
+        "desktop": "waist-up with office depth",
+        "tablet": "bust with greenery",
+        "phone": "portrait with daylight"
+      }
+    },
+    {
+      "id": "bookcraft-2026-04",
+      "month": 4,
+      "title": "Story Garden Studio",
+      "season": "spring",
+      "hero": {
+        "assetId": "asset:bookcraft:hero:2026-04",
+        "hair": "soft shoulder-length waves",
+        "outfit": "pastel business-casual",
+        "accessories": [
+          "small earrings"
+        ],
+        "roleSignals": [
+          "open notebook",
+          "script outline",
+          "visual references"
+        ]
+      },
+      "environment": {
+        "assetId": "asset:bookcraft:environment:2026-04",
+        "scene": "bright conservatory creative studio",
+        "weather": "mild spring",
+        "timeOfDay": "day",
+        "props": [
+          "flowers",
+          "greenery",
+          "writing desk"
+        ]
+      },
+      "lighting": {
+        "key": "natural spring light",
+        "fill": "soft warm bounce",
+        "rim": "cyan-violet UI edge",
+        "mood": "creative optimistic alive"
+      },
+      "palette": {
+        "warm": "#F4A261",
+        "cool": "#5EDBFF",
+        "violet": "#9B7BFF",
+        "neutral": "#10202A"
+      },
+      "decor": [
+        "petal-like particles",
+        "soft haze"
+      ],
+      "motionProfile": "premium",
+      "crops": {
+        "desktop": "waist-up with floral scene",
+        "tablet": "bust with one plant cluster",
+        "phone": "portrait with spring cue"
+      }
+    },
+    {
+      "id": "bookcraft-2026-05",
+      "month": 5,
+      "title": "City Creative Director",
+      "season": "spring",
+      "hero": {
+        "assetId": "asset:bookcraft:hero:2026-05",
+        "hair": "longer smooth waves or low ponytail",
+        "outfit": "premium light suit",
+        "accessories": [
+          "watch"
+        ],
+        "roleSignals": [
+          "campaign dashboard",
+          "storyboard wall",
+          "voice workflow"
+        ]
+      },
+      "environment": {
+        "assetId": "asset:bookcraft:environment:2026-05",
+        "scene": "high-floor office / rooftop city",
+        "weather": "clear",
+        "timeOfDay": "golden hour",
+        "props": [
+          "city skyline",
+          "storyboard"
+        ]
+      },
+      "lighting": {
+        "key": "golden-hour sun",
+        "fill": "soft neutral",
+        "rim": "blue city edge",
+        "mood": "ambitious executive energetic"
+      },
+      "palette": {
+        "warm": "#FF9B54",
+        "cool": "#3CCBFF",
+        "violet": "#8C6BFF",
+        "neutral": "#111827"
+      },
+      "decor": [
+        "city glints",
+        "light streaks"
+      ],
+      "motionProfile": "signature",
+      "crops": {
+        "desktop": "waist-up with skyline",
+        "tablet": "bust with skyline",
+        "phone": "portrait with warm/cool split"
+      }
+    },
+    {
+      "id": "bookcraft-2026-06",
+      "month": 6,
+      "title": "Coastal Writing House",
+      "season": "summer",
+      "hero": {
+        "assetId": "asset:bookcraft:hero:2026-06",
+        "hair": "long natural summer texture",
+        "outfit": "elegant linen set",
+        "accessories": [
+          "light jewelry"
+        ],
+        "roleSignals": [
+          "laptop",
+          "script",
+          "headphones",
+          "production console"
+        ]
+      },
+      "environment": {
+        "assetId": "asset:bookcraft:environment:2026-06",
+        "scene": "modern coastal writing house",
+        "weather": "sunny",
+        "timeOfDay": "day",
+        "props": [
+          "ocean view",
+          "open glass",
+          "writing desk"
+        ]
+      },
+      "lighting": {
+        "key": "bright ocean daylight",
+        "fill": "sky bounce",
+        "rim": "warm sun edge",
+        "mood": "open productive premium summer"
+      },
+      "palette": {
+        "warm": "#F5A35C",
+        "cool": "#32D4F5",
+        "violet": "#8A7CF6",
+        "neutral": "#0C1A24"
+      },
+      "decor": [
+        "ocean haze",
+        "sun glints"
+      ],
+      "motionProfile": "premium",
+      "crops": {
+        "desktop": "waist-up with ocean",
+        "tablet": "bust with ocean line",
+        "phone": "portrait with bright coastal cue"
+      }
+    },
+    {
+      "id": "bookcraft-2026-07",
+      "month": 7,
+      "title": "Ocean Creative Retreat",
+      "season": "summer",
+      "hero": {
+        "assetId": "asset:bookcraft:hero:2026-07",
+        "hair": "long sunlit waves",
+        "outfit": "tasteful bikini with light linen shirt/wrap nearby; adult editorial styling",
+        "accessories": [
+          "sunglasses optional",
+          "minimal jewelry"
+        ],
+        "roleSignals": [
+          "tablet",
+          "screenplay notes",
+          "wireless headphones",
+          "production HUD"
+        ]
+      },
+      "environment": {
+        "assetId": "asset:bookcraft:environment:2026-07",
+        "scene": "oceanfront terrace / beach creative retreat",
+        "weather": "sunny",
+        "timeOfDay": "late morning",
+        "props": [
+          "ocean",
+          "terrace",
+          "tablet"
+        ]
+      },
+      "lighting": {
+        "key": "strong warm sun",
+        "fill": "ocean cyan reflection",
+        "rim": "white-gold sun edge",
+        "mood": "freedom success creative luxury"
+      },
+      "palette": {
+        "warm": "#FF9A4D",
+        "cool": "#18D8FF",
+        "violet": "#8F67FF",
+        "neutral": "#07151D"
+      },
+      "decor": [
+        "sun glints",
+        "ocean sparkle",
+        "sparse light particles"
+      ],
+      "motionProfile": "signature",
+      "crops": {
+        "desktop": "three-quarter/waist-up with ocean",
+        "tablet": "bust with ocean horizon",
+        "phone": "portrait with ocean cyan"
+      }
+    },
+    {
+      "id": "bookcraft-2026-08",
+      "month": 8,
+      "title": "Sunset Production Deck",
+      "season": "summer",
+      "hero": {
+        "assetId": "asset:bookcraft:hero:2026-08",
+        "hair": "long wind-swept",
+        "outfit": "elegant resort business-casual",
+        "accessories": [
+          "watch",
+          "light jewelry"
+        ],
+        "roleSignals": [
+          "production board",
+          "voice/avatar controls",
+          "shot list"
+        ]
+      },
+      "environment": {
+        "assetId": "asset:bookcraft:environment:2026-08",
+        "scene": "ocean-side production deck",
+        "weather": "clear",
+        "timeOfDay": "sunset",
+        "props": [
+          "deck",
+          "ocean",
+          "production display"
+        ]
+      },
+      "lighting": {
+        "key": "orange sunset",
+        "fill": "deep blue ambient",
+        "rim": "gold-magenta",
+        "mood": "cinematic sophisticated relaxed control"
+      },
+      "palette": {
+        "warm": "#FF7A3D",
+        "cool": "#2FA8FF",
+        "violet": "#9B5CF6",
+        "neutral": "#0A1020"
+      },
+      "decor": [
+        "sunset streak",
+        "sea haze"
+      ],
+      "motionProfile": "signature",
+      "crops": {
+        "desktop": "waist-up with sunset",
+        "tablet": "bust with orange-blue split",
+        "phone": "portrait sunset rim"
+      }
+    },
+    {
+      "id": "bookcraft-2026-09",
+      "month": 9,
+      "title": "Editorial Library",
+      "season": "autumn",
+      "hero": {
+        "assetId": "asset:bookcraft:hero:2026-09",
+        "hair": "polished medium-length",
+        "outfit": "tailored autumn jacket + blouse",
+        "accessories": [
+          "fountain pen",
+          "watch"
+        ],
+        "roleSignals": [
+          "printed screenplay",
+          "research cards",
+          "content calendar"
+        ]
+      },
+      "environment": {
+        "assetId": "asset:bookcraft:environment:2026-09",
+        "scene": "refined library/editorial office",
+        "weather": "mild autumn",
+        "timeOfDay": "late afternoon",
+        "props": [
+          "books",
+          "scripts",
+          "writing desk"
+        ]
+      },
+      "lighting": {
+        "key": "warm reading light",
+        "fill": "soft daylight",
+        "rim": "cool UI edge",
+        "mood": "thoughtful literary professional"
+      },
+      "palette": {
+        "warm": "#D99058",
+        "cool": "#4CC8FF",
+        "violet": "#8065D6",
+        "neutral": "#17141A"
+      },
+      "decor": [
+        "dust motes",
+        "soft amber haze"
+      ],
+      "motionProfile": "premium",
+      "crops": {
+        "desktop": "waist-up with shelves",
+        "tablet": "bust with books",
+        "phone": "portrait with warm library cue"
+      }
+    },
+    {
+      "id": "bookcraft-2026-10",
+      "month": 10,
+      "title": "Noir Writer's Room",
+      "season": "autumn",
+      "hero": {
+        "assetId": "asset:bookcraft:hero:2026-10",
+        "hair": "sharp shoulder-length bob or controlled waves",
+        "outfit": "dark suit / structured dress",
+        "accessories": [
+          "minimal jewelry"
+        ],
+        "roleSignals": [
+          "story beats wall",
+          "character map",
+          "script pages"
+        ]
+      },
+      "environment": {
+        "assetId": "asset:bookcraft:environment:2026-10",
+        "scene": "dark writer's room with rain on windows",
+        "weather": "rain",
+        "timeOfDay": "night",
+        "props": [
+          "beat board",
+          "character map",
+          "city window"
+        ]
+      },
+      "lighting": {
+        "key": "amber practical",
+        "fill": "blue rain window",
+        "rim": "violet",
+        "mood": "mysterious focused dramatic"
+      },
+      "palette": {
+        "warm": "#C97745",
+        "cool": "#269DFF",
+        "violet": "#8B5CF6",
+        "neutral": "#070B12"
+      },
+      "decor": [
+        "rain reflections",
+        "thin haze"
+      ],
+      "motionProfile": "signature",
+      "crops": {
+        "desktop": "waist-up with rain/window",
+        "tablet": "bust with blue/amber split",
+        "phone": "portrait noir crop"
+      }
+    },
+    {
+      "id": "bookcraft-2026-11",
+      "month": 11,
+      "title": "Strategy War Room",
+      "season": "autumn",
+      "hero": {
+        "assetId": "asset:bookcraft:hero:2026-11",
+        "hair": "neat medium-length",
+        "outfit": "strong executive suit",
+        "accessories": [
+          "watch"
+        ],
+        "roleSignals": [
+          "audience growth",
+          "campaign roadmap",
+          "production schedule",
+          "AI tools"
+        ]
+      },
+      "environment": {
+        "assetId": "asset:bookcraft:environment:2026-11",
+        "scene": "premium production strategy room",
+        "weather": "cold overcast",
+        "timeOfDay": "evening",
+        "props": [
+          "screens",
+          "charts",
+          "story map"
+        ]
+      },
+      "lighting": {
+        "key": "warm face key",
+        "fill": "cool ambient",
+        "rim": "cyan-violet",
+        "mood": "business control planning results"
+      },
+      "palette": {
+        "warm": "#E98A52",
+        "cool": "#34C8FF",
+        "violet": "#7F63F4",
+        "neutral": "#0A1018"
+      },
+      "decor": [
+        "data glow",
+        "subtle grid"
+      ],
+      "motionProfile": "premium",
+      "crops": {
+        "desktop": "waist-up with strategy screens",
+        "tablet": "bust with one chart",
+        "phone": "portrait with executive lighting"
+      }
+    },
+    {
+      "id": "bookcraft-2026-12",
+      "month": 12,
+      "title": "Holiday Story Studio",
+      "season": "winter",
+      "hero": {
+        "assetId": "asset:bookcraft:hero:2026-12",
+        "hair": "long polished waves or festive updo",
+        "outfit": "elegant deep-color winter business/evening look",
+        "accessories": [
+          "subtle festive jewelry"
+        ],
+        "roleSignals": [
+          "year-end storyboard",
+          "release calendar",
+          "highlighted scripts"
+        ]
+      },
+      "environment": {
+        "assetId": "asset:bookcraft:environment:2026-12",
+        "scene": "cinematic winter studio with subtle holiday lights",
+        "weather": "snow",
+        "timeOfDay": "evening",
+        "props": [
+          "books",
+          "production desk",
+          "soft holiday lights"
+        ]
+      },
+      "lighting": {
+        "key": "warm gold practicals",
+        "fill": "blue winter window",
+        "rim": "violet-magenta",
+        "mood": "celebratory premium magical professional"
+      },
+      "palette": {
+        "warm": "#F4A259",
+        "cool": "#4CCBFF",
+        "violet": "#A05CF6",
+        "neutral": "#0A0E17"
+      },
+      "decor": [
+        "snow sparkle",
+        "warm fairy-light bokeh"
+      ],
+      "motionProfile": "signature",
+      "crops": {
+        "desktop": "waist-up with holiday studio",
+        "tablet": "bust with warm/cool lights",
+        "phone": "portrait festive crop"
+      }
+    }
+  ]
+}
