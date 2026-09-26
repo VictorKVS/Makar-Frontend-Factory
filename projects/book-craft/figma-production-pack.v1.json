@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "project": "book-craft",
+  "purpose": "initial Figma production validation pack",
+  "canonical_breakpoints": {
+    "desktop": 1440,
+    "tablet": 834,
+    "phone": 390
+  },
+  "validation_themes": [
+    {
+      "id": "bookcraft-2026-01",
+      "code": "JAN",
+      "title": "Winter Executive Studio"
+    },
+    {
+      "id": "bookcraft-2026-04",
+      "code": "APR",
+      "title": "Story Garden Studio"
+    },
+    {
+      "id": "bookcraft-2026-07",
+      "code": "JUL",
+      "title": "Ocean Creative Retreat"
+    },
+    {
+      "id": "bookcraft-2026-10",
+      "code": "OCT",
+      "title": "Noir Writer's Room"
+    }
+  ],
+  "frame_naming": "BC/{THEME}/{BREAKPOINT}/{WIDTH}",
+  "required_frame_elements": [
+    "SiteHeader",
+    "BrandLockup",
+    "HeroCopyBlock",
+    "PrimaryCTA",
+    "HeroCharacter",
+    "HeroMetrics",
+    "HeroHudCluster",
+    "ServiceGrid",
+    "AmbientScene",
+    "PageEffectsLayer"
+  ],
+  "required_design_system_sections": [
+    "colors",
+    "typography",
+    "spacing",
+    "radii",
+    "surfaces",
+    "shadows",
+    "glow",
+    "motion"
+  ],
+  "required_component_states": [
+    "default",
+    "hover",
+    "active",
+    "focus",
+    "disabled",
+    "loading"
+  ],
+  "icon_family": [
+    "book",
+    "script",
+    "podcast",
+    "video-avatar",
+    "image",
+    "search",
+    "play",
+    "arrow",
+    "sparkle",
+    "profile",
+    "menu",
+    "close",
+    "status-api"
+  ],
+  "motion_annotations": [
+    {
+      "id": "cta-light-runner",
+      "owner": "PrimaryButton",
+      "frequency": "4-6s",
+      "reduced_motion": "static accent"
+    },
+    {
+      "id": "eye-shimmer",
+      "owner": "HeroCharacter",
+      "frequency": "irregular 5-8s",
+      "reduced_motion": "off"
+    },
+    {
+      "id": "service-card-glow",
+      "owner": "ServiceCard",
+      "duration_ms": "150-220",
+      "reduced_motion": "static"
+    },
+    {
+      "id": "hud-drift",
+      "owner": "HeroHudCluster",
+      "frequency": "slow",
+      "reduced_motion": "off"
+    },
+    {
+      "id": "background-parallax",
+      "owner": "AmbientScene",
+      "amplitude": "low",
+      "reduced_motion": "off"
+    }
+  ],
+  "acceptance": {
+    "canonical_frames": 12,
+    "requires_visual_qa_exports": true,
+    "requires_stable_asset_ids": true,
+    "requires_character_anchor_points": true,
+    "requires_breakpoint_recomposition": true
+  }
+}
