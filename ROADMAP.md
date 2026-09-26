@@ -34,3 +34,21 @@ Extract stable ALINA and Agent Factory building blocks into shared FATHER platfo
 ## M3 — Interactive / Game Track
 
 Use the same design tokens, UI, avatar, scene, input, state, composition and asset contracts in the first real game/simulation prototype.
+
+
+## M2A — Commercial Creative Frontend Factory
+
+Goal: turn Makar into a repeatable commercial delivery system for premium frontend / cinematic web projects.
+
+- [ ] M2A.1 Commercial Task Card / intake contract
+- [ ] M2A.2 Scope + estimate engine
+- [ ] M2A.3 Figma MASTER → Asset Map → implementation handoff
+- [ ] M2A.4 Reusable commercial project template
+- [ ] M2A.5 Visual evidence / portfolio case generator
+- [ ] M2A.6 Asset provenance and licensing registry
+- [ ] M2A.7 Deployment + client delivery checklist
+- [ ] M2A.8 BOOK-CRAFT Signature reference case
+- [ ] M2A.9 Reuse/economics telemetry
+- [ ] M2A.10 Second external-style project to validate repeatability
+
+Commercial success criterion: a new project can enter through a brief, receive a scoped estimate, be produced through the same factory, and leave with deployment + evidence + reusable lessons.
