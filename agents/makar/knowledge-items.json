@@ -962,5 +962,273 @@
       "alina-control-center"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.visual.master_before_code",
+    "title": "Lock one visual MASTER before multiplying screens",
+    "domain": "visual-direction",
+    "type": "principle",
+    "level": "L7",
+    "status": "active",
+    "importance": 0.99,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_1A_VISUAL_EXCELLENCE_PLAYBOOK.md"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.design.tokens.semantic_roles"
+    ],
+    "examples": [
+      "one approved 1440px master establishes composition, hierarchy, lighting and component language"
+    ],
+    "anti_patterns": [
+      "building multiple inconsistent screens before the visual source of truth is accepted"
+    ],
+    "tests": [
+      "important screen implementation references an approved MASTER baseline"
+    ],
+    "projects_used_in": [
+      "alina-control-center",
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.visual.layers_not_baked",
+    "title": "Cinematic concepts are decomposed into independent runtime layers",
+    "domain": "visual-direction",
+    "type": "pattern",
+    "level": "L7",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_1A_VISUAL_EXCELLENCE_PLAYBOOK.md"
+    ],
+    "prerequisites": [
+      "makar.visual.master_before_code"
+    ],
+    "related": [
+      "makar.scene.asset.stable_ids"
+    ],
+    "examples": [
+      "background, environment, hero, real UI, glow, particles and interaction feedback remain separate"
+    ],
+    "anti_patterns": [
+      "single raster screenshot contains hero, text, buttons and data"
+    ],
+    "tests": [
+      "removing the hero/background asset leaves the UI structurally usable"
+    ],
+    "projects_used_in": [
+      "alina-control-center",
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.visual.character_environment_separation",
+    "title": "Character identity is independent from seasonal environment",
+    "domain": "avatar-ui",
+    "type": "principle",
+    "level": "L8",
+    "status": "active",
+    "importance": 0.98,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_1A_VISUAL_EXCELLENCE_PLAYBOOK.md"
+    ],
+    "prerequisites": [
+      "makar.avatar.state.renderer_independence"
+    ],
+    "related": [
+      "makar.scene.asset.stable_ids"
+    ],
+    "examples": [
+      "same canonical heroine can move from winter studio to summer ocean without changing page layout"
+    ],
+    "anti_patterns": [
+      "layout geometry depends on one exact hero render"
+    ],
+    "tests": [
+      "season asset swap does not require component-tree rewrite"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.visual.icon_language_consistency",
+    "title": "Product icons form one normalized visual language",
+    "domain": "design-systems",
+    "type": "principle",
+    "level": "L3",
+    "status": "active",
+    "importance": 0.92,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_1A_VISUAL_EXCELLENCE_PLAYBOOK.md"
+    ],
+    "prerequisites": [
+      "makar.design.tokens.semantic_roles"
+    ],
+    "related": [],
+    "examples": [
+      "book, podcast, avatar and image icons share optical size, stroke, padding and glow behavior"
+    ],
+    "anti_patterns": [
+      "mixing unrelated icon packs and emoji without normalization"
+    ],
+    "tests": [
+      "icon family passes geometry, stroke and state consistency review"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.motion.rare_effects_premium",
+    "title": "Rare high-value motion is preferred over constant decorative motion",
+    "domain": "motion",
+    "type": "principle",
+    "level": "L7",
+    "status": "active",
+    "importance": 0.94,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_1A_VISUAL_EXCELLENCE_PLAYBOOK.md"
+    ],
+    "prerequisites": [
+      "makar.motion.reduced_motion"
+    ],
+    "related": [
+      "makar.stream.attention_budget"
+    ],
+    "examples": [
+      "eye shimmer pulses irregularly; CTA trail loops slowly; hover glow is brief"
+    ],
+    "anti_patterns": [
+      "every card, icon and background element animates continuously at high intensity"
+    ],
+    "tests": [
+      "decorative motion never outranks the primary task and reduced-motion remains usable"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.visual.seasonal_theme_engine",
+    "title": "Seasonal visual change is data-driven, not a duplicate site",
+    "domain": "design-systems",
+    "type": "pattern",
+    "level": "L3",
+    "status": "active",
+    "importance": 0.95,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_1A_VISUAL_EXCELLENCE_PLAYBOOK.md"
+    ],
+    "prerequisites": [
+      "makar.design.tokens.semantic_roles",
+      "makar.visual.character_environment_separation"
+    ],
+    "related": [
+      "makar.scene.asset.stable_ids"
+    ],
+    "examples": [
+      "monthly theme swaps hero asset, environment, palette, outfit and decor while structure stays stable"
+    ],
+    "anti_patterns": [
+      "twelve independent pages with copied layout and hard-coded seasonal colors"
+    ],
+    "tests": [
+      "switching month changes theme payload without structural component changes"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.qa.visual_similarity_evidence",
+    "title": "Pixel-close claims require visual evidence against the approved reference",
+    "domain": "quality",
+    "type": "constraint",
+    "level": "L11",
+    "status": "active",
+    "importance": 0.97,
+    "confidence": 1,
+    "source_type": "quality_rule",
+    "sources": [
+      "docs/knowledge/KB_1A_VISUAL_EXCELLENCE_PLAYBOOK.md"
+    ],
+    "prerequisites": [
+      "makar.visual.master_before_code"
+    ],
+    "related": [
+      "makar.qa.cinematic_evidence"
+    ],
+    "examples": [
+      "store reference, implementation screenshot, viewport, commit and known deviations"
+    ],
+    "anti_patterns": [
+      "declaring visual parity from memory or subjective impression"
+    ],
+    "tests": [
+      "visual review can trace implementation screenshot to MASTER and commit"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.performance.beauty_budget",
+    "title": "Performance is part of visual excellence",
+    "domain": "quality",
+    "type": "principle",
+    "level": "L11",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "quality_rule",
+    "sources": [
+      "docs/knowledge/KB_1A_VISUAL_EXCELLENCE_PLAYBOOK.md",
+      "quality-budget.json"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.qa.cinematic_evidence",
+      "makar.scene.lifecycle_cleanup"
+    ],
+    "examples": [
+      "responsive AVIF/WebP, transform/opacity motion, bounded blur, explicit renderer lifecycle"
+    ],
+    "anti_patterns": [
+      "cinematic effect accepted despite jank, oversized assets or GPU leaks"
+    ],
+    "tests": [
+      "cinematic screen meets declared load/frame-time/fallback budget"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
   }
 ]
