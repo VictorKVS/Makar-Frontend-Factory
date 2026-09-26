@@ -1266,5 +1266,74 @@
       "alina-control-center"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.figma.visual_source_of_truth",
+    "title": "Figma is the visual source of truth; frontend is the executable source of truth",
+    "domain": "design-handoff",
+    "type": "principle",
+    "level": "L3",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_1B_DESIGN_TO_FRONTEND_PIPELINE.md"
+    ],
+    "prerequisites": [
+      "makar.visual.master_before_code"
+    ],
+    "related": [
+      "makar.responsive.three_canonical_sizes"
+    ],
+    "examples": [
+      "MASTER, tokens, states, responsive layouts and motion intent are defined in Figma before implementation"
+    ],
+    "anti_patterns": [
+      "frontend invents major visual decisions because the design handoff is incomplete"
+    ],
+    "tests": [
+      "developer can implement the screen without guessing hierarchy, states or responsive behavior"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.figma.handoff_complete",
+    "title": "Figma handoff includes MASTER, three responsive layouts, components, asset map and motion spec",
+    "domain": "design-handoff",
+    "type": "constraint",
+    "level": "L3",
+    "status": "active",
+    "importance": 0.99,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_1B_DESIGN_TO_FRONTEND_PIPELINE.md"
+    ],
+    "prerequisites": [
+      "makar.figma.visual_source_of_truth"
+    ],
+    "related": [
+      "makar.visual.icon_language_consistency",
+      "makar.visual.layers_not_baked"
+    ],
+    "examples": [
+      "desktop 1440, tablet 834, phone 390 plus hover/focus/loading states and asset ownership"
+    ],
+    "anti_patterns": [
+      "handoff consists only of one desktop screenshot"
+    ],
+    "tests": [
+      "handoff checklist passes before static implementation starts"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
   }
 ]
