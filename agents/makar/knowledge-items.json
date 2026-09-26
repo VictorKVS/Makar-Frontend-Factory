@@ -1230,5 +1230,41 @@
       "alina-control-center"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.responsive.three_canonical_sizes",
+    "title": "Design every important screen for desktop, tablet and phone from the start",
+    "domain": "responsive",
+    "type": "constraint",
+    "level": "L4",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_1A_VISUAL_EXCELLENCE_PLAYBOOK.md"
+    ],
+    "prerequisites": [
+      "makar.visual.master_before_code"
+    ],
+    "related": [
+      "makar.performance.beauty_budget"
+    ],
+    "examples": [
+      "canonical visual baselines: desktop 1440 px, tablet 834 px, phone 390 px"
+    ],
+    "anti_patterns": [
+      "finish desktop first and postpone tablet/mobile adaptation until the end",
+      "scale the desktop canvas proportionally without recomposition"
+    ],
+    "tests": [
+      "important screen has visual QA screenshots at 1440, 834 and 390 px",
+      "primary action remains visible and usable at all three canonical sizes"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
   }
 ]
