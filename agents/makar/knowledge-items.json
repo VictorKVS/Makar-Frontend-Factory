@@ -1924,5 +1924,107 @@
       "book-craft"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.figma.validation_pack_extremes",
+    "title": "Validate the visual system on extreme themes before scaling the full design set",
+    "domain": "design-handoff",
+    "type": "pattern",
+    "level": "L3",
+    "status": "active",
+    "importance": 0.95,
+    "confidence": 1,
+    "source_type": "project_experiment",
+    "sources": [
+      "projects/book-craft/FIGMA_PRODUCTION_PACK_V1.md",
+      "projects/book-craft/figma-production-pack.v1.json"
+    ],
+    "prerequisites": [
+      "makar.theme.extreme_variants_first",
+      "makar.figma.handoff_complete"
+    ],
+    "related": [
+      "makar.responsive.three_canonical_sizes"
+    ],
+    "examples": [
+      "January, April, July and October × desktop/tablet/phone create 12 canonical frames"
+    ],
+    "anti_patterns": [
+      "produce all monthly screens before validating design-system resilience"
+    ],
+    "tests": [
+      "same component language is used across all 12 validation frames"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.figma.stable_frame_naming",
+    "title": "Canonical Figma frames use deterministic names for handoff and QA automation",
+    "domain": "design-handoff",
+    "type": "pattern",
+    "level": "L3",
+    "status": "active",
+    "importance": 0.88,
+    "confidence": 1,
+    "source_type": "project_experiment",
+    "sources": [
+      "projects/book-craft/FIGMA_PRODUCTION_PACK_V1.md",
+      "projects/book-craft/figma-production-pack.v1.json"
+    ],
+    "prerequisites": [
+      "makar.figma.visual_source_of_truth"
+    ],
+    "related": [
+      "makar.qa.visual_similarity_evidence"
+    ],
+    "examples": [
+      "BC/JUL/PHONE/390"
+    ],
+    "anti_patterns": [
+      "ambiguous names such as Final Final 2 mobile"
+    ],
+    "tests": [
+      "frame naming can be mapped deterministically to theme and breakpoint"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.figma.handoff_eliminates_guessing",
+    "title": "Figma handoff must eliminate major visual guesswork before production implementation",
+    "domain": "design-handoff",
+    "type": "constraint",
+    "level": "L3",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "quality_rule",
+    "sources": [
+      "projects/book-craft/FIGMA_PRODUCTION_PACK_V1.md"
+    ],
+    "prerequisites": [
+      "makar.figma.handoff_complete"
+    ],
+    "related": [
+      "makar.qa.visual_similarity_evidence"
+    ],
+    "examples": [
+      "frame exposes asset IDs, hero coordinates, safe zones, token roles and responsive behavior"
+    ],
+    "anti_patterns": [
+      "developer invents spacing, crop, hierarchy or hover states during production build"
+    ],
+    "tests": [
+      "implementation can begin from handoff without unresolved core visual decisions"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
   }
 ]
