@@ -1,0 +1,13 @@
+{
+  "student_id": "makar",
+  "agent_id": "makar",
+  "graduate_standard": "graduate.makar.frontend.v0",
+  "school_graph": "school.makar.foundation.seed",
+  "status": "diagnostic",
+  "policy": {
+    "auto_promote_mastery": false,
+    "require_review_for_promotion": true,
+    "critical_evidence_required": true
+  },
+  "next_step": "Expand graduate competencies into skills/knowledge and run diagnostic mapping against existing Makar evidence."
+}

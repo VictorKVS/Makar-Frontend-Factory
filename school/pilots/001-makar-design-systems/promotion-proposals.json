@@ -1,0 +1,87 @@
+{
+  "studentId": "makar",
+  "automaticPromotion": false,
+  "proposals": [
+    {
+      "nodeId": "skill.semantic-tokens",
+      "currentLevel": "K3",
+      "proposedLevel": "K4",
+      "evidenceRefs": [
+        "ev.pr2.semantic-tokens"
+      ],
+      "requiresReview": true
+    },
+    {
+      "nodeId": "skill.theme-separation",
+      "currentLevel": "K0",
+      "proposedLevel": "K4",
+      "evidenceRefs": [
+        "ev.pr2.theme-separation"
+      ],
+      "requiresReview": true
+    },
+    {
+      "nodeId": "skill.ui-primitives",
+      "currentLevel": "K3",
+      "proposedLevel": "K4",
+      "evidenceRefs": [
+        "ev.pr8.ui-primitives"
+      ],
+      "requiresReview": true
+    },
+    {
+      "nodeId": "skill.accessibility-states",
+      "currentLevel": "K0",
+      "proposedLevel": "K4",
+      "evidenceRefs": [
+        "ev.pr8.accessibility"
+      ],
+      "requiresReview": true
+    },
+    {
+      "nodeId": "skill.responsive-components",
+      "currentLevel": "K0",
+      "proposedLevel": "K4",
+      "evidenceRefs": [
+        "ev.pr8.responsive"
+      ],
+      "requiresReview": true
+    },
+    {
+      "nodeId": "skill.reduced-motion",
+      "currentLevel": "K0",
+      "proposedLevel": "K4",
+      "evidenceRefs": [
+        "ev.pr8.reduced-motion"
+      ],
+      "requiresReview": true
+    },
+    {
+      "nodeId": "skill.component-api-boundaries",
+      "currentLevel": "K0",
+      "proposedLevel": "K4",
+      "evidenceRefs": [
+        "ev.pr8.component-api"
+      ],
+      "requiresReview": true
+    },
+    {
+      "nodeId": "skill.visual-consistency",
+      "currentLevel": "K0",
+      "proposedLevel": "K4",
+      "evidenceRefs": [
+        "ev.pr8.visual-consistency"
+      ],
+      "requiresReview": true
+    },
+    {
+      "nodeId": "competency.design-systems",
+      "currentLevel": "K0",
+      "proposedLevel": "K4",
+      "evidenceRefs": [
+        "ev.pr8.competency"
+      ],
+      "requiresReview": true
+    }
+  ]
+}

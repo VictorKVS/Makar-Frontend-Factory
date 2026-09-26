@@ -1,0 +1,143 @@
+{
+  "studentId": "makar",
+  "target": "competency.design-systems",
+  "generatedMode": "conservative-before-promotion-review",
+  "steps": [
+    {
+      "nodeId": "knowledge.css-variables",
+      "action": "full",
+      "reason": "no-confirmed-mastery",
+      "requiredLevel": "K3",
+      "currentLevel": "K0",
+      "prerequisiteDepth": 2
+    },
+    {
+      "nodeId": "knowledge.semantic-roles",
+      "action": "full",
+      "reason": "no-confirmed-mastery",
+      "requiredLevel": "K3",
+      "currentLevel": "K0",
+      "prerequisiteDepth": 2
+    },
+    {
+      "nodeId": "knowledge.typescript-contracts",
+      "action": "full",
+      "reason": "no-confirmed-mastery",
+      "requiredLevel": "K3",
+      "currentLevel": "K0",
+      "prerequisiteDepth": 2
+    },
+    {
+      "nodeId": "knowledge.focus-states",
+      "action": "full",
+      "reason": "no-confirmed-mastery",
+      "requiredLevel": "K3",
+      "currentLevel": "K0",
+      "prerequisiteDepth": 2
+    },
+    {
+      "nodeId": "knowledge.responsive-rules",
+      "action": "full",
+      "reason": "no-confirmed-mastery",
+      "requiredLevel": "K3",
+      "currentLevel": "K0",
+      "prerequisiteDepth": 2
+    },
+    {
+      "nodeId": "knowledge.reduced-motion-media",
+      "action": "full",
+      "reason": "no-confirmed-mastery",
+      "requiredLevel": "K3",
+      "currentLevel": "K0",
+      "prerequisiteDepth": 2
+    },
+    {
+      "nodeId": "pattern.semantic-consumption",
+      "action": "full",
+      "reason": "no-confirmed-mastery",
+      "requiredLevel": "K4",
+      "currentLevel": "K0",
+      "prerequisiteDepth": 2
+    },
+    {
+      "nodeId": "pattern.shared-primitive-isolation",
+      "action": "full",
+      "reason": "no-confirmed-mastery",
+      "requiredLevel": "K4",
+      "currentLevel": "K0",
+      "prerequisiteDepth": 2
+    },
+    {
+      "nodeId": "skill.semantic-tokens",
+      "action": "shortened",
+      "reason": "current=K3;confidence=0.80",
+      "requiredLevel": "K4",
+      "currentLevel": "K3",
+      "prerequisiteDepth": 1
+    },
+    {
+      "nodeId": "skill.ui-primitives",
+      "action": "shortened",
+      "reason": "current=K3;confidence=0.80",
+      "requiredLevel": "K4",
+      "currentLevel": "K3",
+      "prerequisiteDepth": 1
+    },
+    {
+      "nodeId": "skill.theme-separation",
+      "action": "full",
+      "reason": "promotion evidence exists but review not yet accepted",
+      "requiredLevel": "K4",
+      "currentLevel": "K0",
+      "prerequisiteDepth": 1
+    },
+    {
+      "nodeId": "skill.accessibility-states",
+      "action": "full",
+      "reason": "promotion evidence exists but review not yet accepted",
+      "requiredLevel": "K4",
+      "currentLevel": "K0",
+      "prerequisiteDepth": 1
+    },
+    {
+      "nodeId": "skill.responsive-components",
+      "action": "full",
+      "reason": "promotion evidence exists but review not yet accepted",
+      "requiredLevel": "K4",
+      "currentLevel": "K0",
+      "prerequisiteDepth": 1
+    },
+    {
+      "nodeId": "skill.reduced-motion",
+      "action": "full",
+      "reason": "promotion evidence exists but review not yet accepted",
+      "requiredLevel": "K4",
+      "currentLevel": "K0",
+      "prerequisiteDepth": 1
+    },
+    {
+      "nodeId": "skill.visual-consistency",
+      "action": "full",
+      "reason": "promotion evidence exists but review not yet accepted",
+      "requiredLevel": "K4",
+      "currentLevel": "K0",
+      "prerequisiteDepth": 1
+    },
+    {
+      "nodeId": "skill.component-api-boundaries",
+      "action": "full",
+      "reason": "promotion evidence exists but review not yet accepted",
+      "requiredLevel": "K4",
+      "currentLevel": "K0",
+      "prerequisiteDepth": 1
+    },
+    {
+      "nodeId": "competency.design-systems",
+      "action": "full",
+      "reason": "competency-level promotion requires review",
+      "requiredLevel": "K4",
+      "currentLevel": "K0",
+      "prerequisiteDepth": 0
+    }
+  ]
+}

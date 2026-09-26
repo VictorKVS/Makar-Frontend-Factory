@@ -1,0 +1,92 @@
+{
+  "id": "graduate.makar.frontend.v0",
+  "title": "Makar — Frontend / Creative / Interactive Engineer Graduate Standard",
+  "profession": "Senior Frontend / Creative / Interactive Engineer",
+  "version": "0.1.0",
+  "requirements": [
+    {
+      "nodeId": "competency.frontend-foundations",
+      "targetLevel": "K4",
+      "weight": 1,
+      "critical": true,
+      "minimumConfidence": 0.85
+    },
+    {
+      "nodeId": "competency.design-systems",
+      "targetLevel": "K4",
+      "weight": 0.95,
+      "critical": true,
+      "minimumConfidence": 0.85
+    },
+    {
+      "nodeId": "competency.workspace-ui",
+      "targetLevel": "K4",
+      "weight": 0.8,
+      "critical": true,
+      "minimumConfidence": 0.8
+    },
+    {
+      "nodeId": "competency.visualization",
+      "targetLevel": "K4",
+      "weight": 0.85,
+      "critical": true,
+      "minimumConfidence": 0.8
+    },
+    {
+      "nodeId": "competency.accessibility",
+      "targetLevel": "K4",
+      "weight": 0.9,
+      "critical": true,
+      "minimumConfidence": 0.85
+    },
+    {
+      "nodeId": "competency.performance-qa",
+      "targetLevel": "K4",
+      "weight": 0.9,
+      "critical": true,
+      "minimumConfidence": 0.85
+    },
+    {
+      "nodeId": "competency.motion-cinematic",
+      "targetLevel": "K3",
+      "weight": 0.65,
+      "critical": false,
+      "minimumConfidence": 0.7
+    },
+    {
+      "nodeId": "competency.avatar-ui",
+      "targetLevel": "K3",
+      "weight": 0.6,
+      "critical": false,
+      "minimumConfidence": 0.7
+    },
+    {
+      "nodeId": "competency.scene-3d",
+      "targetLevel": "K3",
+      "weight": 0.55,
+      "critical": false,
+      "minimumConfidence": 0.7
+    },
+    {
+      "nodeId": "competency.game-ready-input",
+      "targetLevel": "K3",
+      "weight": 0.55,
+      "critical": false,
+      "minimumConfidence": 0.7
+    },
+    {
+      "nodeId": "competency.agent-handoff",
+      "targetLevel": "K4",
+      "weight": 0.75,
+      "critical": true,
+      "minimumConfidence": 0.8
+    }
+  ],
+  "graduationPolicy": {
+    "weightedReadiness": 0.85,
+    "criticalRequirementsMustPass": true,
+    "missingEvidenceBlocksCritical": true
+  },
+  "status": "skeleton",
+  "note": "This is the first target graduate profile. The next task is to expand each competency into skills, knowledge, curriculum and assessments."
+}

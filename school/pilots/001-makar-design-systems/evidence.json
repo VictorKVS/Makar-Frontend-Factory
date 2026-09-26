@@ -1,0 +1,109 @@
+{
+  "studentId": "makar",
+  "verifiedSources": [
+    "PR #2",
+    "PR #8",
+    "CI run 35921883245"
+  ],
+  "evidence": [
+    {
+      "id": "ev.pr2.semantic-tokens",
+      "studentId": "makar",
+      "nodeId": "skill.semantic-tokens",
+      "kind": "project",
+      "capability": "independent-application",
+      "strength": 0.82,
+      "independent": true,
+      "verified": true,
+      "sourceRef": "PR #2 — M0.1 Design Tokens foundation"
+    },
+    {
+      "id": "ev.pr2.theme-separation",
+      "studentId": "makar",
+      "nodeId": "skill.theme-separation",
+      "kind": "project",
+      "capability": "independent-application",
+      "strength": 0.78,
+      "independent": true,
+      "verified": true,
+      "sourceRef": "PR #2 — ALINA theme without token-model fork"
+    },
+    {
+      "id": "ev.pr8.ui-primitives",
+      "studentId": "makar",
+      "nodeId": "skill.ui-primitives",
+      "kind": "production",
+      "capability": "independent-application",
+      "strength": 0.88,
+      "independent": true,
+      "verified": true,
+      "sourceRef": "PR #8 — @father/ui + Visual Token Lab"
+    },
+    {
+      "id": "ev.pr8.accessibility",
+      "studentId": "makar",
+      "nodeId": "skill.accessibility-states",
+      "kind": "production",
+      "capability": "independent-application",
+      "strength": 0.84,
+      "independent": true,
+      "verified": true,
+      "sourceRef": "PR #8 — visible keyboard focus"
+    },
+    {
+      "id": "ev.pr8.responsive",
+      "studentId": "makar",
+      "nodeId": "skill.responsive-components",
+      "kind": "production",
+      "capability": "independent-application",
+      "strength": 0.82,
+      "independent": true,
+      "verified": true,
+      "sourceRef": "PR #8 — responsive ALINA Visual Token Lab"
+    },
+    {
+      "id": "ev.pr8.reduced-motion",
+      "studentId": "makar",
+      "nodeId": "skill.reduced-motion",
+      "kind": "production",
+      "capability": "independent-application",
+      "strength": 0.84,
+      "independent": true,
+      "verified": true,
+      "sourceRef": "PR #8 — reduced-motion fallback"
+    },
+    {
+      "id": "ev.pr8.component-api",
+      "studentId": "makar",
+      "nodeId": "skill.component-api-boundaries",
+      "kind": "production",
+      "capability": "independent-application",
+      "strength": 0.84,
+      "independent": true,
+      "verified": true,
+      "sourceRef": "PR #8 — shared reusable UI package"
+    },
+    {
+      "id": "ev.pr8.visual-consistency",
+      "studentId": "makar",
+      "nodeId": "skill.visual-consistency",
+      "kind": "project",
+      "capability": "independent-application",
+      "strength": 0.8,
+      "independent": true,
+      "verified": true,
+      "sourceRef": "PR #8 — token-driven component system"
+    },
+    {
+      "id": "ev.pr8.competency",
+      "studentId": "makar",
+      "nodeId": "competency.design-systems",
+      "kind": "project",
+      "capability": "independent-application",
+      "strength": 0.86,
+      "independent": true,
+      "verified": true,
+      "sourceRef": "PR #8 + CI run 35921883245"
+    }
+  ]
+}
