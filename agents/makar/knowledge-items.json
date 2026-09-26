@@ -1335,5 +1335,200 @@
       "alina-control-center"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.commercial.outcomes_not_hours",
+    "title": "Commercial Makar sells scoped outcomes, not unbounded frontend hours",
+    "domain": "commercial-delivery",
+    "type": "principle",
+    "level": "L12",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_1C_COMMERCIAL_CREATIVE_FRONTEND_FACTORY.md"
+    ],
+    "prerequisites": [
+      "makar.figma.handoff_complete"
+    ],
+    "related": [
+      "makar.qa.visual_similarity_evidence"
+    ],
+    "examples": [
+      "Cinematic Landing, Interactive Product Frontend, Cinematic AI Studio packages"
+    ],
+    "anti_patterns": [
+      "accept vague make-it-beautiful work with no deliverables or acceptance gate"
+    ],
+    "tests": [
+      "commercial task has deliverables, exclusions, breakpoints, motion tier and acceptance criteria"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.commercial.reusable_ip_overlay",
+    "title": "Separate reusable factory IP from client-specific overlays",
+    "domain": "commercial-delivery",
+    "type": "pattern",
+    "level": "L12",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_1C_COMMERCIAL_CREATIVE_FRONTEND_FACTORY.md"
+    ],
+    "prerequisites": [
+      "makar.composition.engines_remain_independent"
+    ],
+    "related": [
+      "makar.scene.asset.stable_ids"
+    ],
+    "examples": [
+      "shared motion/tokens/QA engines plus project brand, hero and business logic overlay"
+    ],
+    "anti_patterns": [
+      "fork the entire factory for each client"
+    ],
+    "tests": [
+      "project-specific package can be removed without breaking shared factory packages"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.commercial.scope_before_build",
+    "title": "Commercial production starts only after scope gate",
+    "domain": "commercial-delivery",
+    "type": "constraint",
+    "level": "L12",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_1C_COMMERCIAL_CREATIVE_FRONTEND_FACTORY.md"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.figma.visual_source_of_truth"
+    ],
+    "examples": [
+      "deliverables, 3 breakpoints, motion tier, integrations, asset ownership and review rounds are agreed"
+    ],
+    "anti_patterns": [
+      "implementation begins from an ambiguous client request"
+    ],
+    "tests": [
+      "scope gate checklist exists before production branch begins"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.commercial.asset_provenance",
+    "title": "Commercial assets require traceable provenance and usage rights",
+    "domain": "asset-pipeline",
+    "type": "constraint",
+    "level": "L9",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "quality_rule",
+    "sources": [
+      "docs/knowledge/KB_1C_COMMERCIAL_CREATIVE_FRONTEND_FACTORY.md"
+    ],
+    "prerequisites": [
+      "makar.scene.asset.stable_ids"
+    ],
+    "related": [],
+    "examples": [
+      "record source, creator/generator, license, stable asset ID and optimized derivatives"
+    ],
+    "anti_patterns": [
+      "ship unknown-license font, stock image or icon pack"
+    ],
+    "tests": [
+      "commercial release manifest has provenance for every non-code asset"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.commercial.evidence_is_sales_asset",
+    "title": "Acceptance evidence is also portfolio and sales evidence",
+    "domain": "commercial-delivery",
+    "type": "pattern",
+    "level": "L12",
+    "status": "active",
+    "importance": 0.96,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_1C_COMMERCIAL_CREATIVE_FRONTEND_FACTORY.md"
+    ],
+    "prerequisites": [
+      "makar.qa.visual_similarity_evidence"
+    ],
+    "related": [
+      "makar.qa.cinematic_evidence"
+    ],
+    "examples": [
+      "MASTER + 1440/834/390 screenshots + performance + real integration list + commit"
+    ],
+    "anti_patterns": [
+      "project finishes with no reproducible proof of quality"
+    ],
+    "tests": [
+      "release creates an evidence package suitable for acceptance and portfolio redaction"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.commercial.factory_flywheel",
+    "title": "Every paid-style project must strengthen the reusable factory",
+    "domain": "commercial-delivery",
+    "type": "principle",
+    "level": "L12",
+    "status": "active",
+    "importance": 0.98,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_1C_COMMERCIAL_CREATIVE_FRONTEND_FACTORY.md"
+    ],
+    "prerequisites": [
+      "makar.commercial.reusable_ip_overlay"
+    ],
+    "related": [],
+    "examples": [
+      "project lesson becomes a reusable package, test, template or knowledge item"
+    ],
+    "anti_patterns": [
+      "same engineering problem is solved from zero in the next project"
+    ],
+    "tests": [
+      "post-project review identifies reusable promotions and repeated-work telemetry"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
   }
 ]
