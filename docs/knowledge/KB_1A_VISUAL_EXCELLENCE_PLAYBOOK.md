@@ -331,23 +331,68 @@ The user task must remain more important than decoration.
 
 ## 11. Responsive composition is redesigned, not merely scaled
 
-For every MASTER, define at least:
-- wide desktop;
-- desktop / laptop;
-- tablet;
-- mobile.
+Every MASTER must be designed and validated in **three canonical product sizes from the start**:
 
-Do not shrink the desktop canvas proportionally.
+1. **Desktop / Computer** — canonical width: 1440 px.
+2. **Tablet** — canonical width: 834 px.
+3. **Phone** — canonical width: 390 px.
 
-Typical behavior:
-- wide desktop: full cinematic composition;
-- laptop: reduce decorative HUD and spacing;
-- tablet: reposition hero and collapse secondary widgets;
-- mobile: stack content, simplify effects, preserve primary CTA.
+These are design baselines, not the only supported widths. The implementation must remain fluid between them.
 
-The character may move independently from the text block.
+### Required rule
 
----
+**A screen is not considered designed until all three canonical sizes exist.**
+
+Do not finish desktop first and "adapt later". Each major composition decision must immediately answer:
+
+- where does the hero move on tablet?
+- what disappears or collapses?
+- which HUD panels remain?
+- how does typography scale?
+- what becomes stacked on phone?
+- which motion effects are reduced?
+- what asset crop is used?
+- what remains above the fold?
+
+### Canonical behavior
+
+#### Desktop — 1440 px
+- full cinematic composition;
+- hero character and environment visible together;
+- full navigation;
+- floating HUD/widgets allowed;
+- four service cards visible in one row when practical;
+- strongest motion tier within performance budget.
+
+#### Tablet — 834 px
+- preserve hero and primary CTA;
+- reduce secondary HUD;
+- navigation may collapse or simplify;
+- service cards move to 2×2 or controlled horizontal layout;
+- character can shift independently from text;
+- decorative effects are reduced before functional UI is removed.
+
+#### Phone — 390 px
+- one-column reading order;
+- hero, headline and CTA remain dominant;
+- navigation becomes compact;
+- floating panels become inline cards, drawer content, or are hidden if non-essential;
+- service cards stack or use an accessible carousel;
+- character/environment crop is mobile-specific;
+- motion is minimal and never blocks interaction.
+
+### Acceptance
+
+For each important screen, Visual QA stores three screenshots:
+
+```text
+desktop-1440
+tablet-834
+phone-390
+```
+
+A visual change is incomplete if it is reviewed at only one size.
+
 
 ## 12. Performance is part of visual quality
 
