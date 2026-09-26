@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "project": "book-craft",
+  "status": "planning",
+  "canonical_breakpoints": {
+    "desktop": 1440,
+    "tablet": 834,
+    "phone": 390
+  },
+  "assets": [
+    {
+      "asset_id": "asset:bookcraft:hero:canon:v1",
+      "type": "character",
+      "status": "planned",
+      "seasonal": false,
+      "runtime_formats": [
+        "avif",
+        "webp"
+      ],
+      "alpha": true,
+      "crops": [
+        "desktop",
+        "tablet",
+        "phone"
+      ],
+      "provenance_required": true
+    },
+    {
+      "asset_id": "asset:bookcraft:environment:hero",
+      "type": "environment",
+      "status": "planned",
+      "seasonal": true,
+      "runtime_formats": [
+        "avif",
+        "webp"
+      ],
+      "alpha": false,
+      "crops": [
+        "desktop",
+        "tablet",
+        "phone"
+      ],
+      "provenance_required": true
+    },
+    {
+      "asset_id": "asset:bookcraft:logo:v1",
+      "type": "logo",
+      "status": "planned",
+      "runtime_formats": [
+        "svg"
+      ],
+      "provenance_required": true
+    }
+  ],
+  "icon_family": {
+    "status": "planned",
+    "runtime_format": "svg",
+    "icons": [
+      "book",
+      "script",
+      "podcast",
+      "video-avatar",
+      "image",
+      "search",
+      "play",
+      "arrow",
+      "sparkle",
+      "profile",
+      "menu",
+      "close",
+      "status-api"
+    ]
+  },
+  "effects": [
+    {
+      "id": "effect:bookcraft:cta:runner",
+      "owner": "cta-primary",
+      "reduced_motion": "static-accent"
+    },
+    {
+      "id": "effect:bookcraft:hero:eye-left",
+      "owner": "hero-character",
+      "reduced_motion": "off"
+    },
+    {
+      "id": "effect:bookcraft:hero:eye-right",
+      "owner": "hero-character",
+      "reduced_motion": "off"
+    },
+    {
+      "id": "effect:bookcraft:ambient:particles",
+      "owner": "page-effects-layer",
+      "reduced_motion": "off"
+    }
+  ],
+  "release_constraints": [
+    "all commercial assets have traceable provenance",
+    "desktop/tablet/phone derivatives exist for hero assets",
+    "interactive controls are real UI and are not baked into imagery"
+  ]
+}
