@@ -1530,5 +1530,99 @@
       "alina-control-center"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.learning.books_to_executable_patterns",
+    "title": "Books enter Makar KB only through executable patterns and evidence",
+    "domain": "learning-system",
+    "type": "principle",
+    "level": "L12",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_1D_MAKAR_READING_CURRICULUM.md"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.commercial.factory_flywheel"
+    ],
+    "examples": [
+      "book chapter becomes principle, pattern, recipe, test, exercise and evidence"
+    ],
+    "anti_patterns": [
+      "store PDFs or summaries and treat them as learned capability"
+    ],
+    "tests": [
+      "promoted knowledge item has source, task mapping and validation path"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.learning.wave_based_curriculum",
+    "title": "Professional learning is staged in waves tied to current product work",
+    "domain": "learning-system",
+    "type": "pattern",
+    "level": "L12",
+    "status": "active",
+    "importance": 0.93,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_1D_MAKAR_READING_CURRICULUM.md"
+    ],
+    "prerequisites": [
+      "makar.learning.books_to_executable_patterns"
+    ],
+    "related": [],
+    "examples": [
+      "Wave 1 targets BOOK-CRAFT composition, design systems, motion, performance and commercial delivery"
+    ],
+    "anti_patterns": [
+      "ingest an entire library without current-task prioritization"
+    ],
+    "tests": [
+      "active learning pack maps each source to a current or near-term task"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.learning.application_required_for_skill_growth",
+    "title": "Reading does not increase skill maturity without applied evidence",
+    "domain": "learning-system",
+    "type": "constraint",
+    "level": "L12",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "quality_rule",
+    "sources": [
+      "docs/knowledge/KB_1D_MAKAR_READING_CURRICULUM.md",
+      "docs/knowledge/KB_1_MAKAR_PROFESSIONAL.md"
+    ],
+    "prerequisites": [],
+    "related": [],
+    "examples": [
+      "motion principle applied to BOOK-CRAFT and verified through visual QA before skill evidence is updated"
+    ],
+    "anti_patterns": [
+      "promote K-level because a document was read or summarized"
+    ],
+    "tests": [
+      "skill promotion references implementation, test, review, benchmark or accepted artifact"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
   }
 ]
