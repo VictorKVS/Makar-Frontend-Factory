@@ -1822,5 +1822,107 @@
       "book-craft"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.theme.invariants_vs_variants",
+    "title": "Theme engines separate stable product invariants from seasonal visual variants",
+    "domain": "design-systems",
+    "type": "principle",
+    "level": "L3",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_experiment",
+    "sources": [
+      "projects/book-craft/THEME_ENGINE_V1.md",
+      "projects/book-craft/themes.v1.json"
+    ],
+    "prerequisites": [
+      "makar.visual.seasonal_theme_engine"
+    ],
+    "related": [
+      "makar.visual.character_environment_separation"
+    ],
+    "examples": [
+      "face identity, layout and CTA stay stable while hair, outfit, environment and lighting change"
+    ],
+    "anti_patterns": [
+      "seasonal refresh rewrites component structure or creates a different character"
+    ],
+    "tests": [
+      "switching monthly theme changes data/assets without changing page component tree"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.theme.extreme_variants_first",
+    "title": "Validate a theme system on extreme visual variants before producing the full set",
+    "domain": "design-systems",
+    "type": "pattern",
+    "level": "L3",
+    "status": "active",
+    "importance": 0.93,
+    "confidence": 1,
+    "source_type": "project_experiment",
+    "sources": [
+      "projects/book-craft/THEME_ENGINE_V1.md"
+    ],
+    "prerequisites": [
+      "makar.theme.invariants_vs_variants"
+    ],
+    "related": [
+      "makar.qa.visual_similarity_evidence"
+    ],
+    "examples": [
+      "implement January, April, July and October before generating all 12 production themes"
+    ],
+    "anti_patterns": [
+      "produce all monthly assets before proving one component architecture survives seasonal extremes"
+    ],
+    "tests": [
+      "four contrasting themes render through the same component structure"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.theme.mobile_can_downgrade_motion",
+    "title": "Theme motion intensity may downgrade on smaller devices without changing product identity",
+    "domain": "motion",
+    "type": "pattern",
+    "level": "L7",
+    "status": "active",
+    "importance": 0.92,
+    "confidence": 1,
+    "source_type": "project_experiment",
+    "sources": [
+      "projects/book-craft/THEME_ENGINE_V1.md",
+      "projects/book-craft/themes.v1.json"
+    ],
+    "prerequisites": [
+      "makar.motion.reduced_motion",
+      "makar.responsive.three_canonical_sizes"
+    ],
+    "related": [
+      "makar.performance.beauty_budget"
+    ],
+    "examples": [
+      "Signature desktop may become Premium or Core on phone"
+    ],
+    "anti_patterns": [
+      "force desktop-grade particles/parallax/HUD motion onto phone"
+    ],
+    "tests": [
+      "mobile theme preserves content and identity when ambient effects are reduced or disabled"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
   }
 ]
