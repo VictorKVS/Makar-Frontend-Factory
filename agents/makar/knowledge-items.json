@@ -1723,5 +1723,104 @@
       "book-craft"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.assets.independent_change_independent_asset",
+    "title": "Elements that change independently must be modeled independently",
+    "domain": "asset-pipeline",
+    "type": "principle",
+    "level": "L9",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_experiment",
+    "sources": [
+      "projects/book-craft/ASSET_MAP_V1.md"
+    ],
+    "prerequisites": [
+      "makar.visual.layers_not_baked"
+    ],
+    "related": [
+      "makar.scene.asset.stable_ids"
+    ],
+    "examples": [
+      "heroine, environment, UI and eye shimmer are separate ownership layers"
+    ],
+    "anti_patterns": [
+      "monthly character change requires rebuilding the whole hero screenshot"
+    ],
+    "tests": [
+      "asset/component inventory has a distinct owner for every independently changing major element"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.assets.breakpoint_derivatives",
+    "title": "Hero assets require deliberate desktop, tablet and phone derivatives",
+    "domain": "asset-pipeline",
+    "type": "constraint",
+    "level": "L9",
+    "status": "active",
+    "importance": 0.98,
+    "confidence": 1,
+    "source_type": "project_experiment",
+    "sources": [
+      "projects/book-craft/ASSET_MAP_V1.md",
+      "projects/book-craft/asset-registry.v1.json"
+    ],
+    "prerequisites": [
+      "makar.responsive.three_canonical_sizes"
+    ],
+    "related": [
+      "makar.performance.beauty_budget"
+    ],
+    "examples": [
+      "same heroine has desktop, tablet and phone crop derivatives"
+    ],
+    "anti_patterns": [
+      "browser downloads one huge image and relies on CSS cropping everywhere"
+    ],
+    "tests": [
+      "production hero asset registry lists derivatives for 1440, 834 and 390 baselines"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.assets.provenance_blocks_release",
+    "title": "Unknown asset provenance blocks commercial release",
+    "domain": "asset-pipeline",
+    "type": "constraint",
+    "level": "L9",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "quality_rule",
+    "sources": [
+      "projects/book-craft/ASSET_MAP_V1.md",
+      "projects/book-craft/asset-registry.v1.json"
+    ],
+    "prerequisites": [
+      "makar.commercial.asset_provenance"
+    ],
+    "related": [],
+    "examples": [
+      "record generator/author, license, source and production derivatives"
+    ],
+    "anti_patterns": [
+      "ship unknown-license image, font or icon because it looks good"
+    ],
+    "tests": [
+      "release manifest contains provenance for every external or generated non-code asset"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
   }
 ]
