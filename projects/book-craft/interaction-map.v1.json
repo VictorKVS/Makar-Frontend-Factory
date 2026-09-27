@@ -1,0 +1,295 @@
+{
+  "schema_version": "1.0",
+  "project": "book-craft",
+  "motion_profile": "spectral-action-v1",
+  "interactions": [
+    {
+      "interaction_id": "bc.header.brand",
+      "label": "BOOK-CRAFT",
+      "kind": "route",
+      "target": "/",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "spectral-action-v1",
+      "analytics_event": null,
+      "notes": []
+    },
+    {
+      "interaction_id": "bc.header.features",
+      "label": "Возможности",
+      "kind": "route",
+      "target": "#features",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "spectral-action-v1",
+      "analytics_event": null,
+      "notes": []
+    },
+    {
+      "interaction_id": "bc.header.examples",
+      "label": "Примеры",
+      "kind": "route",
+      "target": "#examples",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "spectral-action-v1",
+      "analytics_event": null,
+      "notes": []
+    },
+    {
+      "interaction_id": "bc.header.pricing",
+      "label": "Тарифы",
+      "kind": "route",
+      "target": "#pricing",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "spectral-action-v1",
+      "analytics_event": null,
+      "notes": []
+    },
+    {
+      "interaction_id": "bc.header.blog",
+      "label": "Блог",
+      "kind": "route",
+      "target": "#blog",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "spectral-action-v1",
+      "analytics_event": null,
+      "notes": []
+    },
+    {
+      "interaction_id": "bc.header.studio",
+      "label": "О студии",
+      "kind": "route",
+      "target": "#studio",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "spectral-action-v1",
+      "analytics_event": null,
+      "notes": []
+    },
+    {
+      "interaction_id": "bc.header.search",
+      "label": "Поиск",
+      "kind": "modal",
+      "target": "search-overlay",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "spectral-action-v1",
+      "analytics_event": null,
+      "notes": []
+    },
+    {
+      "interaction_id": "bc.header.login",
+      "label": "Войти",
+      "kind": "route",
+      "target": "/login",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "spectral-action-v1",
+      "analytics_event": null,
+      "notes": []
+    },
+    {
+      "interaction_id": "bc.header.start",
+      "label": "Начать бесплатно",
+      "kind": "route",
+      "target": "/create",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "spectral-action-v1",
+      "analytics_event": null,
+      "notes": []
+    },
+    {
+      "interaction_id": "bc.hero.create",
+      "label": "Начать создавать",
+      "kind": "route",
+      "target": "/create",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "spectral-action-v1",
+      "analytics_event": null,
+      "notes": []
+    },
+    {
+      "interaction_id": "bc.hero.video",
+      "label": "Смотреть видео",
+      "kind": "modal",
+      "target": "intro-video",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "spectral-action-v1",
+      "analytics_event": null,
+      "notes": []
+    },
+    {
+      "interaction_id": "bc.service.books",
+      "label": "Книги",
+      "kind": "route",
+      "target": "/books",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "spectral-action-v1",
+      "analytics_event": null,
+      "notes": []
+    },
+    {
+      "interaction_id": "bc.service.scripts",
+      "label": "Сценарии клипов",
+      "kind": "route",
+      "target": "/scripts",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "spectral-action-v1",
+      "analytics_event": null,
+      "notes": []
+    },
+    {
+      "interaction_id": "bc.service.avatar",
+      "label": "Видео-аватар",
+      "kind": "route",
+      "target": "/video-avatar",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "spectral-action-v1",
+      "analytics_event": null,
+      "notes": []
+    },
+    {
+      "interaction_id": "bc.service.images",
+      "label": "Генерация изображений",
+      "kind": "route",
+      "target": "/images",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "spectral-action-v1",
+      "analytics_event": null,
+      "notes": []
+    }
+  ],
+  "hud": [
+    {
+      "id": "bc.hud.visual-quality",
+      "classification": "informative",
+      "status": "planned"
+    },
+    {
+      "id": "bc.hud.voice",
+      "classification": "informative",
+      "status": "planned"
+    },
+    {
+      "id": "bc.hud.audience-growth",
+      "classification": "demo",
+      "status": "planned"
+    }
+  ],
+  "rule": "No visible interactive control is added without an interaction contract entry."
+}
