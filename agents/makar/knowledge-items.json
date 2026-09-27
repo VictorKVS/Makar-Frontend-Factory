@@ -2331,5 +2331,107 @@
       "book-craft"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.interaction.no_dead_controls",
+    "title": "Every visible control has a declared destination/action or an explicit decorative classification",
+    "domain": "interaction",
+    "type": "constraint",
+    "level": "L4",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_1E_INTERACTION_MOTION_SYSTEM.md",
+      "projects/book-craft/INTERACTION_MAP_V1.md",
+      "schemas/interaction-contract.schema.json"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.figma.handoff_eliminates_guessing"
+    ],
+    "examples": [
+      "BOOK-CRAFT service cards route to real module paths; HUD stays informative until wired"
+    ],
+    "anti_patterns": [
+      "button or card looks clickable but has no destination"
+    ],
+    "tests": [
+      "interaction map accounts for every visible control"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.motion.three_stage_spectral_action",
+    "title": "Premium controls use reusable idle-hover-pressed spectral motion states",
+    "domain": "motion",
+    "type": "pattern",
+    "level": "L7",
+    "status": "active",
+    "importance": 0.98,
+    "confidence": 1,
+    "source_type": "project_experiment",
+    "sources": [
+      "docs/knowledge/KB_1E_INTERACTION_MOTION_SYSTEM.md",
+      "projects/book-craft/interaction-map.v1.json"
+    ],
+    "prerequisites": [
+      "makar.motion.reduced_motion"
+    ],
+    "related": [
+      "makar.motion.rare_effects_premium"
+    ],
+    "examples": [
+      "idle slow border runner; hover +2 px lift and faster spectrum; pressed compression and short pulse"
+    ],
+    "anti_patterns": [
+      "each button invents unrelated hover/press animation"
+    ],
+    "tests": [
+      "shared SpectralAction passes idle/hover/pressed/focus/reduced-motion checks"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.interaction.map_before_polish",
+    "title": "Freeze interaction map before visual polish to prevent repeated site rewrites",
+    "domain": "interaction",
+    "type": "principle",
+    "level": "L12",
+    "status": "active",
+    "importance": 0.97,
+    "confidence": 1,
+    "source_type": "project_experiment",
+    "sources": [
+      "projects/book-craft/INTERACTION_MAP_V1.md",
+      "projects/book-craft/interaction-map.v1.json"
+    ],
+    "prerequisites": [
+      "makar.interaction.no_dead_controls"
+    ],
+    "related": [
+      "makar.visual.fix_structure_before_polish"
+    ],
+    "examples": [
+      "routes/actions are fixed while geometry is still being aligned"
+    ],
+    "anti_patterns": [
+      "polish a button before deciding what it does"
+    ],
+    "tests": [
+      "new control cannot merge without interaction contract entry"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
   }
 ]
