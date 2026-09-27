@@ -17,7 +17,11 @@
     "design-handoff",
     "responsive-design",
     "asset-pipeline",
-    "commercial-delivery"
+    "commercial-delivery",
+    "visual-production",
+    "design-contracts",
+    "theme-engine",
+    "motion-system"
   ],
   "skill_state": {
     "frontend.architecture": "K4",
@@ -59,7 +63,13 @@
     "component_tree",
     "acceptance_criteria",
     "visual_reference",
-    "test_plan"
+    "test_plan",
+    "visual_production_handoff",
+    "asset_registry",
+    "theme_registry",
+    "motion_spec",
+    "responsive_spec",
+    "visual_qa_baseline"
   ],
   "attention_budget": {
     "max_primary_items": 1,
@@ -85,9 +95,12 @@
     "Requested avatar presence and resolved renderer capability must both be observable",
     "Stable asset IDs let avatar renderers change without rewriting persona state",
     "Graph meaning must remain independent from renderer choice",
-    "Workspace graph state is presentation state, not business payload"
+    "Workspace graph state is presentation state, not business payload",
+    "Reusable project solutions must be promoted into shared architecture when they are generic",
+    "High-end visual implementation starts from a typed design-to-code handoff, not developer guesswork"
   ],
   "handoff_contracts": [
-    "schemas/handoff.schema.json"
+    "schemas/handoff.schema.json",
+    "schemas/visual-production-handoff.schema.json"
   ]
 }
