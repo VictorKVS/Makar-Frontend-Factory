@@ -323,6 +323,106 @@
       "notes": [
         "BOOK-CRAFT Skeleton v1.2 contains a concrete route/action placeholder; runtime verification still required."
       ]
+    },
+    {
+      "interaction_id": "bc.contentplan.mon.books",
+      "label": "Пн · Книга — Глава 3",
+      "kind": "route",
+      "target": "/books",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "content-plan-row-v1",
+      "analytics_event": "contentplan.books.open",
+      "notes": [
+        "Clickable row in hero Content Plan HUD; status becomes wired after local implementation verification."
+      ]
+    },
+    {
+      "interaction_id": "bc.contentplan.tue.images",
+      "label": "Вт · Пост + Изображения",
+      "kind": "route",
+      "target": "/images",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "content-plan-row-v1",
+      "analytics_event": "contentplan.images.open",
+      "notes": [
+        "Clickable row in hero Content Plan HUD; status becomes wired after local implementation verification."
+      ]
+    },
+    {
+      "interaction_id": "bc.contentplan.wed.avatar",
+      "label": "Ср · Видео-аватар",
+      "kind": "route",
+      "target": "/video-avatar",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "content-plan-row-v1",
+      "analytics_event": "contentplan.avatar.open",
+      "notes": [
+        "Clickable row in hero Content Plan HUD; status becomes wired after local implementation verification."
+      ]
+    },
+    {
+      "interaction_id": "bc.contentplan.thu.podcast",
+      "label": "Чт · Подкаст (запись)",
+      "kind": "route",
+      "target": "/podcast",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "content-plan-row-v1",
+      "analytics_event": "contentplan.podcast.open",
+      "notes": [
+        "Clickable row in hero Content Plan HUD; status becomes wired after local implementation verification."
+      ]
+    },
+    {
+      "interaction_id": "bc.contentplan.fri.mailing",
+      "label": "Пт · Рассылка (Newsletter)",
+      "kind": "route",
+      "target": "/mailing",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "content-plan-row-v1",
+      "analytics_event": "contentplan.mailing.open",
+      "notes": [
+        "Clickable row in hero Content Plan HUD; status becomes wired after local implementation verification."
+      ]
     }
   ],
   "hud": [
@@ -387,5 +487,37 @@
     "pressed",
     "focus",
     "reduced-motion"
-  ]
+  ],
+  "content_plan": {
+    "component": "ContentPlan",
+    "purpose": "Weekly production conveyor",
+    "items": [
+      {
+        "id": "bc.contentplan.mon.books",
+        "label": "Пн · Книга — Глава 3",
+        "target": "/books"
+      },
+      {
+        "id": "bc.contentplan.tue.images",
+        "label": "Вт · Пост + Изображения",
+        "target": "/images"
+      },
+      {
+        "id": "bc.contentplan.wed.avatar",
+        "label": "Ср · Видео-аватар",
+        "target": "/video-avatar"
+      },
+      {
+        "id": "bc.contentplan.thu.podcast",
+        "label": "Чт · Подкаст (запись)",
+        "target": "/podcast"
+      },
+      {
+        "id": "bc.contentplan.fri.mailing",
+        "label": "Пт · Рассылка (Newsletter)",
+        "target": "/mailing"
+      }
+    ],
+    "rule": "Every visible production-plan row routes to a real product workspace."
+  }
 }
