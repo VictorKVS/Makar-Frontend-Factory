@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "project": "book-craft",
+  "target_demo_seconds": 75,
+  "story": [
+    {
+      "id": "landing",
+      "goal": "show coherent live product shell",
+      "must_show": [
+        "hero",
+        "spectral-actions",
+        "service-grid",
+        "trend-radar"
+      ]
+    },
+    {
+      "id": "create",
+      "goal": "show real workflow",
+      "must_show": [
+        "content-type",
+        "input",
+        "generate",
+        "progress"
+      ]
+    },
+    {
+      "id": "result",
+      "goal": "show generated artifact",
+      "must_show": [
+        "output",
+        "metadata",
+        "status"
+      ]
+    },
+    {
+      "id": "analytics",
+      "goal": "show learning loop",
+      "must_show": [
+        "trend",
+        "confidence",
+        "horizon",
+        "recommendation"
+      ]
+    },
+    {
+      "id": "next-action",
+      "goal": "turn recommendation into production",
+      "must_show": [
+        "create-variants-action"
+      ]
+    }
+  ],
+  "priority": {
+    "P0": [
+      "working landing",
+      "wired controls",
+      "one end-to-end creation flow",
+      "avatar voices/avatars when integration available",
+      "public link",
+      "screenshots"
+    ],
+    "P1": [
+      "spectral motion",
+      "trend radar",
+      "real image generation",
+      "recommendation-to-variants",
+      "responsive views"
+    ],
+    "P2": [
+      "12 themes",
+      "3D animated agent",
+      "deep forecasting",
+      "experiment engine"
+    ]
+  },
+  "data_labels": [
+    "REAL",
+    "DEMO",
+    "MOCK",
+    "UNAVAILABLE"
+  ]
+}
