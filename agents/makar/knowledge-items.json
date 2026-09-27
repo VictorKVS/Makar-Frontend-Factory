@@ -2300,5 +2300,36 @@
       "book-craft"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.bootstrap.clean_reboot_after_unreliable_shell",
+    "title": "When the local visual shell becomes unreliable, reboot in an isolated minimal app instead of stacking patches",
+    "domain": "frontend-architecture",
+    "type": "pattern",
+    "level": "L3",
+    "status": "active",
+    "importance": 0.97,
+    "confidence": 1,
+    "source_type": "project_experiment",
+    "sources": [
+      "projects/book-craft/SITE_REBOOT_V2.md"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.visual.fix_structure_before_polish"
+    ],
+    "examples": [
+      "BOOK-CRAFT starts again in G:\\\\1\\\\BOOKCRAFT-SITE while the old project remains intact as reference"
+    ],
+    "anti_patterns": [
+      "continue layering patches on a shell that no longer reliably opens or builds"
+    ],
+    "tests": [
+      "clean app renders, dev server opens, build passes before migration of advanced visual layers"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
   }
 ]
