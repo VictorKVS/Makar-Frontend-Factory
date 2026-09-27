@@ -2266,5 +2266,39 @@
       "book-craft"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.visual.geometry_before_art",
+    "title": "Lock page geometry and real controls before final art and motion",
+    "domain": "visual-production",
+    "type": "constraint",
+    "level": "L11",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_experiment",
+    "sources": [
+      "projects/book-craft/IMPLEMENTATION_PLAN_V1.md"
+    ],
+    "prerequisites": [
+      "makar.visual.fix_structure_before_polish"
+    ],
+    "related": [
+      "makar.atomic.master_to_component_tree",
+      "makar.responsive.three_canonical_sizes"
+    ],
+    "examples": [
+      "header, CTA, hero copy, HUD and service cards are placed and validated with placeholders before final heroine/environment assets"
+    ],
+    "anti_patterns": [
+      "tune glow, generate final art or add motion while core controls are still moving"
+    ],
+    "tests": [
+      "static shell passes 1440 geometry review before final hero asset and cinematic motion are added"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
   }
 ]
