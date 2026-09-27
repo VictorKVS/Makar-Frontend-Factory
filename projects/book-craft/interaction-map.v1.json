@@ -112,6 +112,26 @@
       "notes": []
     },
     {
+      "interaction_id": "bc.header.analytics",
+      "label": "Аналитика",
+      "kind": "route",
+      "target": "/analytics",
+      "status": "planned",
+      "states": {
+        "idle": "No lift; low glow; slow 6–8 s spectral border runner; sparse light nodes.",
+        "hover": "Lift about 2 px; brighter glow; spectral runner accelerates to about 2.8–3.6 s.",
+        "pressed": "Return to 0/+1 px; brief 0.99 compression; bright 120–220 ms spectral pulse; action fires immediately.",
+        "focus": "Visible cyan/violet focus ring independent of pointer hover.",
+        "disabled": "No lift; no runner; reduced contrast; not actionable.",
+        "loading": null
+      },
+      "motion_profile": "spectral-action-v1",
+      "analytics_event": "nav.analytics.open",
+      "notes": [
+        "Add to header only if layout space passes visual QA; otherwise expose from product menu."
+      ]
+    },
+    {
       "interaction_id": "bc.header.search",
       "label": "Поиск",
       "kind": "modal",
@@ -291,5 +311,25 @@
       "status": "planned"
     }
   ],
-  "rule": "No visible interactive control is added without an interaction contract entry."
+  "rule": "No visible interactive control is added without an interaction contract entry.",
+  "analytics": {
+    "route": "/analytics",
+    "shared_widgets": [
+      "TrendRadar",
+      "HitPatternCard",
+      "OpportunityCard",
+      "ForecastBadge",
+      "EvidenceDrawer",
+      "ExperimentPanel",
+      "ProductionEfficiencyCard"
+    ],
+    "module_hooks": [
+      "books",
+      "scripts",
+      "podcast",
+      "video-avatar",
+      "images",
+      "production"
+    ]
+  }
 }
