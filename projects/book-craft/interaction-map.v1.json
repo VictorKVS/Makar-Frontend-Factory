@@ -19,7 +19,9 @@
       },
       "motion_profile": "spectral-action-v1",
       "analytics_event": null,
-      "notes": []
+      "notes": [
+        "BOOK-CRAFT Skeleton v1.2 contains a concrete route/action placeholder; runtime verification still required."
+      ]
     },
     {
       "interaction_id": "bc.header.features",
@@ -37,7 +39,9 @@
       },
       "motion_profile": "spectral-action-v1",
       "analytics_event": null,
-      "notes": []
+      "notes": [
+        "BOOK-CRAFT Skeleton v1.2 contains a concrete route/action placeholder; runtime verification still required."
+      ]
     },
     {
       "interaction_id": "bc.header.examples",
@@ -55,7 +59,9 @@
       },
       "motion_profile": "spectral-action-v1",
       "analytics_event": null,
-      "notes": []
+      "notes": [
+        "BOOK-CRAFT Skeleton v1.2 contains a concrete route/action placeholder; runtime verification still required."
+      ]
     },
     {
       "interaction_id": "bc.header.pricing",
@@ -73,7 +79,9 @@
       },
       "motion_profile": "spectral-action-v1",
       "analytics_event": null,
-      "notes": []
+      "notes": [
+        "BOOK-CRAFT Skeleton v1.2 contains a concrete route/action placeholder; runtime verification still required."
+      ]
     },
     {
       "interaction_id": "bc.header.blog",
@@ -91,7 +99,9 @@
       },
       "motion_profile": "spectral-action-v1",
       "analytics_event": null,
-      "notes": []
+      "notes": [
+        "BOOK-CRAFT Skeleton v1.2 contains a concrete route/action placeholder; runtime verification still required."
+      ]
     },
     {
       "interaction_id": "bc.header.studio",
@@ -109,7 +119,9 @@
       },
       "motion_profile": "spectral-action-v1",
       "analytics_event": null,
-      "notes": []
+      "notes": [
+        "BOOK-CRAFT Skeleton v1.2 contains a concrete route/action placeholder; runtime verification still required."
+      ]
     },
     {
       "interaction_id": "bc.header.analytics",
@@ -128,7 +140,8 @@
       "motion_profile": "spectral-action-v1",
       "analytics_event": "nav.analytics.open",
       "notes": [
-        "Add to header only if layout space passes visual QA; otherwise expose from product menu."
+        "Add to header only if layout space passes visual QA; otherwise expose from product menu.",
+        "BOOK-CRAFT Skeleton v1.2 contains a concrete route/action placeholder; runtime verification still required."
       ]
     },
     {
@@ -147,7 +160,9 @@
       },
       "motion_profile": "spectral-action-v1",
       "analytics_event": null,
-      "notes": []
+      "notes": [
+        "BOOK-CRAFT Skeleton v1.2 contains a concrete route/action placeholder; runtime verification still required."
+      ]
     },
     {
       "interaction_id": "bc.header.login",
@@ -165,7 +180,9 @@
       },
       "motion_profile": "spectral-action-v1",
       "analytics_event": null,
-      "notes": []
+      "notes": [
+        "BOOK-CRAFT Skeleton v1.2 contains a concrete route/action placeholder; runtime verification still required."
+      ]
     },
     {
       "interaction_id": "bc.header.start",
@@ -183,7 +200,9 @@
       },
       "motion_profile": "spectral-action-v1",
       "analytics_event": null,
-      "notes": []
+      "notes": [
+        "BOOK-CRAFT Skeleton v1.2 contains a concrete route/action placeholder; runtime verification still required."
+      ]
     },
     {
       "interaction_id": "bc.hero.create",
@@ -201,7 +220,9 @@
       },
       "motion_profile": "spectral-action-v1",
       "analytics_event": null,
-      "notes": []
+      "notes": [
+        "BOOK-CRAFT Skeleton v1.2 contains a concrete route/action placeholder; runtime verification still required."
+      ]
     },
     {
       "interaction_id": "bc.hero.video",
@@ -219,7 +240,9 @@
       },
       "motion_profile": "spectral-action-v1",
       "analytics_event": null,
-      "notes": []
+      "notes": [
+        "BOOK-CRAFT Skeleton v1.2 contains a concrete route/action placeholder; runtime verification still required."
+      ]
     },
     {
       "interaction_id": "bc.service.books",
@@ -237,7 +260,9 @@
       },
       "motion_profile": "spectral-action-v1",
       "analytics_event": null,
-      "notes": []
+      "notes": [
+        "BOOK-CRAFT Skeleton v1.2 contains a concrete route/action placeholder; runtime verification still required."
+      ]
     },
     {
       "interaction_id": "bc.service.scripts",
@@ -255,7 +280,9 @@
       },
       "motion_profile": "spectral-action-v1",
       "analytics_event": null,
-      "notes": []
+      "notes": [
+        "BOOK-CRAFT Skeleton v1.2 contains a concrete route/action placeholder; runtime verification still required."
+      ]
     },
     {
       "interaction_id": "bc.service.avatar",
@@ -273,7 +300,9 @@
       },
       "motion_profile": "spectral-action-v1",
       "analytics_event": null,
-      "notes": []
+      "notes": [
+        "BOOK-CRAFT Skeleton v1.2 contains a concrete route/action placeholder; runtime verification still required."
+      ]
     },
     {
       "interaction_id": "bc.service.images",
@@ -291,7 +320,9 @@
       },
       "motion_profile": "spectral-action-v1",
       "analytics_event": null,
-      "notes": []
+      "notes": [
+        "BOOK-CRAFT Skeleton v1.2 contains a concrete route/action placeholder; runtime verification still required."
+      ]
     }
   ],
   "hud": [
@@ -331,5 +362,30 @@
       "images",
       "production"
     ]
-  }
+  },
+  "skeleton_version": "1.2",
+  "skeleton_routes": [
+    "/",
+    "/create",
+    "/mailing",
+    "/podcast",
+    "/video-avatar",
+    "/images",
+    "/analytics",
+    "/features",
+    "/examples",
+    "/pricing",
+    "/blog",
+    "/studio",
+    "/search",
+    "/login"
+  ],
+  "shared_interaction_primitive": "SpectralAction",
+  "shared_interaction_states": [
+    "idle",
+    "hover",
+    "pressed",
+    "focus",
+    "reduced-motion"
+  ]
 }
