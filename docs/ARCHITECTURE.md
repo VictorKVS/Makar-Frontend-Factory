@@ -10,6 +10,13 @@ Applications
   └─ future games / simulations
        │
 Shared Platform
+  ├─ Content Intelligence Layer
+  │    ├─ Performance Analytics
+  │    ├─ Trend Detection
+  │    ├─ Hit Pattern Mining
+  │    ├─ Demand Forecasting
+  │    ├─ Experiment Engine
+  │    └─ Recommendation Engine
   ├─ Visual Production Layer
   │    ├─ Design Tokens
   │    ├─ Design Handoff Contract
@@ -129,3 +136,22 @@ Before Makar implements a high-end visual screen, the context package should inc
 - performance budget.
 
 Missing required visual-contract data is a context-quality problem, not a reason for Makar to invent major design decisions.
+
+
+## Content Intelligence Layer
+
+Content Intelligence is a first-class shared platform layer.
+
+It receives normalized telemetry and content metadata from all creative modules and returns:
+- performance profiles;
+- trend signals;
+- hit patterns;
+- saturation/seasonality signals;
+- probabilistic demand forecasts;
+- testable recommendations;
+- production-efficiency insights.
+
+Contract:
+`schemas/content-intelligence-event.schema.json`
+
+The layer must expose source/time-window/confidence and must not present forecasts as certainty.
