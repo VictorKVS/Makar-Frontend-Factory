@@ -2529,5 +2529,40 @@
       "alina-control-center"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.demo.wow_is_connected_product_story",
+    "title": "Submission wow comes from a connected product story, not decorative density",
+    "domain": "commercial-delivery",
+    "type": "principle",
+    "level": "L12",
+    "status": "active",
+    "importance": 0.98,
+    "confidence": 1,
+    "source_type": "project_experiment",
+    "sources": [
+      "projects/book-craft/DEMO_SHOWCASE_V1.md",
+      "projects/book-craft/demo-showcase.v1.json"
+    ],
+    "prerequisites": [
+      "makar.interaction.no_dead_controls",
+      "makar.analytics.content_intelligence_shared_layer"
+    ],
+    "related": [
+      "makar.commercial.evidence_is_sales_asset"
+    ],
+    "examples": [
+      "landing → create → result → analytics → recommendation → next action"
+    ],
+    "anti_patterns": [
+      "show many glowing widgets with no functional narrative"
+    ],
+    "tests": [
+      "reviewer can understand product, see a real workflow and see analytics feed the next action"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
   }
 ]
