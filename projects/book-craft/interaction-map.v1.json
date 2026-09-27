@@ -423,22 +423,87 @@
       "notes": [
         "Clickable row in hero Content Plan HUD; status becomes wired after local implementation verification."
       ]
+    },
+    {
+      "interaction_id": "bc.hud.audience-growth",
+      "label": "Рост аудитории",
+      "kind": "route",
+      "target": "/analytics",
+      "status": "planned",
+      "states": {
+        "idle": "Low glow, no lift, slow spectral motion.",
+        "hover": "Lift about 2 px, brighter glow, faster spectral response.",
+        "pressed": "Return to baseline with brief compression.",
+        "focus": "Visible cyan/violet focus ring.",
+        "disabled": "Reduced contrast; no action.",
+        "loading": null
+      },
+      "motion_profile": "spectral-action-v1",
+      "analytics_event": "hud.audience_growth.open",
+      "notes": [
+        "MVP data is DEMO until real analytics telemetry is connected."
+      ]
+    },
+    {
+      "interaction_id": "bc.hud.podcast",
+      "label": "Подкаст",
+      "kind": "route",
+      "target": "/podcast",
+      "status": "planned",
+      "states": {
+        "idle": "Low glow, no lift, slow spectral motion.",
+        "hover": "Lift about 2 px, brighter glow, faster spectral response.",
+        "pressed": "Return to baseline with brief compression.",
+        "focus": "Visible cyan/violet focus ring.",
+        "disabled": "Reduced contrast; no action.",
+        "loading": null
+      },
+      "motion_profile": "spectral-action-v1",
+      "analytics_event": "hud.podcast.open",
+      "notes": [
+        "Waveform and timer are DEMO in skeleton."
+      ]
+    },
+    {
+      "interaction_id": "bc.hud.video-avatar",
+      "label": "Видео-Аватар",
+      "kind": "route",
+      "target": "/video-avatar",
+      "status": "planned",
+      "states": {
+        "idle": "Low glow, no lift, slow spectral motion.",
+        "hover": "Lift about 2 px, brighter glow, faster spectral response.",
+        "pressed": "Return to baseline with brief compression.",
+        "focus": "Visible cyan/violet focus ring.",
+        "disabled": "Reduced contrast; no action.",
+        "loading": null
+      },
+      "motion_profile": "spectral-action-v1",
+      "analytics_event": "hud.video_avatar.open",
+      "notes": [
+        "Avatar thumbnails are DEMO until external API data is wired."
+      ]
     }
   ],
   "hud": [
     {
-      "id": "bc.hud.visual-quality",
-      "classification": "informative",
-      "status": "planned"
-    },
-    {
-      "id": "bc.hud.voice",
-      "classification": "informative",
-      "status": "planned"
-    },
-    {
       "id": "bc.hud.audience-growth",
-      "classification": "demo",
+      "classification": "functional-demo",
+      "status": "planned"
+    },
+    {
+      "id": "bc.hud.content-plan",
+      "classification": "functional",
+      "status": "planned"
+    },
+    {
+      "id": "bc.hud.podcast",
+      "classification": "functional-demo",
+      "status": "planned"
+    },
+    {
+      "id": "bc.hud.video-avatar",
+      "classification": "functional-demo",
       "status": "planned"
     }
   ],
