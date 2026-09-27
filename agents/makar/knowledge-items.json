@@ -2433,5 +2433,101 @@
       "book-craft"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.analytics.content_intelligence_shared_layer",
+    "title": "Content intelligence is a shared platform layer embedded in every creative module",
+    "domain": "analytics",
+    "type": "decision",
+    "level": "L12",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_1F_CONTENT_INTELLIGENCE_TREND_ENGINE.md",
+      "projects/book-craft/CONTENT_INTELLIGENCE_MAP_V1.md",
+      "docs/ARCHITECTURE.md"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.interaction.map_before_polish"
+    ],
+    "examples": [
+      "books, scripts, podcasts, avatars and images all emit normalized telemetry"
+    ],
+    "anti_patterns": [
+      "analytics exists only as a disconnected dashboard"
+    ],
+    "tests": [
+      "each creative module exposes telemetry and at least one actionable analytics view"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.analytics.forecasts_show_confidence",
+    "title": "Trend and demand forecasts always expose horizon, evidence and confidence",
+    "domain": "analytics",
+    "type": "constraint",
+    "level": "L12",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "quality_rule",
+    "sources": [
+      "docs/knowledge/KB_1F_CONTENT_INTELLIGENCE_TREND_ENGINE.md",
+      "schemas/content-intelligence-event.schema.json"
+    ],
+    "prerequisites": [],
+    "related": [],
+    "examples": [
+      "14-day rising signal, confidence 0.71, evidence window and source refs"
+    ],
+    "anti_patterns": [
+      "UI says this will be a hit without uncertainty or evidence"
+    ],
+    "tests": [
+      "forecast card cannot render without horizon/confidence/source context"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.analytics.factory_studies_itself",
+    "title": "The creative factory measures production efficiency as well as content performance",
+    "domain": "analytics",
+    "type": "principle",
+    "level": "L12",
+    "status": "active",
+    "importance": 0.97,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/knowledge/KB_1F_CONTENT_INTELLIGENCE_TREND_ENGINE.md"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.commercial.factory_flywheel"
+    ],
+    "examples": [
+      "regeneration rate, edit time, approval rate, cost and time-to-publish"
+    ],
+    "anti_patterns": [
+      "optimize content quality while ignoring production waste"
+    ],
+    "tests": [
+      "production dashboard can show throughput, rework and cost efficiency"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
   }
 ]
