@@ -2026,5 +2026,110 @@
       "book-craft"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.architecture.promote_typical_solutions",
+    "title": "Promote generic project solutions into Makar core architecture immediately",
+    "domain": "architecture",
+    "type": "principle",
+    "level": "L12",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/ARCHITECTURE.md"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.commercial.factory_flywheel",
+      "makar.atomic.promote_after_stability"
+    ],
+    "examples": [
+      "typed Figma-to-frontend handoff becomes a shared schema rather than remaining only in BOOK-CRAFT docs"
+    ],
+    "anti_patterns": [
+      "a reusable solution stays buried in one project and is rediscovered later"
+    ],
+    "tests": [
+      "post-experiment review classifies reusable solution as project pattern or architectural primitive"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.architecture.typed_visual_handoff",
+    "title": "Visual production uses a typed design-to-code handoff contract",
+    "domain": "design-handoff",
+    "type": "constraint",
+    "level": "L12",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/ARCHITECTURE.md",
+      "schemas/visual-production-handoff.schema.json"
+    ],
+    "prerequisites": [
+      "makar.figma.handoff_complete"
+    ],
+    "related": [
+      "makar.figma.handoff_eliminates_guessing",
+      "makar.assets.independent_change_independent_asset"
+    ],
+    "examples": [
+      "handoff carries MASTER refs, 1440/834/390 frames, token refs, asset registry, motion rules and visual QA baselines"
+    ],
+    "anti_patterns": [
+      "developer receives only a screenshot and invents structure, assets and responsive behavior"
+    ],
+    "tests": [
+      "visual handoff validates against schema before production implementation starts"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.architecture.visual_production_layer",
+    "title": "Visual production is a first-class shared platform layer",
+    "domain": "architecture",
+    "type": "decision",
+    "level": "L12",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "docs/ARCHITECTURE.md"
+    ],
+    "prerequisites": [
+      "makar.architecture.typed_visual_handoff"
+    ],
+    "related": [
+      "makar.design.tokens.semantic_roles",
+      "makar.scene.asset.stable_ids",
+      "makar.qa.visual_similarity_evidence"
+    ],
+    "examples": [
+      "Design Tokens + Handoff Contract + Asset Registry + Theme Engine + Motion System + Visual QA"
+    ],
+    "anti_patterns": [
+      "treat visual design as an informal pre-development activity outside system architecture"
+    ],
+    "tests": [
+      "shared architecture exposes visual production contracts without application-specific business logic"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
   }
 ]
