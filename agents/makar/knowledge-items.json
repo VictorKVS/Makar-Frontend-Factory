@@ -2231,5 +2231,40 @@
       "alina-control-center"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.visual.reference_underlay_not_runtime",
+    "title": "Reference raster underlay may guide tracing but must never become runtime UI",
+    "domain": "visual-qa",
+    "type": "pattern",
+    "level": "L11",
+    "status": "active",
+    "importance": 0.96,
+    "confidence": 1,
+    "source_type": "project_experiment",
+    "sources": [
+      "projects/book-craft/IMPLEMENTATION_PLAN_V1.md",
+      "Figma BC/REFERENCE/DESKTOP/1440",
+      "Figma BC/MASTER/DESKTOP/1440"
+    ],
+    "prerequisites": [
+      "makar.visual.layers_not_baked"
+    ],
+    "related": [
+      "makar.visual.iterative_reference_loop"
+    ],
+    "examples": [
+      "temporary approved screenshot underlay/crop is used only to align composition until separate hero/environment assets exist"
+    ],
+    "anti_patterns": [
+      "ship the reference screenshot as the page background or keep rasterized functional UI in production"
+    ],
+    "tests": [
+      "release build contains no reference-underlay asset and all functional controls remain real UI"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
   }
 ]
