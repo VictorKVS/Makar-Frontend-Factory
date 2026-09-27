@@ -2564,5 +2564,69 @@
       "book-craft"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.mvp.freeze_concept_before_expansion",
+    "title": "Freeze the visual/product concept before adding more capability to an MVP",
+    "domain": "product-delivery",
+    "type": "principle",
+    "level": "L12",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_experiment",
+    "sources": [
+      "projects/book-craft/MVP_FREEZE_V1.md"
+    ],
+    "prerequisites": [
+      "makar.visual.fix_structure_before_polish"
+    ],
+    "related": [
+      "makar.demo.wow_is_connected_product_story"
+    ],
+    "examples": [
+      "BOOK-CRAFT stops adding concept blocks and proves Mailing, Podcast and Video Avatar workflows"
+    ],
+    "anti_patterns": [
+      "continue expanding the concept while the required MVP flows are still incomplete"
+    ],
+    "tests": [
+      "MVP backlog separates submission-critical work from post-MVP expansion"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.mvp.demo_analytics_must_be_labeled",
+    "title": "MVP analytics placeholders are acceptable only when clearly labeled REAL/DEMO/MOCK",
+    "domain": "analytics",
+    "type": "constraint",
+    "level": "L12",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "quality_rule",
+    "sources": [
+      "projects/book-craft/MVP_FREEZE_V1.md"
+    ],
+    "prerequisites": [
+      "makar.analytics.forecasts_show_confidence"
+    ],
+    "related": [],
+    "examples": [
+      "Trend Radar can be DEMO during MVP, but must not look like measured production telemetry"
+    ],
+    "anti_patterns": [
+      "show synthetic metrics as real product evidence"
+    ],
+    "tests": [
+      "every analytics widget carries a data-status label"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
   }
 ]
