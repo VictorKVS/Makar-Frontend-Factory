@@ -1,0 +1,204 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://father.local/schemas/content-intelligence-event.schema.json",
+  "title": "FATHER Content Intelligence Event",
+  "description": "Normalized event/feature contract for content performance, trend analysis and demand forecasting.",
+  "type": "object",
+  "required": [
+    "event_id",
+    "project_id",
+    "content_id",
+    "content_type",
+    "event_type",
+    "occurred_at"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "content_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "content_type": {
+      "type": "string",
+      "enum": [
+        "book",
+        "script",
+        "podcast",
+        "video-avatar",
+        "image",
+        "campaign",
+        "post",
+        "other"
+      ]
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "created",
+        "generated",
+        "edited",
+        "published",
+        "view",
+        "open",
+        "click",
+        "save",
+        "share",
+        "like",
+        "comment",
+        "start",
+        "complete",
+        "conversion",
+        "retention",
+        "trend-signal",
+        "external-mention"
+      ]
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "channel": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "audience_segment": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "number",
+          "integer",
+          "null"
+        ]
+      }
+    },
+    "features": {
+      "type": "object",
+      "properties": {
+        "genre": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "topic": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "format": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tone": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "duration_sec": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "seasonality": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "visual_style": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "character_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "internal",
+            "external",
+            "manual",
+            "synthetic"
+          ]
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url_or_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "privacy": {
+      "type": "object",
+      "properties": {
+        "contains_personal_data": {
+          "type": "boolean"
+        },
+        "aggregation_level": {
+          "type": "string",
+          "enum": [
+            "event",
+            "session",
+            "content",
+            "cohort",
+            "aggregate"
+          ]
+        }
+      },
+      "required": [
+        "contains_personal_data",
+        "aggregation_level"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
