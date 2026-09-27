@@ -2131,5 +2131,105 @@
       "alina-control-center"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.visual.iterative_reference_loop",
+    "title": "High-fidelity implementation uses a reference → screenshot → classified correction loop",
+    "domain": "visual-qa",
+    "type": "pattern",
+    "level": "L11",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_experiment",
+    "sources": [
+      "projects/book-craft/IMPLEMENTATION_PLAN_V1.md"
+    ],
+    "prerequisites": [
+      "makar.qa.visual_similarity_evidence"
+    ],
+    "related": [
+      "makar.figma.handoff_eliminates_guessing"
+    ],
+    "examples": [
+      "capture exact viewport, classify mismatch, fix one class, recapture"
+    ],
+    "anti_patterns": [
+      "random visual tweaking without reference comparison"
+    ],
+    "tests": [
+      "each high-fidelity iteration records viewport, screenshot and mismatch class"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.visual.fix_structure_before_polish",
+    "title": "Correct composition and geometry before glow and micro-detail",
+    "domain": "visual-qa",
+    "type": "principle",
+    "level": "L11",
+    "status": "active",
+    "importance": 0.98,
+    "confidence": 1,
+    "source_type": "project_experiment",
+    "sources": [
+      "projects/book-craft/IMPLEMENTATION_PLAN_V1.md"
+    ],
+    "prerequisites": [
+      "makar.visual.iterative_reference_loop"
+    ],
+    "related": [
+      "makar.stream.attention_budget"
+    ],
+    "examples": [
+      "fix hero position and typography before tuning particle density"
+    ],
+    "anti_patterns": [
+      "polish glow while the hero or headline is structurally misplaced"
+    ],
+    "tests": [
+      "visual QA top corrections prioritize structural mismatch over decorative mismatch"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": null
+  },
+  {
+    "id": "makar.visual.analyst_engineer_loop",
+    "title": "Visual analyst explains the gap; Makar owns implementation",
+    "domain": "visual-qa",
+    "type": "principle",
+    "level": "L12",
+    "status": "active",
+    "importance": 0.97,
+    "confidence": 1,
+    "source_type": "project_architecture",
+    "sources": [
+      "projects/book-craft/IMPLEMENTATION_PLAN_V1.md"
+    ],
+    "prerequisites": [
+      "makar.visual.iterative_reference_loop"
+    ],
+    "related": [
+      "makar.composition.reason_trace"
+    ],
+    "examples": [
+      "ALINA returns mismatch report; Makar chooses and applies implementation correction"
+    ],
+    "anti_patterns": [
+      "untraceable automatic design/code changes with no reasoned mismatch report"
+    ],
+    "tests": [
+      "each analyst-driven correction has a report and resulting implementation evidence"
+    ],
+    "projects_used_in": [
+      "book-craft",
+      "alina-control-center"
+    ],
+    "last_verified_at": null
   }
 ]
