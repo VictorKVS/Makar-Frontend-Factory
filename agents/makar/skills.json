@@ -94,6 +94,33 @@
       "level": "K1",
       "evidence": [],
       "next_target": "K2"
+    },
+    {
+      "id": "scene.asset.pipeline",
+      "level": "K3",
+      "evidence": [
+        "PR #22",
+        "BOOKCRAFT-SITE modular hero asset registry and canonical asset folders",
+        "BOOK-CRAFT v0.3.4"
+      ],
+      "next_target": "K4"
+    },
+    {
+      "id": "visual.hero.composition",
+      "level": "K3",
+      "evidence": [
+        "BOOKCRAFT-SITE v0.3.4 accepted hero proportions",
+        "projects/book-craft/HERO_COMPOSITION_POSTMORTEM_V1.md"
+      ],
+      "next_target": "K4"
+    },
+    {
+      "id": "visual.asset.rotation",
+      "level": "K3",
+      "evidence": [
+        "BOOKCRAFT-SITE coordinated 10 second hero scene presets"
+      ],
+      "next_target": "K4"
     }
   ]
 }

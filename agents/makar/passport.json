@@ -21,7 +21,10 @@
     "visual-production",
     "design-contracts",
     "theme-engine",
-    "motion-system"
+    "motion-system",
+    "hero-composition",
+    "asset-rotation",
+    "reference-matching"
   ],
   "skill_state": {
     "frontend.architecture": "K4",
@@ -33,7 +36,10 @@
     "avatar.integration": "K1",
     "threejs.scene": "K2",
     "visual.qa": "K3",
-    "game.input": "K1"
+    "game.input": "K1",
+    "scene.asset.pipeline": "K3",
+    "visual.hero.composition": "K3",
+    "visual.asset.rotation": "K3"
   },
   "tools": [
     "TypeScript",
@@ -97,7 +103,14 @@
     "Graph meaning must remain independent from renderer choice",
     "Workspace graph state is presentation state, not business payload",
     "Reusable project solutions must be promoted into shared architecture when they are generic",
-    "High-end visual implementation starts from a typed design-to-code handoff, not developer guesswork"
+    "High-end visual implementation starts from a typed design-to-code handoff, not developer guesswork",
+    "Freeze the functional carcass before high-fidelity asset production",
+    "A generated full composition is an art-direction reference unless its UI is intentionally static",
+    "Split only elements that must vary independently at runtime into semantic visual layers",
+    "Calibrate visual fidelity by fixing the largest proportion mismatch first and changing one variable family per pass",
+    "Coordinate character, props and equipment through deterministic scene presets rather than independent timers",
+    "Generated assets move from inbox to canonical semantic paths before runtime use",
+    "On Windows stop Vite before bulk moves of watched asset files to avoid EBUSY"
   ],
   "handoff_contracts": [
     "schemas/handoff.schema.json",

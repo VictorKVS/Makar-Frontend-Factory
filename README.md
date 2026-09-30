@@ -44,3 +44,20 @@
 **M0 — Foundation**
 
 Сначала строим фундамент Макара, затем собираем ALINA поверх него.
+
+
+## Project 002 — BOOK-CRAFT
+
+BOOK-CRAFT is the first Makar training case for cinematic commercial landing-page composition.
+
+The project validated a reusable workflow:
+
+**Carcass Lock → Asset Registry → Reference/Runtime separation → Semantic visual layers → Screenshot proportion QA → Configuration-driven scene rotation**
+
+Generic lessons are promoted to:
+
+- `docs/knowledge/KB_1G_BOOKCRAFT_MODULAR_HERO_COMPOSITION.md`
+
+Project-specific history is stored in:
+
+- `projects/book-craft/HERO_COMPOSITION_POSTMORTEM_V1.md`

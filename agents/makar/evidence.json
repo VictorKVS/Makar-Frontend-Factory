@@ -31,6 +31,27 @@
       "kind": "architecture-task",
       "ref": "Issue #25",
       "status": "in-progress"
+    },
+    {
+      "skill_id": "scene.asset.pipeline",
+      "evidence_id": "bookcraft-v034-asset-pipeline",
+      "kind": "production-project",
+      "ref": "VictorKVS/BOOKCRAFT-SITE v0.3.4",
+      "status": "accepted"
+    },
+    {
+      "skill_id": "visual.hero.composition",
+      "evidence_id": "bookcraft-v034-hero-composition",
+      "kind": "visual-qa-result",
+      "ref": "BOOK-CRAFT accepted hero baseline 2026-09-30",
+      "status": "accepted"
+    },
+    {
+      "skill_id": "visual.asset.rotation",
+      "evidence_id": "bookcraft-v031-scene-rotation",
+      "kind": "production-project",
+      "ref": "BOOKCRAFT-SITE coordinated 10 second scene presets",
+      "status": "implemented"
     }
   ]
 }

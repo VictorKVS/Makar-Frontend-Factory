@@ -2628,5 +2628,269 @@
       "book-craft"
     ],
     "last_verified_at": null
+  },
+  {
+    "id": "makar.visual.carcass_before_art",
+    "title": "Freeze functional carcass before high-fidelity art",
+    "domain": "visual-production",
+    "type": "principle",
+    "level": "L3",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_result",
+    "sources": [
+      "docs/knowledge/KB_1G_BOOKCRAFT_MODULAR_HERO_COMPOSITION.md",
+      "projects/book-craft/HERO_COMPOSITION_POSTMORTEM_V1.md",
+      "BOOKCRAFT-SITE v0.3.4"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.visual.reference_runtime_separation",
+      "makar.visual.proportion_calibration"
+    ],
+    "examples": [
+      "routes and responsive geometry are locked before final hero assets are inserted"
+    ],
+    "anti_patterns": [
+      "regenerating art every time layout geometry changes"
+    ],
+    "tests": [
+      "visual polish does not require structural route/layout rewrites"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": "2026-09-30"
+  },
+  {
+    "id": "makar.visual.reference_runtime_separation",
+    "title": "Reference composition is not the runtime UI",
+    "domain": "visual-production",
+    "type": "principle",
+    "level": "L3",
+    "status": "active",
+    "importance": 1,
+    "confidence": 1,
+    "source_type": "project_result",
+    "sources": [
+      "docs/knowledge/KB_1G_BOOKCRAFT_MODULAR_HERO_COMPOSITION.md",
+      "projects/book-craft/HERO_COMPOSITION_POSTMORTEM_V1.md"
+    ],
+    "prerequisites": [
+      "makar.visual.carcass_before_art"
+    ],
+    "related": [
+      "makar.visual.semantic_layer_split"
+    ],
+    "examples": [
+      "use full generated hero as art direction while keeping CTA/HUD/text live in React"
+    ],
+    "anti_patterns": [
+      "shipping baked navigation or analytics inside a hero raster"
+    ],
+    "tests": [
+      "interactive UI remains selectable, routable and accessible independent of background art"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": "2026-09-30"
+  },
+  {
+    "id": "makar.visual.semantic_layer_split",
+    "title": "Split only runtime-variable visual elements into semantic layers",
+    "domain": "asset-pipeline",
+    "type": "pattern",
+    "level": "L3",
+    "status": "active",
+    "importance": 0.99,
+    "confidence": 1,
+    "source_type": "project_result",
+    "sources": [
+      "docs/knowledge/KB_1G_BOOKCRAFT_MODULAR_HERO_COMPOSITION.md",
+      "BOOKCRAFT-SITE src/components/HeroStage.jsx"
+    ],
+    "prerequisites": [
+      "makar.visual.reference_runtime_separation"
+    ],
+    "related": [
+      "makar.visual.coordinated_scene_presets"
+    ],
+    "examples": [
+      "background, character, books/cup and laptop are separate because they may change independently"
+    ],
+    "anti_patterns": [
+      "splitting every static decorative object into its own runtime component"
+    ],
+    "tests": [
+      "a persona or laptop can be replaced without rewriting hero copy or HUD"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": "2026-09-30"
+  },
+  {
+    "id": "makar.visual.proportion_calibration",
+    "title": "Calibrate composition by largest perceptual mismatch first",
+    "domain": "visual-qa",
+    "type": "method",
+    "level": "L3",
+    "status": "active",
+    "importance": 0.98,
+    "confidence": 1,
+    "source_type": "project_result",
+    "sources": [
+      "projects/book-craft/HERO_COMPOSITION_POSTMORTEM_V1.md",
+      "BOOKCRAFT-SITE v0.3.2-v0.3.4"
+    ],
+    "prerequisites": [
+      "makar.visual.carcass_before_art"
+    ],
+    "related": [
+      "makar.visual.reference_runtime_separation"
+    ],
+    "examples": [
+      "reduce character 10-15%, then 5-8%, then pixel-tune after screenshot comparison"
+    ],
+    "anti_patterns": [
+      "changing background, character, HUD and cards in the same calibration pass"
+    ],
+    "tests": [
+      "each QA pass changes one variable family and has a before/after screenshot"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": "2026-09-30"
+  },
+  {
+    "id": "makar.visual.image_first_cards",
+    "title": "Image-first product cards keep live text and affordances above art",
+    "domain": "ui",
+    "type": "pattern",
+    "level": "L3",
+    "status": "active",
+    "importance": 0.9,
+    "confidence": 1,
+    "source_type": "project_result",
+    "sources": [
+      "docs/knowledge/KB_1G_BOOKCRAFT_MODULAR_HERO_COMPOSITION.md",
+      "BOOKCRAFT-SITE serviceGrid"
+    ],
+    "prerequisites": [],
+    "related": [],
+    "examples": [
+      "full-bleed card art + readability veil + live title + icon + arrow"
+    ],
+    "anti_patterns": [
+      "small decorative thumbnail inside a visually driven product card",
+      "text baked into image"
+    ],
+    "tests": [
+      "card route, text accessibility and hover remain functional if artwork is replaced"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": "2026-09-30"
+  },
+  {
+    "id": "makar.visual.coordinated_scene_presets",
+    "title": "Rotate visual variants through coordinated scene presets",
+    "domain": "motion",
+    "type": "pattern",
+    "level": "L3",
+    "status": "active",
+    "importance": 0.97,
+    "confidence": 1,
+    "source_type": "project_result",
+    "sources": [
+      "docs/knowledge/KB_1G_BOOKCRAFT_MODULAR_HERO_COMPOSITION.md",
+      "BOOKCRAFT-SITE src/config/heroVisualConfig.js"
+    ],
+    "prerequisites": [
+      "makar.visual.semantic_layer_split"
+    ],
+    "related": [
+      "makar.motion.reduced_motion"
+    ],
+    "examples": [
+      "one scene index controls ALINA + books/cup + laptop every 10 seconds"
+    ],
+    "anti_patterns": [
+      "independent timers create unreviewed random combinations"
+    ],
+    "tests": [
+      "scene N always resolves to the same approved asset combination"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": "2026-09-30"
+  },
+  {
+    "id": "makar.assets.inbox_to_canonical",
+    "title": "Promote generated assets from inbox to canonical semantic paths",
+    "domain": "asset-pipeline",
+    "type": "workflow",
+    "level": "L3",
+    "status": "active",
+    "importance": 0.94,
+    "confidence": 1,
+    "source_type": "project_result",
+    "sources": [
+      "docs/knowledge/KB_1G_BOOKCRAFT_MODULAR_HERO_COMPOSITION.md",
+      "BOOKCRAFT-SITE public/assets/bookcraft"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.visual.semantic_layer_split"
+    ],
+    "examples": [
+      "random generated filenames move into hero/characters, hero/foreground, hero/equipment and references"
+    ],
+    "anti_patterns": [
+      "production components import UUID-named files directly from _inbox"
+    ],
+    "tests": [
+      "runtime code references only canonical production asset paths"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": "2026-09-30"
+  },
+  {
+    "id": "makar.assets.vite_windows_ebusy",
+    "title": "Stop Vite before bulk moves of watched assets on Windows",
+    "domain": "tooling",
+    "type": "lesson",
+    "level": "L3",
+    "status": "active",
+    "importance": 0.78,
+    "confidence": 1,
+    "source_type": "incident",
+    "sources": [
+      "projects/book-craft/HERO_COMPOSITION_POSTMORTEM_V1.md"
+    ],
+    "prerequisites": [],
+    "related": [
+      "makar.assets.inbox_to_canonical"
+    ],
+    "examples": [
+      "Ctrl+C dev server before moving many PNG files from _inbox"
+    ],
+    "anti_patterns": [
+      "bulk renaming watched PNGs while Vite watcher is active"
+    ],
+    "tests": [
+      "asset move completes without EBUSY and build succeeds after restart"
+    ],
+    "projects_used_in": [
+      "book-craft"
+    ],
+    "last_verified_at": "2026-09-30"
   }
 ]
