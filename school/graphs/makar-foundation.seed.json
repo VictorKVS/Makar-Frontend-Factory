@@ -1,0 +1,137 @@
+{
+  "id": "school.makar.foundation.seed",
+  "version": "0.1.0",
+  "nodes": [
+    {
+      "id": "graduate.makar.frontend.v0",
+      "kind": "graduate-standard",
+      "title": "Makar Frontend Graduate",
+      "domain": "frontend",
+      "status": "active"
+    },
+    {
+      "id": "competency.design-systems",
+      "kind": "competency",
+      "title": "Build reusable design systems",
+      "domain": "design-systems",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K4",
+      "difficulty": 0.7
+    },
+    {
+      "id": "skill.semantic-tokens",
+      "kind": "skill",
+      "title": "Design and apply semantic token systems",
+      "domain": "design-systems",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K4",
+      "difficulty": 0.55
+    },
+    {
+      "id": "knowledge.css-variables",
+      "kind": "knowledge",
+      "title": "CSS custom properties",
+      "domain": "css",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K3",
+      "difficulty": 0.25
+    },
+    {
+      "id": "knowledge.semantic-role-model",
+      "kind": "knowledge",
+      "title": "Semantic visual roles",
+      "domain": "design-systems",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K3",
+      "difficulty": 0.45
+    },
+    {
+      "id": "lab.tokens",
+      "kind": "lab",
+      "title": "Build a typed token package",
+      "domain": "design-systems",
+      "status": "active",
+      "difficulty": 0.6
+    },
+    {
+      "id": "assessment.tokens",
+      "kind": "assessment",
+      "title": "Design-token architecture assessment",
+      "domain": "design-systems",
+      "status": "active",
+      "difficulty": 0.65
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "kind": "requires",
+      "source": "graduate.makar.frontend.v0",
+      "target": "competency.design-systems",
+      "required": true,
+      "targetLevel": "K4",
+      "critical": true,
+      "weights": {
+        "importance": 0.95
+      }
+    },
+    {
+      "id": "e2",
+      "kind": "consists-of",
+      "source": "competency.design-systems",
+      "target": "skill.semantic-tokens",
+      "required": true,
+      "targetLevel": "K4",
+      "weights": {
+        "skill": 0.9,
+        "importance": 0.9
+      }
+    },
+    {
+      "id": "e3",
+      "kind": "prerequisite-of",
+      "source": "knowledge.css-variables",
+      "target": "skill.semantic-tokens",
+      "targetLevel": "K3",
+      "weights": {
+        "prerequisite": 0.75,
+        "transfer": 0.7
+      }
+    },
+    {
+      "id": "e4",
+      "kind": "prerequisite-of",
+      "source": "knowledge.semantic-role-model",
+      "target": "skill.semantic-tokens",
+      "targetLevel": "K3",
+      "weights": {
+        "prerequisite": 0.9,
+        "transfer": 0.8
+      }
+    },
+    {
+      "id": "e5",
+      "kind": "practices",
+      "source": "lab.tokens",
+      "target": "skill.semantic-tokens",
+      "weights": {
+        "skill": 0.85,
+        "evidence": 0.7
+      }
+    },
+    {
+      "id": "e6",
+      "kind": "verifies",
+      "source": "assessment.tokens",
+      "target": "skill.semantic-tokens",
+      "weights": {
+        "assessment": 0.9,
+        "evidence": 0.8
+      }
+    }
+  ]
+}

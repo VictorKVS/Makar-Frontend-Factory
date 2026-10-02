@@ -1,0 +1,73 @@
+{
+  "studentId": "makar",
+  "basis": "existing explicit skill state only; new evidence is not auto-promoted",
+  "mastery": [
+    {
+      "studentId": "makar",
+      "nodeId": "skill.semantic-tokens",
+      "level": "K3",
+      "confidence": 0.8,
+      "evidenceRefs": [
+        "ev.pr2.semantic-tokens"
+      ]
+    },
+    {
+      "studentId": "makar",
+      "nodeId": "skill.ui-primitives",
+      "level": "K3",
+      "confidence": 0.8,
+      "evidenceRefs": [
+        "ev.pr8.ui-primitives"
+      ]
+    },
+    {
+      "studentId": "makar",
+      "nodeId": "skill.theme-separation",
+      "level": "K0",
+      "confidence": 0,
+      "evidenceRefs": []
+    },
+    {
+      "studentId": "makar",
+      "nodeId": "skill.accessibility-states",
+      "level": "K0",
+      "confidence": 0,
+      "evidenceRefs": []
+    },
+    {
+      "studentId": "makar",
+      "nodeId": "skill.responsive-components",
+      "level": "K0",
+      "confidence": 0,
+      "evidenceRefs": []
+    },
+    {
+      "studentId": "makar",
+      "nodeId": "skill.reduced-motion",
+      "level": "K0",
+      "confidence": 0,
+      "evidenceRefs": []
+    },
+    {
+      "studentId": "makar",
+      "nodeId": "skill.visual-consistency",
+      "level": "K0",
+      "confidence": 0,
+      "evidenceRefs": []
+    },
+    {
+      "studentId": "makar",
+      "nodeId": "skill.component-api-boundaries",
+      "level": "K0",
+      "confidence": 0,
+      "evidenceRefs": []
+    },
+    {
+      "studentId": "makar",
+      "nodeId": "competency.design-systems",
+      "level": "K0",
+      "confidence": 0,
+      "evidenceRefs": []
+    }
+  ]
+}

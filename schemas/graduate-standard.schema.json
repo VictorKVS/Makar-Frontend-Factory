@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://father.local/schemas/graduate-standard.schema.json",
+  "title": "ALINA School Graduate Standard",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "profession",
+    "version",
+    "requirements",
+    "graduationPolicy"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "profession": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "nodeId",
+          "targetLevel",
+          "weight",
+          "critical"
+        ],
+        "properties": {
+          "nodeId": {
+            "type": "string"
+          },
+          "targetLevel": {
+            "enum": [
+              "K0",
+              "K1",
+              "K2",
+              "K3",
+              "K4",
+              "K5",
+              "K6"
+            ]
+          },
+          "weight": {
+            "type": "number",
+            "minimum": 0
+          },
+          "critical": {
+            "type": "boolean"
+          },
+          "minimumConfidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "graduationPolicy": {
+      "type": "object",
+      "required": [
+        "weightedReadiness",
+        "criticalRequirementsMustPass",
+        "missingEvidenceBlocksCritical"
+      ],
+      "properties": {
+        "weightedReadiness": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "criticalRequirementsMustPass": {
+          "type": "boolean"
+        },
+        "missingEvidenceBlocksCritical": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

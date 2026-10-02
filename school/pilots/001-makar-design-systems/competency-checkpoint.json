@@ -1,0 +1,69 @@
+{
+  "id": "checkpoint.makar.design-systems.v0",
+  "title": "Makar Design Systems Competency Checkpoint",
+  "profession": "Makar / Design Systems competency",
+  "version": "0.1.0",
+  "requirements": [
+    {
+      "nodeId": "skill.semantic-tokens",
+      "targetLevel": "K4",
+      "weight": 0.95,
+      "critical": true,
+      "minimumConfidence": 0.8
+    },
+    {
+      "nodeId": "skill.ui-primitives",
+      "targetLevel": "K4",
+      "weight": 0.95,
+      "critical": true,
+      "minimumConfidence": 0.8
+    },
+    {
+      "nodeId": "skill.theme-separation",
+      "targetLevel": "K4",
+      "weight": 0.85,
+      "critical": true,
+      "minimumConfidence": 0.8
+    },
+    {
+      "nodeId": "skill.accessibility-states",
+      "targetLevel": "K4",
+      "weight": 0.9,
+      "critical": true,
+      "minimumConfidence": 0.8
+    },
+    {
+      "nodeId": "skill.responsive-components",
+      "targetLevel": "K4",
+      "weight": 0.85,
+      "critical": true,
+      "minimumConfidence": 0.8
+    },
+    {
+      "nodeId": "skill.reduced-motion",
+      "targetLevel": "K4",
+      "weight": 0.8,
+      "critical": true,
+      "minimumConfidence": 0.8
+    },
+    {
+      "nodeId": "skill.visual-consistency",
+      "targetLevel": "K4",
+      "weight": 0.8,
+      "critical": false,
+      "minimumConfidence": 0.75
+    },
+    {
+      "nodeId": "skill.component-api-boundaries",
+      "targetLevel": "K4",
+      "weight": 0.9,
+      "critical": true,
+      "minimumConfidence": 0.8
+    }
+  ],
+  "graduationPolicy": {
+    "weightedReadiness": 0.85,
+    "criticalRequirementsMustPass": true,
+    "missingEvidenceBlocksCritical": true
+  }
+}

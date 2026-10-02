@@ -1,0 +1,532 @@
+{
+  "id": "school.pilot.001.makar.design-systems",
+  "version": "0.1.0",
+  "nodes": [
+    {
+      "id": "competency.design-systems",
+      "kind": "competency",
+      "title": "Build reusable design systems",
+      "domain": "design-systems",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K4",
+      "difficulty": 0.72
+    },
+    {
+      "id": "skill.semantic-tokens",
+      "kind": "skill",
+      "title": "Design and apply semantic token architecture",
+      "domain": "design-systems",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K4",
+      "difficulty": 0.55
+    },
+    {
+      "id": "skill.ui-primitives",
+      "kind": "skill",
+      "title": "Build reusable UI primitives",
+      "domain": "design-systems",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K4",
+      "difficulty": 0.62
+    },
+    {
+      "id": "skill.theme-separation",
+      "kind": "skill",
+      "title": "Separate product themes from shared token contracts",
+      "domain": "design-systems",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K4",
+      "difficulty": 0.58
+    },
+    {
+      "id": "skill.accessibility-states",
+      "kind": "skill",
+      "title": "Design accessible interaction states",
+      "domain": "design-systems",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K4",
+      "difficulty": 0.62
+    },
+    {
+      "id": "skill.responsive-components",
+      "kind": "skill",
+      "title": "Design responsive reusable components",
+      "domain": "design-systems",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K4",
+      "difficulty": 0.62
+    },
+    {
+      "id": "skill.reduced-motion",
+      "kind": "skill",
+      "title": "Design reduced-motion behavior",
+      "domain": "design-systems",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K4",
+      "difficulty": 0.5
+    },
+    {
+      "id": "skill.visual-consistency",
+      "kind": "skill",
+      "title": "Maintain visual/system consistency across primitives",
+      "domain": "design-systems",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K4",
+      "difficulty": 0.64
+    },
+    {
+      "id": "skill.component-api-boundaries",
+      "kind": "skill",
+      "title": "Design stable component API boundaries",
+      "domain": "design-systems",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K4",
+      "difficulty": 0.7
+    },
+    {
+      "id": "knowledge.css-variables",
+      "kind": "knowledge",
+      "title": "CSS custom properties",
+      "domain": "css",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K3",
+      "difficulty": 0.25
+    },
+    {
+      "id": "knowledge.semantic-roles",
+      "kind": "knowledge",
+      "title": "Semantic visual roles",
+      "domain": "design-systems",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K3",
+      "difficulty": 0.4
+    },
+    {
+      "id": "knowledge.typescript-contracts",
+      "kind": "knowledge",
+      "title": "Typed component contracts",
+      "domain": "typescript",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K3",
+      "difficulty": 0.45
+    },
+    {
+      "id": "knowledge.focus-states",
+      "kind": "knowledge",
+      "title": "Keyboard focus and interactive states",
+      "domain": "accessibility",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K3",
+      "difficulty": 0.4
+    },
+    {
+      "id": "knowledge.responsive-rules",
+      "kind": "knowledge",
+      "title": "Responsive layout and component behavior",
+      "domain": "responsive",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K3",
+      "difficulty": 0.45
+    },
+    {
+      "id": "knowledge.reduced-motion-media",
+      "kind": "knowledge",
+      "title": "prefers-reduced-motion and motion fallback",
+      "domain": "accessibility",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K3",
+      "difficulty": 0.35
+    },
+    {
+      "id": "pattern.semantic-consumption",
+      "kind": "pattern",
+      "title": "Consume semantic tokens instead of raw theme values",
+      "domain": "design-systems",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K4",
+      "difficulty": 0.5
+    },
+    {
+      "id": "pattern.shared-primitive-isolation",
+      "kind": "pattern",
+      "title": "Keep shared primitives product-agnostic",
+      "domain": "architecture",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K4",
+      "difficulty": 0.6
+    },
+    {
+      "id": "anti-pattern.raw-theme-values",
+      "kind": "anti-pattern",
+      "title": "Hard-coded product colors inside shared primitives",
+      "domain": "design-systems",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K3",
+      "difficulty": 0.2
+    },
+    {
+      "id": "anti-pattern.monolithic-ui",
+      "kind": "anti-pattern",
+      "title": "Monolithic product page instead of reusable primitives",
+      "domain": "architecture",
+      "status": "active",
+      "required": true,
+      "targetLevel": "K3",
+      "difficulty": 0.3
+    },
+    {
+      "id": "lesson.tokens",
+      "kind": "lesson",
+      "title": "Semantic token architecture",
+      "domain": "design-systems",
+      "status": "active",
+      "difficulty": 0.4
+    },
+    {
+      "id": "lesson.primitives",
+      "kind": "lesson",
+      "title": "Reusable primitive contracts",
+      "domain": "design-systems",
+      "status": "active",
+      "difficulty": 0.45
+    },
+    {
+      "id": "lesson.accessibility",
+      "kind": "lesson",
+      "title": "Accessible component states",
+      "domain": "accessibility",
+      "status": "active",
+      "difficulty": 0.4
+    },
+    {
+      "id": "lab.tokens",
+      "kind": "lab",
+      "title": "Typed design-token package",
+      "domain": "design-systems",
+      "status": "active",
+      "difficulty": 0.55
+    },
+    {
+      "id": "lab.primitives",
+      "kind": "lab",
+      "title": "Reusable UI primitives",
+      "domain": "design-systems",
+      "status": "active",
+      "difficulty": 0.65
+    },
+    {
+      "id": "project.visual-token-lab",
+      "kind": "project",
+      "title": "ALINA Visual Token Lab",
+      "domain": "design-systems",
+      "status": "active",
+      "difficulty": 0.7
+    },
+    {
+      "id": "assessment.design-system-review",
+      "kind": "assessment",
+      "title": "Design system architecture review",
+      "domain": "design-systems",
+      "status": "active",
+      "difficulty": 0.75
+    }
+  ],
+  "edges": [
+    {
+      "id": "c1",
+      "kind": "consists-of",
+      "source": "competency.design-systems",
+      "target": "skill.semantic-tokens",
+      "required": true,
+      "targetLevel": "K4",
+      "critical": true,
+      "weights": {
+        "importance": 0.95,
+        "skill": 0.95
+      }
+    },
+    {
+      "id": "c2",
+      "kind": "consists-of",
+      "source": "competency.design-systems",
+      "target": "skill.ui-primitives",
+      "required": true,
+      "targetLevel": "K4",
+      "critical": true,
+      "weights": {
+        "importance": 0.95,
+        "skill": 0.95
+      }
+    },
+    {
+      "id": "c3",
+      "kind": "consists-of",
+      "source": "competency.design-systems",
+      "target": "skill.theme-separation",
+      "required": true,
+      "targetLevel": "K4",
+      "critical": true,
+      "weights": {
+        "importance": 0.85,
+        "skill": 0.85
+      }
+    },
+    {
+      "id": "c4",
+      "kind": "consists-of",
+      "source": "competency.design-systems",
+      "target": "skill.accessibility-states",
+      "required": true,
+      "targetLevel": "K4",
+      "critical": true,
+      "weights": {
+        "importance": 0.9,
+        "skill": 0.9
+      }
+    },
+    {
+      "id": "c5",
+      "kind": "consists-of",
+      "source": "competency.design-systems",
+      "target": "skill.responsive-components",
+      "required": true,
+      "targetLevel": "K4",
+      "critical": true,
+      "weights": {
+        "importance": 0.85,
+        "skill": 0.85
+      }
+    },
+    {
+      "id": "c6",
+      "kind": "consists-of",
+      "source": "competency.design-systems",
+      "target": "skill.reduced-motion",
+      "required": true,
+      "targetLevel": "K4",
+      "critical": true,
+      "weights": {
+        "importance": 0.8,
+        "skill": 0.8
+      }
+    },
+    {
+      "id": "c7",
+      "kind": "consists-of",
+      "source": "competency.design-systems",
+      "target": "skill.visual-consistency",
+      "required": true,
+      "targetLevel": "K4",
+      "critical": false,
+      "weights": {
+        "importance": 0.8,
+        "skill": 0.8
+      }
+    },
+    {
+      "id": "c8",
+      "kind": "consists-of",
+      "source": "competency.design-systems",
+      "target": "skill.component-api-boundaries",
+      "required": true,
+      "targetLevel": "K4",
+      "critical": true,
+      "weights": {
+        "importance": 0.9,
+        "skill": 0.9
+      }
+    },
+    {
+      "id": "p1",
+      "kind": "prerequisite-of",
+      "source": "knowledge.css-variables",
+      "target": "skill.semantic-tokens",
+      "targetLevel": "K3",
+      "weights": {
+        "prerequisite": 0.75,
+        "transfer": 0.7
+      }
+    },
+    {
+      "id": "p2",
+      "kind": "prerequisite-of",
+      "source": "knowledge.semantic-roles",
+      "target": "skill.semantic-tokens",
+      "targetLevel": "K3",
+      "weights": {
+        "prerequisite": 0.95,
+        "transfer": 0.85
+      }
+    },
+    {
+      "id": "p3",
+      "kind": "prerequisite-of",
+      "source": "knowledge.typescript-contracts",
+      "target": "skill.ui-primitives",
+      "targetLevel": "K3",
+      "weights": {
+        "prerequisite": 0.85,
+        "transfer": 0.9
+      }
+    },
+    {
+      "id": "p4",
+      "kind": "prerequisite-of",
+      "source": "knowledge.focus-states",
+      "target": "skill.accessibility-states",
+      "targetLevel": "K3",
+      "weights": {
+        "prerequisite": 0.95,
+        "transfer": 0.8
+      }
+    },
+    {
+      "id": "p5",
+      "kind": "prerequisite-of",
+      "source": "knowledge.responsive-rules",
+      "target": "skill.responsive-components",
+      "targetLevel": "K3",
+      "weights": {
+        "prerequisite": 0.9,
+        "transfer": 0.85
+      }
+    },
+    {
+      "id": "p6",
+      "kind": "prerequisite-of",
+      "source": "knowledge.reduced-motion-media",
+      "target": "skill.reduced-motion",
+      "targetLevel": "K3",
+      "weights": {
+        "prerequisite": 0.95,
+        "transfer": 0.8
+      }
+    },
+    {
+      "id": "p7",
+      "kind": "prerequisite-of",
+      "source": "pattern.semantic-consumption",
+      "target": "skill.theme-separation",
+      "targetLevel": "K4",
+      "weights": {
+        "prerequisite": 0.8,
+        "transfer": 0.85
+      }
+    },
+    {
+      "id": "p8",
+      "kind": "prerequisite-of",
+      "source": "pattern.shared-primitive-isolation",
+      "target": "skill.component-api-boundaries",
+      "targetLevel": "K4",
+      "weights": {
+        "prerequisite": 0.85,
+        "transfer": 0.9
+      }
+    },
+    {
+      "id": "t1",
+      "kind": "teaches",
+      "source": "lesson.tokens",
+      "target": "knowledge.semantic-roles",
+      "weights": {
+        "importance": 0.8
+      }
+    },
+    {
+      "id": "t2",
+      "kind": "teaches",
+      "source": "lesson.primitives",
+      "target": "knowledge.typescript-contracts",
+      "weights": {
+        "importance": 0.8
+      }
+    },
+    {
+      "id": "t3",
+      "kind": "teaches",
+      "source": "lesson.accessibility",
+      "target": "knowledge.focus-states",
+      "weights": {
+        "importance": 0.8
+      }
+    },
+    {
+      "id": "l1",
+      "kind": "practices",
+      "source": "lab.tokens",
+      "target": "skill.semantic-tokens",
+      "weights": {
+        "skill": 0.9,
+        "evidence": 0.7
+      }
+    },
+    {
+      "id": "l2",
+      "kind": "practices",
+      "source": "lab.primitives",
+      "target": "skill.ui-primitives",
+      "weights": {
+        "skill": 0.9,
+        "evidence": 0.75
+      }
+    },
+    {
+      "id": "l3",
+      "kind": "practices",
+      "source": "project.visual-token-lab",
+      "target": "competency.design-systems",
+      "weights": {
+        "skill": 0.9,
+        "evidence": 0.85,
+        "transfer": 0.8
+      }
+    },
+    {
+      "id": "a1",
+      "kind": "verifies",
+      "source": "assessment.design-system-review",
+      "target": "competency.design-systems",
+      "weights": {
+        "assessment": 0.95,
+        "evidence": 0.9
+      }
+    },
+    {
+      "id": "a2",
+      "kind": "related-to",
+      "source": "anti-pattern.raw-theme-values",
+      "target": "pattern.semantic-consumption",
+      "weights": {
+        "transfer": 0.7
+      }
+    },
+    {
+      "id": "a3",
+      "kind": "related-to",
+      "source": "anti-pattern.monolithic-ui",
+      "target": "pattern.shared-primitive-isolation",
+      "weights": {
+        "transfer": 0.7
+      }
+    }
+  ]
+}

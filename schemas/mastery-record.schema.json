@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://father.local/schemas/mastery-record.schema.json",
+  "title": "ALINA School Mastery Record",
+  "type": "object",
+  "required": [
+    "studentId",
+    "nodeId",
+    "level",
+    "confidence",
+    "evidenceRefs"
+  ],
+  "properties": {
+    "studentId": {
+      "type": "string"
+    },
+    "nodeId": {
+      "type": "string"
+    },
+    "level": {
+      "enum": [
+        "K0",
+        "K1",
+        "K2",
+        "K3",
+        "K4",
+        "K5",
+        "K6"
+      ]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "lastAssessedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}
